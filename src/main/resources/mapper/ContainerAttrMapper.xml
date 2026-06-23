@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.czkuo.rdf88701.infra.mapper.ContainerAttrMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.czkuo.rdf88701.infra.entity.ContainerAttr">
+        <id column="id" property="id" />
+        <result column="container_main_id" property="containerMainId" />
+        <result column="attr_key" property="attrKey" />
+        <result column="attr_value" property="attrValue" />
+        <result column="unit" property="unit" />
+        <result column="created_time" property="createdTime" />
+        <result column="updated_time" property="updatedTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, container_main_id, attr_key, attr_value, unit, created_time, updated_time
+    </sql>
+
+    <!-- 單筆 upsert：依賴 uk_main_attr(container_main_id, attr_key) -->
+    <insert id="upsert" parameterType="com.czkuo.rdf88701.infra.entity.ContainerAttr">
+        INSERT INTO container_attr
+            (container_main_id, attr_key, attr_value, unit)
+        VALUES
+            (#{e.containerMainId}, #{e.attrKey}, #{e.attrValue}, #{e.unit})
+            ON DUPLICATE KEY UPDATE
+                                 attr_value   = VALUES(attr_value),
+                                 unit         = VALUES(unit),
+                                 updated_time = CURRENT_TIMESTAMP
+    </insert>
+
+    <!-- 批次 upsert：一次寫多筆 -->
+    <insert id="batchUpsert">
+        INSERT INTO container_attr
+        (container_main_id, attr_key, attr_value, unit)
+        VALUES
+        <foreach collection="list" item="e" separator=",">
+            (#{e.containerMainId}, #{e.attrKey}, #{e.attrValue}, #{e.unit})
+        </foreach>
+        ON DUPLICATE KEY UPDATE
+        attr_value   = VALUES(attr_value),
+        unit         = VALUES(unit),
+        updated_time = CURRENT_TIMESTAMP
+    </insert>
+
+    <!-- 找出有某個 key 的容器 -->
+    <select id="selectContainerIdsByAttrKey" parameterType="string" resultType="long">
+        SELECT DISTINCT container_main_id
+        FROM container_attr
+        WHERE attr_key = #{attrKey}
+    </select>
+
+    <!-- 找出有 (key, value) 的容器 -->
+    <select id="selectContainerIdsByAttrKeyAndValue" resultType="long">
+        SELECT DISTINCT container_main_id
+        FROM container_attr
+        WHERE attr_key = #{attrKey}
+          AND attr_value = #{attrValue}
+    </select>
+
+    <!-- 存在判斷：回 1 或無資料 -->
+    <select id="existsByContainerIdAndKey" resultType="int">
+        SELECT 1
+        FROM container_attr
+        WHERE container_main_id = #{containerId}
+          AND attr_key = #{attrKey}
+            LIMIT 1
+    </select>
+
+    <!-- 依 (key, value) 刪除 -->
+    <delete id="deleteByAttrKeyAndValue">
+        DELETE FROM container_attr
+        WHERE attr_key = #{attrKey}
+          AND attr_value = #{attrValue}
+    </delete>
+
+    <!-- 批次刪除：IN(containerIds) × IN(keys) -->
+    <delete id="deleteByContainerIdsAndKeys">
+        DELETE FROM container_attr
+        WHERE container_main_id IN
+        <foreach collection="ids" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+        AND attr_key IN
+        <foreach collection="keys" item="k" open="(" separator="," close=")">
+            #{k}
+        </foreach>
+    </delete>
+
+</mapper>

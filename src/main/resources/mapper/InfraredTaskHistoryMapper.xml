@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.czkuo.rdf88701.infra.mapper.InfraredTaskHistoryMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.czkuo.rdf88701.infra.entity.InfraredTaskHistory">
+        <id column="id" property="id" />
+        <result column="origin_id" property="originId" />
+        <result column="request_id" property="requestId" />
+        <result column="infrared_id" property="infraredId" />
+        <result column="container_main_id" property="containerMainId" />
+        <result column="task_type" property="taskType" />
+        <result column="task_status" property="taskStatus" />
+        <result column="priority_level" property="priorityLevel" />
+        <result column="dispatched_time" property="dispatchedTime" />
+        <result column="completed_time" property="completedTime" />
+        <result column="cancelled_time" property="cancelledTime" />
+        <result column="done_time" property="doneTime" />
+        <result column="cancelled_reason" property="cancelledReason" />
+        <result column="remark" property="remark" />
+        <result column="created_time" property="createdTime" />
+        <result column="updated_time" property="updatedTime" />
+        <result column="change_type" property="changeType" />
+        <result column="archived_time" property="archivedTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, origin_id, request_id, infrared_id, container_main_id, task_type, task_status, priority_level, dispatched_time, completed_time, cancelled_time, done_time, cancelled_reason, remark, created_time, updated_time, change_type, archived_time
+    </sql>
+
+</mapper>

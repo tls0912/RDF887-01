@@ -1,0 +1,752 @@
+plc-safety:
+  devices:
+    - id: 1
+      name: "Safety-Sensor-Bank"
+      plcDeviceName: "PLC-Main"
+      read-areas:
+        # 讀取區域：W1040~W1047，共 8 個 word（128 bits）
+        - type: W
+          address: 0x1040   # 起始地址 (十六進位)
+          length: 8         # 連續 word 數 (每 word = 16 bits)
+      points:
+        # --- W1040 (DOOR) ---
+        - addr: "W1040.0"
+          type: "DOOR"
+          name: "Crane操作側"
+          remark: "安全點位上報_安全門_Crane操作側"
+          enabled: true
+
+        - addr: "W1040.1"
+          type: "DOOR"
+          name: "Crane維修側"
+          remark: "安全點位上報_安全門_Crane維修側"
+          enabled: true
+
+        - addr: "W1040.2"
+          type: "DOOR"
+          name: "RESERVED"
+          remark: "安全點位上報_安全門_"
+          enabled: false
+
+        - addr: "W1040.3"
+          type: "DOOR"
+          name: "RESERVED"
+          remark: "安全點位上報_安全門_"
+          enabled: false
+
+        - addr: "W1040.4"
+          type: "DOOR"
+          name: "RESERVED"
+          remark: "安全點位上報_安全門_"
+          enabled: false
+
+        - addr: "W1040.5"
+          type: "DOOR"
+          name: "RESERVED"
+          remark: "安全點位上報_安全門_"
+          enabled: false
+
+        - addr: "W1040.6"
+          type: "DOOR"
+          name: "RESERVED"
+          remark: "安全點位上報_安全門_"
+          enabled: false
+
+        - addr: "W1040.7"
+          type: "DOOR"
+          name: "RESERVED"
+          remark: "安全點位上報_安全門_"
+          enabled: false
+
+        - addr: "W1040.8"
+          type: "DOOR"
+          name: "ZIPA維修門"
+          remark: "安全點位上報_安全門_ZIPA維修門"
+          enabled: true
+
+        - addr: "W1040.9"
+          type: "DOOR"
+          name: "RESERVED"
+          remark: "安全點位上報_安全門_"
+          enabled: false
+
+        - addr: "W1040.A"
+          type: "DOOR"
+          name: "RESERVED"
+          remark: "安全點位上報_安全門_"
+          enabled: false
+
+        - addr: "W1040.B"
+          type: "DOOR"
+          name: "RESERVED"
+          remark: "安全點位上報_安全門_"
+          enabled: false
+
+        - addr: "W1040.C"
+          type: "DOOR"
+          name: "RESERVED"
+          remark: "安全點位上報_安全門_"
+          enabled: false
+
+        - addr: "W1040.D"
+          type: "DOOR"
+          name: "RESERVED"
+          remark: "安全點位上報_安全門_"
+          enabled: false
+
+        - addr: "W1040.E"
+          type: "DOOR"
+          name: "RESERVED"
+          remark: "安全點位上報_安全門_"
+          enabled: false
+
+        - addr: "W1040.F"
+          type: "DOOR"
+          name: "RESERVED"
+          remark: "安全點位上報_安全門_"
+          enabled: false
+
+          # --- W1041 (DOOR) ---
+        - addr: "W1041.0"
+          type: "DOOR"
+          name: "ZIPB維修門"
+          remark: "安全點位上報_安全門_ZIPB維修門"
+          enabled: true
+
+        - addr: "W1041.1"
+          type: "DOOR"
+          name: "RESERVED"
+          remark: "安全點位上報_安全門_"
+          enabled: false
+
+        - addr: "W1041.2"
+          type: "DOOR"
+          name: "RESERVED"
+          remark: "安全點位上報_安全門_"
+          enabled: false
+
+        - addr: "W1041.3"
+          type: "DOOR"
+          name: "RESERVED"
+          remark: "安全點位上報_安全門_"
+          enabled: false
+
+        - addr: "W1041.4"
+          type: "DOOR"
+          name: "RESERVED"
+          remark: "安全點位上報_安全門_"
+          enabled: false
+
+        - addr: "W1041.5"
+          type: "DOOR"
+          name: "RESERVED"
+          remark: "安全點位上報_安全門_"
+          enabled: false
+
+        - addr: "W1041.6"
+          type: "DOOR"
+          name: "RESERVED"
+          remark: "安全點位上報_安全門_"
+          enabled: false
+
+        - addr: "W1041.7"
+          type: "DOOR"
+          name: "RESERVED"
+          remark: "安全點位上報_安全門_"
+          enabled: false
+
+        - addr: "W1041.8"
+          type: "DOOR"
+          name: "拆併區_維修門"
+          remark: "安全點位上報_安全門_拆併區_維修門"
+          enabled: true
+
+        - addr: "W1041.9"
+          type: "DOOR"
+          name: "拆併區_打帶1"
+          remark: "安全點位上報_安全門_拆併區_打帶1"
+          enabled: true
+
+        - addr: "W1041.A"
+          type: "DOOR"
+          name: "拆併區_打帶2"
+          remark: "安全點位上報_安全門_拆併區_打帶2"
+          enabled: true
+
+        - addr: "W1041.B"
+          type: "DOOR"
+          name: "拆併區_打帶3"
+          remark: "安全點位上報_安全門_拆併區_打帶3"
+          enabled: true
+
+        - addr: "W1041.C"
+          type: "DOOR"
+          name: "拆併區_貼標"
+          remark: "安全點位上報_安全門_拆併區_貼標"
+          enabled: true
+
+        - addr: "W1041.D"
+          type: "DOOR"
+          name: "RESERVED"
+          remark: "安全點位上報_安全門_"
+          enabled: false
+
+        - addr: "W1041.E"
+          type: "DOOR"
+          name: "RESERVED"
+          remark: "安全點位上報_安全門_"
+          enabled: false
+
+        - addr: "W1041.F"
+          type: "DOOR"
+          name: "RESERVED"
+          remark: "安全點位上報_安全門_"
+          enabled: false
+
+          # --- W1042 (LIGHT_CURTAIN) ---
+        - addr: "W1042.0"
+          type: "LIGHT_CURTAIN"
+          name: "Crane_AMR#3"
+          remark: "安全點位上報_光閘_Crane_AMR#3"
+          enabled: true
+
+        - addr: "W1042.1"
+          type: "LIGHT_CURTAIN"
+          name: "Crane_AMR#4"
+          remark: "安全點位上報_光閘_Crane_AMR#4"
+          enabled: true
+
+        - addr: "W1042.2"
+          type: "LIGHT_CURTAIN"
+          name: "RESERVED"
+          remark: "安全點位上報_光閘_"
+          enabled: false
+
+        - addr: "W1042.3"
+          type: "LIGHT_CURTAIN"
+          name: "RESERVED"
+          remark: "安全點位上報_光閘_"
+          enabled: false
+
+        - addr: "W1042.4"
+          type: "LIGHT_CURTAIN"
+          name: "RESERVED"
+          remark: "安全點位上報_光閘_"
+          enabled: false
+
+        - addr: "W1042.5"
+          type: "LIGHT_CURTAIN"
+          name: "RESERVED"
+          remark: "安全點位上報_光閘_"
+          enabled: false
+
+        - addr: "W1042.6"
+          type: "LIGHT_CURTAIN"
+          name: "RESERVED"
+          remark: "安全點位上報_光閘_"
+          enabled: false
+
+        - addr: "W1042.7"
+          type: "LIGHT_CURTAIN"
+          name: "RESERVED"
+          remark: "安全點位上報_光閘_"
+          enabled: false
+
+        - addr: "W1042.8"
+          type: "LIGHT_CURTAIN"
+          name: "ZIP#A_入料1"
+          remark: "安全點位上報_光閘_ZIP#A_入料1"
+          enabled: true
+
+        - addr: "W1042.9"
+          type: "LIGHT_CURTAIN"
+          name: "ZIP#A_入料2"
+          remark: "安全點位上報_光閘_ZIP#A_入料2"
+          enabled: true
+
+        - addr: "W1042.A"
+          type: "LIGHT_CURTAIN"
+          name: "ZIP#A_出料1"
+          remark: "安全點位上報_光閘_ZIP#A_出料1"
+          enabled: true
+
+        - addr: "W1042.B"
+          type: "LIGHT_CURTAIN"
+          name: "ZIP#A_出料2"
+          remark: "安全點位上報_光閘_ZIP#A_出料2"
+          enabled: true
+
+        - addr: "W1042.C"
+          type: "LIGHT_CURTAIN"
+          name: "RESERVED"
+          remark: "安全點位上報_光閘_"
+          enabled: false
+
+        - addr: "W1042.D"
+          type: "LIGHT_CURTAIN"
+          name: "RESERVED"
+          remark: "安全點位上報_光閘_"
+          enabled: false
+
+        - addr: "W1042.E"
+          type: "LIGHT_CURTAIN"
+          name: "RESERVED"
+          remark: "安全點位上報_光閘_"
+          enabled: false
+
+        - addr: "W1042.F"
+          type: "LIGHT_CURTAIN"
+          name: "RESERVED"
+          remark: "安全點位上報_光閘_"
+          enabled: false
+
+        # --- W1043 (LIGHT_CURTAIN) ---
+        - addr: "W1043.0"
+          type: "LIGHT_CURTAIN"
+          name: "ZIP#B_取料區1外"
+          remark: "安全點位上報_光閘_ZIP#B_取料區1外"
+          enabled: true
+
+        - addr: "W1043.1"
+          type: "LIGHT_CURTAIN"
+          name: "ZIP#B_取料區1內"
+          remark: "安全點位上報_光閘_ZIP#B_取料區1內"
+          enabled: true
+
+        - addr: "W1043.2"
+          type: "LIGHT_CURTAIN"
+          name: "ZIP#B_取料區2外"
+          remark: "安全點位上報_光閘_ZIP#B_取料區2外"
+          enabled: true
+
+        - addr: "W1043.3"
+          type: "LIGHT_CURTAIN"
+          name: "ZIP#B_取料區2內"
+          remark: "安全點位上報_光閘_ZIP#B_取料區2內"
+          enabled: true
+
+        - addr: "W1043.4"
+          type: "LIGHT_CURTAIN"
+          name: "RESERVED"
+          remark: "安全點位上報_光閘_"
+          enabled: false
+
+        - addr: "W1043.5"
+          type: "LIGHT_CURTAIN"
+          name: "RESERVED"
+          remark: "安全點位上報_光閘_"
+          enabled: false
+
+        - addr: "W1043.6"
+          type: "LIGHT_CURTAIN"
+          name: "RESERVED"
+          remark: "安全點位上報_光閘_"
+          enabled: false
+
+        - addr: "W1043.7"
+          type: "LIGHT_CURTAIN"
+          name: "RESERVED"
+          remark: "安全點位上報_光閘_"
+          enabled: false
+
+        - addr: "W1043.8"
+          type: "LIGHT_CURTAIN"
+          name: "拆併區_AMR#5"
+          remark: "安全點位上報_光閘_拆併區_AMR#5"
+          enabled: true
+
+        - addr: "W1043.9"
+          type: "LIGHT_CURTAIN"
+          name: "拆併區_公蓋區"
+          remark: "安全點位上報_光閘_拆併區_公蓋區"
+          enabled: true
+
+        - addr: "W1043.A"
+          type: "LIGHT_CURTAIN"
+          name: "RESERVED"
+          remark: "安全點位上報_光閘_"
+          enabled: false
+
+        - addr: "W1043.B"
+          type: "LIGHT_CURTAIN"
+          name: "RESERVED"
+          remark: "安全點位上報_光閘_"
+          enabled: false
+
+        - addr: "W1043.C"
+          type: "LIGHT_CURTAIN"
+          name: "RESERVED"
+          remark: "安全點位上報_光閘_"
+          enabled: false
+
+        - addr: "W1043.D"
+          type: "LIGHT_CURTAIN"
+          name: "RESERVED"
+          remark: "安全點位上報_光閘_"
+          enabled: false
+
+        - addr: "W1043.E"
+          type: "LIGHT_CURTAIN"
+          name: "RESERVED"
+          remark: "安全點位上報_光閘_"
+          enabled: false
+
+        - addr: "W1043.F"
+          type: "LIGHT_CURTAIN"
+          name: "RESERVED"
+          remark: "安全點位上報_光閘_"
+          enabled: false
+
+          # --- W1044 (EMO) ---
+        - addr: "W1044.0"
+          type: "EMO"
+          name: "Crane_主電箱"
+          remark: "安全點位上報_EMO_Crane_主電箱"
+          enabled: true
+
+        - addr: "W1044.1"
+          type: "EMO"
+          name: "Crane_AMR#3"
+          remark: "安全點位上報_EMO_Crane_AMR#3"
+          enabled: true
+
+        - addr: "W1044.2"
+          type: "EMO"
+          name: "Crane_AMR#4"
+          remark: "安全點位上報_EMO_Crane_AMR#4"
+          enabled: true
+
+        - addr: "W1044.3"
+          type: "EMO"
+          name: "Crane_維修門"
+          remark: "安全點位上報_EMO_Crane_維修門"
+          enabled: true
+
+        - addr: "W1044.4"
+          type: "EMO"
+          name: "RESERVED"
+          remark: "安全點位上報_EMO_"
+          enabled: false
+
+        - addr: "W1044.5"
+          type: "EMO"
+          name: "RESERVED"
+          remark: "安全點位上報_EMO_"
+          enabled: false
+
+        - addr: "W1044.6"
+          type: "EMO"
+          name: "RESERVED"
+          remark: "安全點位上報_EMO_"
+          enabled: false
+
+        - addr: "W1044.7"
+          type: "EMO"
+          name: "RESERVED"
+          remark: "安全點位上報_EMO_"
+          enabled: false
+
+        - addr: "W1044.8"
+          type: "EMO"
+          name: "ZIP#A_主電箱"
+          remark: "安全點位上報_EMO_ZIP#A_主電箱"
+          enabled: true
+
+        - addr: "W1044.9"
+          type: "EMO"
+          name: "ZIP#A_維修門外"
+          remark: "安全點位上報_EMO_ZIP#A_維修門外"
+          enabled: true
+
+        - addr: "W1044.A"
+          type: "EMO"
+          name: "ZIP#A_維修門內"
+          remark: "安全點位上報_EMO_ZIP#A_維修門內"
+          enabled: true
+
+        - addr: "W1044.B"
+          type: "EMO"
+          name: "ZIP#A_入料1"
+          remark: "安全點位上報_EMO_ZIP#A_入料1"
+          enabled: true
+
+        - addr: "W1044.C"
+          type: "EMO"
+          name: "ZIP#A_入料2"
+          remark: "安全點位上報_EMO_ZIP#A_入料2"
+          enabled: true
+
+        - addr: "W1044.D"
+          type: "EMO"
+          name: "ZIP#A_出料1"
+          remark: "安全點位上報_EMO_ZIP#A_出料1"
+          enabled: true
+
+        - addr: "W1044.E"
+          type: "EMO"
+          name: "ZIP#A_出料2"
+          remark: "安全點位上報_EMO_ZIP#A_出料2"
+          enabled: true
+
+        - addr: "W1044.F"
+          type: "EMO"
+          name: "RESERVED"
+          remark: "安全點位上報_EMO_"
+          enabled: false
+
+          # --- W1045 (EMO) ---
+        - addr: "W1045.0"
+          type: "EMO"
+          name: "ZIP#B_主電箱"
+          remark: "安全點位上報_EMO_ZIP#B_主電箱"
+          enabled: true
+
+        - addr: "W1045.1"
+          type: "EMO"
+          name: "ZIP#B_維修門外"
+          remark: "安全點位上報_EMO_ZIP#B_維修門外"
+          enabled: true
+
+        - addr: "W1045.2"
+          type: "EMO"
+          name: "ZIP#B_維修門內"
+          remark: "安全點位上報_EMO_ZIP#B_維修門內"
+          enabled: true
+
+        - addr: "W1045.3"
+          type: "EMO"
+          name: "RESERVED"
+          remark: "安全點位上報_EMO_"
+          enabled: false
+
+        - addr: "W1045.4"
+          type: "EMO"
+          name: "RESERVED"
+          remark: "安全點位上報_EMO_"
+          enabled: false
+
+        - addr: "W1045.5"
+          type: "EMO"
+          name: "RESERVED"
+          remark: "安全點位上報_EMO_"
+          enabled: false
+
+        - addr: "W1045.6"
+          type: "EMO"
+          name: "RESERVED"
+          remark: "安全點位上報_EMO_"
+          enabled: false
+
+        - addr: "W1045.7"
+          type: "EMO"
+          name: "RESERVED"
+          remark: "安全點位上報_EMO_"
+          enabled: false
+
+        - addr: "W1045.8"
+          type: "EMO"
+          name: "拆併區_主電箱"
+          remark: "安全點位上報_EMO_拆併區_主電箱"
+          enabled: true
+
+        - addr: "W1045.9"
+          type: "EMO"
+          name: "拆併區_維修門"
+          remark: "安全點位上報_EMO_拆併區_維修門"
+          enabled: true
+
+        - addr: "W1045.A"
+          type: "EMO"
+          name: "拆併區_打帶1"
+          remark: "安全點位上報_EMO_拆併區_打帶1"
+          enabled: true
+
+        - addr: "W1045.B"
+          type: "EMO"
+          name: "拆併區_打帶2"
+          remark: "安全點位上報_EMO_拆併區_打帶2"
+          enabled: true
+
+        - addr: "W1045.C"
+          type: "EMO"
+          name: "拆併區_打帶3"
+          remark: "安全點位上報_EMO_拆併區_打帶3"
+          enabled: true
+
+        - addr: "W1045.D"
+          type: "EMO"
+          name: "RESERVED"
+          remark: "安全點位上報_EMO_"
+          enabled: false
+
+        - addr: "W1045.E"
+          type: "EMO"
+          name: "RESERVED"
+          remark: "安全點位上報_EMO_"
+          enabled: false
+
+        - addr: "W1045.F"
+          type: "EMO"
+          name: "RESERVED"
+          remark: "安全點位上報_EMO_"
+          enabled: false
+
+        # --- W1046 (OTHER) ---
+        - addr: "W1046.0"
+          type: "OTHER"
+          name: "Crane安全壓條"
+          remark: "安全點位上報_Other_Crane安全壓條"
+          enabled: true
+
+        - addr: "W1046.1"
+          type: "OTHER"
+          name: "ZIPA安全壓條"
+          remark: "安全點位上報_Other_ZIPA安全壓條"
+          enabled: true
+
+        - addr: "W1046.2"
+          type: "OTHER"
+          name: "ZIPB安全壓條"
+          remark: "安全點位上報_Other_ZIPB安全壓條"
+          enabled: true
+
+        - addr: "W1046.3"
+          type: "OTHER"
+          name: "RESERVED"
+          remark: "安全點位上報_Other_"
+          enabled: false
+
+        - addr: "W1046.4"
+          type: "OTHER"
+          name: "Crane雷達"
+          remark: "安全點位上報_Other_Crane雷達"
+          enabled: true
+
+        - addr: "W1046.5"
+          type: "OTHER"
+          name: "RESERVED"
+          remark: "安全點位上報_Other_"
+          enabled: false
+
+        - addr: "W1046.6"
+          type: "OTHER"
+          name: "RESERVED"
+          remark: "安全點位上報_Other_"
+          enabled: false
+
+        - addr: "W1046.7"
+          type: "OTHER"
+          name: "RESERVED"
+          remark: "安全點位上報_Other_"
+          enabled: false
+
+        - addr: "W1046.8"
+          type: "OTHER"
+          name: "Crane安全拉繩"
+          remark: "安全點位上報_Other_Crane安全拉繩"
+          enabled: true
+
+        - addr: "W1046.9"
+          type: "OTHER"
+          name: "RESERVED"
+          remark: "安全點位上報_Other_"
+          enabled: false
+
+        - addr: "W1046.A"
+
+        # --- W1047 (OTHER) ---
+        - addr: "W1047.0"
+          type: "OTHER"
+          name: "RESERVED"
+          remark: "安全點位上報_Other_"
+          enabled: false
+
+        - addr: "W1047.1"
+          type: "OTHER"
+          name: "RESERVED"
+          remark: "安全點位上報_Other_"
+          enabled: false
+
+        - addr: "W1047.2"
+          type: "OTHER"
+          name: "RESERVED"
+          remark: "安全點位上報_Other_"
+          enabled: false
+
+        - addr: "W1047.3"
+          type: "OTHER"
+          name: "RESERVED"
+          remark: "安全點位上報_Other_"
+          enabled: false
+
+        - addr: "W1047.4"
+          type: "OTHER"
+          name: "RESERVED"
+          remark: "安全點位上報_Other_"
+          enabled: false
+
+        - addr: "W1047.5"
+          type: "OTHER"
+          name: "RESERVED"
+          remark: "安全點位上報_Other_"
+          enabled: false
+
+        - addr: "W1047.6"
+          type: "OTHER"
+          name: "RESERVED"
+          remark: "安全點位上報_Other_"
+          enabled: false
+
+        - addr: "W1047.7"
+          type: "OTHER"
+          name: "RESERVED"
+          remark: "安全點位上報_Other_"
+          enabled: false
+
+        - addr: "W1047.8"
+          type: "OTHER"
+          name: "RESERVED"
+          remark: "安全點位上報_Other_"
+          enabled: false
+
+        - addr: "W1047.9"
+          type: "OTHER"
+          name: "RESERVED"
+          remark: "安全點位上報_Other_"
+          enabled: false
+
+        - addr: "W1047.A"
+          type: "OTHER"
+          name: "RESERVED"
+          remark: "安全點位上報_Other_"
+          enabled: false
+
+        - addr: "W1047.B"
+          type: "OTHER"
+          name: "RESERVED"
+          remark: "安全點位上報_Other_"
+          enabled: false
+
+        - addr: "W1047.C"
+          type: "OTHER"
+          name: "RESERVED"
+          remark: "安全點位上報_Other_"
+          enabled: false
+
+        - addr: "W1047.D"
+          type: "OTHER"
+          name: "RESERVED"
+          remark: "安全點位上報_Other_"
+          enabled: false
+
+        - addr: "W1047.E"
+          type: "OTHER"
+          name: "RESERVED"
+          remark: "安全點位上報_Other_"
+          enabled: false
+
+        - addr: "W1047.F"
+          type: "OTHER"
+          name: "RESERVED"
+          remark: "安全點位上報_Other_"
+          enabled: false

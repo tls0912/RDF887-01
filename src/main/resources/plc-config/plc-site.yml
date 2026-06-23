@@ -1,0 +1,716 @@
+plc-site:
+  sites:
+    - id: 1
+      name: "Site#1"
+      plcDeviceName: "PLC-Sub"
+      read-areas:
+        - type: B
+          address: 0x0848
+          length: 4
+        - type: W
+          address: 0x13E0
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x0248
+          length: 4
+        - type: W
+          address: 0x03E0
+          length: 32
+    - id: 2
+      name: "Site#2"
+      plcDeviceName: "PLC-Sub"
+      read-areas:
+        - type: B
+          address: 0x084C
+          length: 4
+        - type: W
+          address: 0x1400
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x024C
+          length: 4
+        - type: W
+          address: 0x0400
+          length: 32
+    - id: 3
+      name: "Site#3"
+      plcDeviceName: "PLC-Sub"
+      read-areas:
+        - type: B
+          address: 0x0850
+          length: 4
+        - type: W
+          address: 0x1420
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x0250
+          length: 4
+        - type: W
+          address: 0x0420
+          length: 32
+    - id: 4
+      name: "Site#4"
+      plcDeviceName: "PLC-Sub"
+      read-areas:
+        - type: B
+          address: 0x0854
+          length: 4
+        - type: W
+          address: 0x1440
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x0254
+          length: 4
+        - type: W
+          address: 0x0440
+          length: 32
+    - id: 5
+      name: "Site#5"
+      plcDeviceName: "PLC-Sub"
+      read-areas:
+        - type: B
+          address: 0x0858
+          length: 4
+        - type: W
+          address: 0x1460
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x0258
+          length: 4
+        - type: W
+          address: 0x0460
+          length: 32
+    - id: 6
+      name: "Site#6"
+      plcDeviceName: "PLC-Sub"
+      read-areas:
+        - type: B
+          address: 0x085C
+          length: 4
+        - type: W
+          address: 0x1480
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x025C
+          length: 4
+        - type: W
+          address: 0x0480
+          length: 32
+    - id: 7
+      name: "Site#7"
+      plcDeviceName: "PLC-Sub"
+      read-areas:
+        - type: B
+          address: 0x0860
+          length: 4
+        - type: W
+          address: 0x14A0
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x0260
+          length: 4
+        - type: W
+          address: 0x04A0
+          length: 32
+    - id: 8
+      name: "Site#8"
+      plcDeviceName: "PLC-Sub"
+      read-areas:
+        - type: B
+          address: 0x0864
+          length: 4
+        - type: W
+          address: 0x14C0
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x0264
+          length: 4
+        - type: W
+          address: 0x04C0
+          length: 32
+    - id: 9
+      name: "Site#9"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: B
+          address: 0x0868
+          length: 4
+        - type: W
+          address: 0x14E0
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x0268
+          length: 4
+        - type: W
+          address: 0x04E0
+          length: 32
+    - id: 10
+      name: "Site#10"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: B
+          address: 0x086C
+          length: 4
+        - type: W
+          address: 0x1500
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x026C
+          length: 4
+        - type: W
+          address: 0x0500
+          length: 32
+    - id: 11
+      name: "Site#11"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: B
+          address: 0x0870
+          length: 4
+        - type: W
+          address: 0x1520
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x0270
+          length: 4
+        - type: W
+          address: 0x0520
+          length: 32
+    - id: 12
+      name: "Site#12"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: B
+          address: 0x0874
+          length: 4
+        - type: W
+          address: 0x1540
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x0274
+          length: 4
+        - type: W
+          address: 0x0540
+          length: 32
+    - id: 13
+      name: "Site#13"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: B
+          address: 0x0878
+          length: 4
+        - type: W
+          address: 0x1560
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x0278
+          length: 4
+        - type: W
+          address: 0x0560
+          length: 32
+    - id: 14
+      name: "Site#14"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: B
+          address: 0x087C
+          length: 4
+        - type: W
+          address: 0x1580
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x027C
+          length: 4
+        - type: W
+          address: 0x0580
+          length: 32
+    - id: 15
+      name: "Site#15"
+      plcDeviceName: "PLC-Main"
+      read-areas:
+        - type: B
+          address: 0x0880
+          length: 4
+        - type: W
+          address: 0x15A0
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x0280
+          length: 4
+        - type: W
+          address: 0x05A0
+          length: 32
+    - id: 16
+      name: "Site#16"
+      plcDeviceName: "PLC-Main"
+      read-areas:
+        - type: B
+          address: 0x0884
+          length: 4
+        - type: W
+          address: 0x15C0
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x0284
+          length: 4
+        - type: W
+          address: 0x05C0
+          length: 32
+    - id: 17
+      name: "Site#17"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: B
+          address: 0x0888
+          length: 4
+        - type: W
+          address: 0x15E0
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x0288
+          length: 4
+        - type: W
+          address: 0x05E0
+          length: 32
+    - id: 18
+      name: "Site#18"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: B
+          address: 0x088C
+          length: 4
+        - type: W
+          address: 0x1600
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x028C
+          length: 4
+        - type: W
+          address: 0x0600
+          length: 32
+    - id: 19
+      name: "Site#19"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: B
+          address: 0x0890
+          length: 4
+        - type: W
+          address: 0x1620
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x0290
+          length: 4
+        - type: W
+          address: 0x0620
+          length: 32
+    - id: 20
+      name: "Site#20"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: B
+          address: 0x0894
+          length: 4
+        - type: W
+          address: 0x1640
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x0294
+          length: 4
+        - type: W
+          address: 0x0640
+          length: 32
+    - id: 21
+      name: "Site#21"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: B
+          address: 0x0898
+          length: 4
+        - type: W
+          address: 0x1660
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x0298
+          length: 4
+        - type: W
+          address: 0x0660
+          length: 32
+    - id: 22
+      name: "Site#22"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: B
+          address: 0x089C
+          length: 4
+        - type: W
+          address: 0x1680
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x029C
+          length: 4
+        - type: W
+          address: 0x0680
+          length: 32
+    - id: 23
+      name: "Site#23"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: B
+          address: 0x08A0
+          length: 4
+        - type: W
+          address: 0x16A0
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x02A0
+          length: 4
+        - type: W
+          address: 0x06A0
+          length: 32
+    - id: 24
+      name: "Site#24"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: B
+          address: 0x08A4
+          length: 4
+        - type: W
+          address: 0x16C0
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x02A4
+          length: 4
+        - type: W
+          address: 0x06C0
+          length: 32
+    - id: 25
+      name: "Site#25"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: B
+          address: 0x08A8
+          length: 4
+        - type: W
+          address: 0x16E0
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x02A8
+          length: 4
+        - type: W
+          address: 0x06E0
+          length: 32
+    - id: 26
+      name: "Site#26"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: B
+          address: 0x08AC
+          length: 4
+        - type: W
+          address: 0x1700
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x02AC
+          length: 4
+        - type: W
+          address: 0x0700
+          length: 32
+    - id: 27
+      name: "Site#27"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: B
+          address: 0x08B0
+          length: 4
+        - type: W
+          address: 0x1720
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x02B0
+          length: 4
+        - type: W
+          address: 0x0720
+          length: 32
+    - id: 28
+      name: "Site#28"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: B
+          address: 0x08B4
+          length: 4
+        - type: W
+          address: 0x1740
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x02B4
+          length: 4
+        - type: W
+          address: 0x0740
+          length: 32
+    - id: 29
+      name: "Site#29"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: B
+          address: 0x08B8
+          length: 4
+        - type: W
+          address: 0x1760
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x02B8
+          length: 4
+        - type: W
+          address: 0x0760
+          length: 32
+    - id: 30
+      name: "Site#30"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: B
+          address: 0x08BC
+          length: 4
+        - type: W
+          address: 0x1780
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x02BC
+          length: 4
+        - type: W
+          address: 0x0780
+          length: 32
+    - id: 31
+      name: "Site#31"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: B
+          address: 0x08C0
+          length: 4
+        - type: W
+          address: 0x17A0
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x02C0
+          length: 4
+        - type: W
+          address: 0x07A0
+          length: 32
+    - id: 32
+      name: "Site#32"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: B
+          address: 0x08C4
+          length: 4
+        - type: W
+          address: 0x17C0
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x02C4
+          length: 4
+        - type: W
+          address: 0x07C0
+          length: 32
+    - id: 33
+      name: "Site#33"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: B
+          address: 0x08C8
+          length: 4
+        - type: W
+          address: 0x17E0
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x02C8
+          length: 4
+        - type: W
+          address: 0x07E0
+          length: 32
+    - id: 34
+      name: "Site#34"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: B
+          address: 0x08CC
+          length: 4
+        - type: W
+          address: 0x1800
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x02CC
+          length: 4
+        - type: W
+          address: 0x0800
+          length: 32
+    - id: 35
+      name: "Site#35"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: B
+          address: 0x08D0
+          length: 4
+        - type: W
+          address: 0x1820
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x02D0
+          length: 4
+        - type: W
+          address: 0x0820
+          length: 32
+    - id: 36
+      name: "Site#36"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: B
+          address: 0x08D4
+          length: 4
+        - type: W
+          address: 0x1840
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x02D4
+          length: 4
+        - type: W
+          address: 0x0840
+          length: 32
+    - id: 37
+      name: "Site#37"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: B
+          address: 0x08D8
+          length: 4
+        - type: W
+          address: 0x1860
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x02D8
+          length: 4
+        - type: W
+          address: 0x0860
+          length: 32
+    - id: 38
+      name: "Site#38"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: B
+          address: 0x08DC
+          length: 4
+        - type: W
+          address: 0x1880
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x02DC
+          length: 4
+        - type: W
+          address: 0x0880
+          length: 32
+    - id: 39
+      name: "Site#39"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: B
+          address: 0x08E0
+          length: 4
+        - type: W
+          address: 0x18A0
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x02E0
+          length: 4
+        - type: W
+          address: 0x08A0
+          length: 32
+    - id: 40
+      name: "Site#40"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: B
+          address: 0x08E4
+          length: 4
+        - type: W
+          address: 0x18C0
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x02E4
+          length: 4
+        - type: W
+          address: 0x08C0
+          length: 32
+    - id: 41
+      name: "Site#41"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: B
+          address: 0x08E8
+          length: 4
+        - type: W
+          address: 0x18E0
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x02E8
+          length: 4
+        - type: W
+          address: 0x08E0
+          length: 32
+    - id: 42
+      name: "Site#42"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: B
+          address: 0x08EC
+          length: 4
+        - type: W
+          address: 0x1900
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x02EC
+          length: 4
+        - type: W
+          address: 0x0900
+          length: 32

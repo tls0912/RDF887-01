@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.czkuo.rdf88701.infra.mapper.ContainerDataMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.czkuo.rdf88701.infra.entity.ContainerData">
+        <id column="id" property="id"/>
+        <result column="container_main_id" property="containerMainId"/>
+        <result column="ocr_text1" property="ocrText1"/>
+        <result column="ocr_text2" property="ocrText2"/>
+        <result column="estimated_quantity" property="estimatedQuantity"/>
+        <result column="verified_quantity" property="verifiedQuantity"/>
+        <result column="work_cover_layers" property="workCoverLayers"/>
+        <result column="cover_layers" property="coverLayers"/>
+        <result column="product_layers" property="productLayers"/>
+        <result column="content_kind" property="contentKind"/>
+        <result column="created_time" property="createdTime"/>
+        <result column="updated_time" property="updatedTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, container_main_id, ocr_text1, ocr_text2, estimated_quantity, verified_quantity, work_cover_layers, cover_layers, product_layers, content_kind, created_time, updated_time
+    </sql>
+
+    <!--
+      Upsert：單筆策略（以 container_main_id 唯一）
+      - 不存在 → INSERT
+      - 已存在 → 僅覆蓋非 NULL 欄位
+      - content_kind：僅當舊值為 'UNKNOWN' 時才覆蓋（避免誤蓋掉已確認型態）
+      - 提醒：若你用 DB 觸發器自動維護 verified_quantity = cover + product，可視需要移除 verified_quantity 的更新
+    -->
+    <insert id="upsert" parameterType="com.czkuo.rdf88701.infra.entity.ContainerData">
+        INSERT INTO container_data AS new
+            (container_main_id, ocr_text1, ocr_text2, estimated_quantity, verified_quantity,
+             work_cover_layers, cover_layers, product_layers, content_kind)
+        VALUES
+            (#{containerMainId}, #{ocrText1}, #{ocrText2}, #{estimatedQuantity}, #{verifiedQuantity},
+            #{workCoverLayers}, #{coverLayers}, #{productLayers}, #{contentKind})
+        ON DUPLICATE KEY UPDATE
+                             ocr_text1           = COALESCE(new.ocr_text1, ocr_text1),
+                             ocr_text2           = COALESCE(new.ocr_text2, ocr_text2),
+                             estimated_quantity  = COALESCE(new.estimated_quantity, estimated_quantity),
+                             verified_quantity   = COALESCE(new.verified_quantity, verified_quantity),
+                             work_cover_layers   = COALESCE(new.work_cover_layers, work_cover_layers),
+                             cover_layers        = COALESCE(new.cover_layers, cover_layers),
+                             product_layers      = COALESCE(new.product_layers, product_layers),
+                             content_kind        = IF(content_kind = 'UNKNOWN',
+                             COALESCE(new.content_kind, content_kind),
+                             content_kind)
+    </insert>
+
+    <!-- 只在 UNKNOWN 時設定 content_kind 的輔助方法 -->
+    <update id="setContentKindIfUnknown">
+        UPDATE container_data
+        SET content_kind = #{contentKind}
+        WHERE container_main_id = #{containerMainId}
+          AND content_kind = 'UNKNOWN'
+    </update>
+
+</mapper>

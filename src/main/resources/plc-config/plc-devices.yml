@@ -1,0 +1,153 @@
+plc:
+  # PLC 健康檢查間隔（毫秒）
+  health-check-interval: 10000
+
+  # 是否啟用 PLC 輪詢排程（全域開關）
+  polling-enabled: false
+  poll-interval: 40
+
+  devices:
+    # === 裝置 1：啟用的 MC PLC ===
+    - name: "PLC-Main"
+      enabled: true
+      protocol: "mc"
+      ip: "192.168.3.10"
+      #ports: [2000, 2001, 6001, 6002]
+      ports: [2000, 2200, 2400]
+      heartbeat-address: "M0"
+
+      options:
+        series: "IQ_R"
+        connect-timeout: 8000
+        receive-timeout: 6000
+
+        # 是否允許在 ping 失敗時仍強制 connect()（用於 ICMP 被封鎖的場域）
+        force-connect-if-ping-fails: true
+
+        # 熔斷配置（以下為選用，會影響連線策略管理器行為）
+        max-retry-per-port: 3           # 每個 port 最多允許連線失敗幾次後觸發熔斷
+        circuit-break-ms: 30000         # 熔斷時間（單位：毫秒），封鎖該 port 的持續時間
+        base-backoff-ms: 500            # 每次重試之間的最小 backoff 延遲，會呈指數倍增
+        overall-timeout-ms: 30000       # 單次自動重連流程最大總耗時，避免無限等待
+
+      external-control-allowed: true
+      connection-mode: AUTO
+      default-polling-enabled: true
+
+      read-areas:
+        - area-type: "B"
+          start: 0x0600
+          length: 0x0300
+        - area-type: "W"
+          start: 0x1000
+          length: 0x0A00
+
+      write-areas:
+        - area-type: "B"
+          start: 0x0000
+          length: 0x0300
+        - area-type: "W"
+          start: 0x0000
+          length: 0x0A00
+
+    # === 裝置 2：包裝機裝置 ===
+    - name: "PLC-Packer"
+      enabled: true
+      protocol: "mc"
+      #ip: "192.168.3.40"
+      #ports: [2000, 2001, 6001, 6002]
+      #ip: "192.168.3.15" #192,168.3.102
+      #ports: [ 2000, 2200, 2400 ]
+      ip: "192.168.3.102"
+      ports: [ 2000, 2200, 2400 ]
+      heartbeat-address: "M0"
+
+      options:
+        series: "IQ_R"
+        connect-timeout: 8000
+        receive-timeout: 6000
+
+        # 是否允許在 ping 失敗時仍強制 connect()（用於 ICMP 被封鎖的場域）
+        force-connect-if-ping-fails: true
+
+        # 熔斷配置（以下為選用，會影響連線策略管理器行為）
+        max-retry-per-port: 3           # 每個 port 最多允許連線失敗幾次後觸發熔斷
+        circuit-break-ms: 30000         # 熔斷時間（單位：毫秒），封鎖該 port 的持續時間
+        base-backoff-ms: 500            # 每次重試之間的最小 backoff 延遲，會呈指數倍增
+        overall-timeout-ms: 30000       # 單次自動重連流程最大總耗時，避免無限等待
+
+      external-control-allowed: true
+      connection-mode: AUTO
+      default-polling-enabled: true
+
+      read-areas:
+        - area-type: "B"
+          start: 0x0600
+          length: 0x0300
+        - area-type: "W"
+          start: 0x1000
+          length: 0x0A00
+
+      write-areas:
+        - area-type: "B"
+          start: 0x0000
+          length: 0x0300
+        - area-type: "W"
+          start: 0x0000
+          length: 0x0A00
+
+
+    # === 裝置 3：倉儲入料裝置 ===
+    - name: "PLC-Sub"
+      enabled: true
+      protocol: "mc"
+      ip: "192.168.3.14"
+      ports: [ 2000, 2200, 2400 ]
+      heartbeat-address: "M0"
+
+      options:
+        series: "IQ_R"
+        connect-timeout: 8000
+        receive-timeout: 6000
+
+        # 是否允許在 ping 失敗時仍強制 connect()（用於 ICMP 被封鎖的場域）
+        force-connect-if-ping-fails: true
+
+        # 熔斷配置（以下為選用，會影響連線策略管理器行為）
+        max-retry-per-port: 3           # 每個 port 最多允許連線失敗幾次後觸發熔斷
+        circuit-break-ms: 30000         # 熔斷時間（單位：毫秒），封鎖該 port 的持續時間
+        base-backoff-ms: 500            # 每次重試之間的最小 backoff 延遲，會呈指數倍增
+        overall-timeout-ms: 30000       # 單次自動重連流程最大總耗時，避免無限等待
+
+      external-control-allowed: true
+      connection-mode: AUTO
+      default-polling-enabled: true
+
+      read-areas:
+        - area-type: "B"
+          start: 0x0600
+          length: 0x0300
+        - area-type: "W"
+          start: 0x1000
+          length: 0x0A00
+
+      write-areas:
+        - area-type: "B"
+          start: 0x0000
+          length: 0x0300
+        - area-type: "W"
+          start: 0x0000
+          length: 0x0A00
+
+    # === 裝置 4：Modbus 測試設備 ===
+    - name: "PLC-Modbus"
+      enabled: false
+      external-control-allowed: false
+      connection-mode: OFF
+      default-polling-enabled: false
+      protocol: "modbus"
+      ip: "192.168.1.200"
+      ports: [502]
+
+      options:
+        slave-id: 1

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.czkuo.rdf88701.infra.mapper.CraneTaskMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.czkuo.rdf88701.infra.entity.CraneTask">
+        <id column="id" property="id" />
+        <result column="request_id" property="requestId" />
+        <result column="crane_id" property="craneId" />
+        <result column="task_type" property="taskType" />
+        <result column="task_status" property="taskStatus" />
+        <result column="priority_level" property="priorityLevel" />
+        <result column="container_main_id" property="containerMainId" />
+        <result column="source_location_id" property="sourceLocationId" />
+        <result column="target_location_id" property="targetLocationId" />
+        <result column="dispatched_time" property="dispatchedTime" />
+        <result column="completed_time" property="completedTime" />
+        <result column="cancelled_time" property="cancelledTime" />
+        <result column="done_time" property="doneTime" />
+        <result column="cancelled_reason" property="cancelledReason" />
+        <result column="remark" property="remark" />
+        <result column="created_Time" property="createdTime" />
+        <result column="updated_time" property="updatedTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, request_id, crane_id, task_type, task_status, priority_level,
+        container_main_id, source_location_id, target_location_id,
+        dispatched_time, completed_time, cancelled_time, done_time,
+        cancelled_reason, remark,
+        created_time, updated_time
+    </sql>
+
+    <select id="selectPendingTasksByCraneId" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List" />
+        FROM crane_task
+        WHERE crane_id = #{craneId}
+        AND task_status = 'PENDING'
+        ORDER BY priority_level ASC, id ASC
+    </select>
+
+    <!-- 查詢第一筆 PENDING 任務（依 craneId + 優先順序 + 時間排序） -->
+    <select id="selectNextPendingTaskByCraneId" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List" />
+        FROM crane_task
+        WHERE crane_id = #{craneId}
+        AND task_status = 'PENDING'
+        ORDER BY priority_level ASC, dispatched_time ASC, id ASC
+        LIMIT 1
+    </select>
+
+    <update id="updateTaskStatus">
+        UPDATE crane_task
+        SET task_status = #{status},
+            updated_time = NOW()
+        WHERE id = #{taskId}
+    </update>
+
+    <!-- 標記為 IN_PROGRESS -->
+    <update id="markTaskAsInProgress">
+        UPDATE crane_task
+        SET task_status = 'IN_PROGRESS',
+            updated_time = NOW()
+        WHERE id = #{id}
+    </update>
+
+    <select id="selectByCondition" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List" />
+        FROM crane_task
+        WHERE 1 = 1
+        <if test="requestId != null">
+            AND request_id = #{requestId}
+        </if>
+        <if test="craneId != null">
+            AND crane_id = #{craneId}
+        </if>
+        <if test="taskType != null and taskType != ''">
+            AND task_type = #{taskType}
+        </if>
+        <if test="taskStatus != null and taskStatus != ''">
+            AND task_status = #{taskStatus}
+        </if>
+        <if test="priorityLevel != null">
+            AND priority_level = #{priorityLevel}
+        </if>
+        <if test="containerMainId != null">
+            AND container_main_id = #{containerMainId}
+        </if>
+        <if test="sourceLocationId != null">
+            AND source_location_id = #{sourceLocationId}
+        </if>
+        <if test="targetLocationId != null">
+            AND target_location_id = #{targetLocationId}
+        </if>
+        <if test="dispatchedAfter != null">
+            AND dispatched_time &gt;= #{dispatchedAfter}
+        </if>
+        <if test="dispatchedBefore != null">
+            AND dispatched_time &lt;= #{dispatchedBefore}
+        </if>
+        <if test="completedAfter != null">
+            AND completed_time &gt;= #{completedAfter}
+        </if>
+        <if test="completedBefore != null">
+            AND completed_time &lt;= #{completedBefore}
+        </if>
+        <if test="cancelledAfter != null">
+            AND cancelled_time &gt;= #{cancelledAfter}
+        </if>
+        <if test="cancelledBefore != null">
+            AND cancelled_time &lt;= #{cancelledBefore}
+        </if>
+        ORDER BY created_time Desc,id DESC
+    </select>
+
+    <!-- 查詢指定 craneId 下最高優先任務（DISPATCHED > PENDING, priority DESC） -->
+    <select id="selectTopTaskByCrane" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List" />
+        FROM crane_task
+        WHERE crane_id = #{craneId}
+        AND task_status IN ('PENDING', 'DISPATCHED', 'IN_PROGRESS', 'RETRY', 'COMPLETED', 'FAILED')
+        AND done_time IS NULL
+        ORDER BY
+        CASE task_status
+        WHEN 'PENDING' THEN 0
+        WHEN 'DISPATCHED' THEN 1
+        WHEN 'IN_PROGRESS' THEN 2
+        WHEN 'RETRY' THEN 3
+        WHEN 'COMPLETED' THEN 4
+        WHEN 'FAILED' THEN 5
+        ELSE 99
+        END DESC,
+        priority_level DESC,
+        id ASC
+        LIMIT 1
+    </select>
+
+    <update id="markTaskAsDone">
+        UPDATE crane_task
+        SET done_time = NOW(),
+            updated_time = NOW()
+        WHERE id = #{id}
+    </update>
+
+</mapper>

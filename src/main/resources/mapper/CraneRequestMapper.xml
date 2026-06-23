@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.czkuo.rdf88701.infra.mapper.CraneRequestMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.czkuo.rdf88701.infra.entity.CraneRequest">
+        <id column="id" property="id" />
+        <result column="request_key" property="requestKey" />
+        <result column="version" property="version" />
+        <result column="request_type" property="requestType" />
+        <result column="request_source" property="requestSource" />
+        <result column="source_request_ref" property="sourceRequestRef" />
+        <result column="container_main_id" property="containerMainId" />
+        <result column="source_location_id" property="sourceLocationId" />
+        <result column="target_location_id" property="targetLocationId" />
+        <result column="source_location_name" property="sourceLocationName" />
+        <result column="target_location_name" property="targetLocationName" />
+        <result column="accepted" property="accepted" />
+        <result column="accept_time" property="acceptTime" />
+        <result column="reject_reason" property="rejectReason" />
+        <result column="operator" property="operator" />
+        <result column="request_time" property="requestTime" />
+        <result column="remark" property="remark" />
+        <result column="raw_payload" property="rawPayload" />
+        <result column="last_updated_time" property="updatedTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, request_key, version, request_type, request_source, source_request_ref,
+        container_main_id, source_location_id, target_location_id, source_location_name, target_location_name,
+        accepted, accept_time, reject_reason, operator,
+        request_time, created_time, updated_time,
+        remark, raw_payload
+    </sql>
+
+    <!-- 根據條件查詢 -->
+    <select id="selectByCondition" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM crane_request
+        WHERE 1 = 1
+        <if test="requestType != null">
+            AND request_type = #{requestType}
+        </if>
+        <if test="requestSource != null">
+            AND request_source = #{requestSource}
+        </if>
+        <if test="accepted != null">
+            AND accepted = #{accepted}
+        </if>
+        <if test="requestAfter != null">
+            AND request_time &gt;= #{requestAfter}
+        </if>
+        <if test="requestBefore != null">
+            AND request_time &lt;= #{requestBefore}
+        </if>
+        ORDER BY request_time DESC
+    </select>
+
+</mapper>

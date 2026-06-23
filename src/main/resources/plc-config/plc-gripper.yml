@@ -1,0 +1,145 @@
+plc-gripper:
+  grippers:
+    - id: 1
+      name: "Gripper#1"
+      plcDeviceName: "PLC-Sub"
+      read-areas:
+        - type: B
+          address: 0x0788
+          length: 8
+        - type: W
+          address: 0x1260
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x0188
+          length: 8
+        - type: W
+          address: 0x0260
+          length: 32
+
+    - id: 2
+      name: "Gripper#2"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: B
+          address: 0x0790
+          length: 8
+        - type: W
+          address: 0x1280
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x0190
+          length: 8
+        - type: W
+          address: 0x0280
+          length: 32
+
+    - id: 3
+      name: "Gripper#3"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: B
+          address: 0x0798
+          length: 8
+        - type: W
+          address: 0x12A0
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x0198
+          length: 8
+        - type: W
+          address: 0x02A0
+          length: 32
+
+    - id: 4
+      name: "Gripper#4"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: B
+          address: 0x07A0
+          length: 8
+        - type: W
+          address: 0x12C0
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x01A0
+          length: 8
+        - type: W
+          address: 0x02C0
+          length: 32
+
+    - id: 5
+      name: "Gripper#5"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: B
+          address: 0x07A8
+          length: 8
+        - type: W
+          address: 0x12E0
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x01A8
+          length: 8
+        - type: W
+          address: 0x02E0
+          length: 32
+
+    - id: 6
+      name: "Gripper#6"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: B
+          address: 0x07B0
+          length: 8
+        - type: W
+          address: 0x1300
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x01B0
+          length: 8
+        - type: W
+          address: 0x0300
+          length: 32
+
+    - id: 7
+      name: "Gripper#7"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: B
+          address: 0x07B8
+          length: 8
+        - type: W
+          address: 0x1320
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x01B8
+          length: 8
+        - type: W
+          address: 0x0320
+          length: 32
+
+    - id: 8
+      name: "Gripper#8"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: B
+          address: 0x07C0
+          length: 8
+        - type: W
+          address: 0x1340
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x01C0
+          length: 8
+        - type: W
+          address: 0x0340
+          length: 32

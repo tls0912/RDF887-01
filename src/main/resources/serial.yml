@@ -1,0 +1,71 @@
+serial:
+  enabled: true
+  default:
+    baudRate: 115200          # 讀卡機常見 9600；若你的型號是 115200，這裡改掉
+    dataBits: 8
+    stopBits: 1
+    parity: NONE
+    flowControl: NONE
+    readTimeoutMs: 200
+    writeTimeoutMs: 200
+    dtr: false
+    rts: false
+
+  reconnect:
+    enabled: true
+    initialDelayMs: 500
+    maxDelayMs: 30000
+    multiplier: 2.0
+    jitterMs: 500
+
+  ports:
+    - id: COM5
+      alias: card1
+      protocol: LINE
+      delimiter: "\n"        # 若卡機回傳 CRLF，改成 "\r\n"
+    - id: COM6
+      alias: card2
+      protocol: LINE
+      delimiter: "\n"
+    - id: COM7
+      alias: card3
+      protocol: LINE
+      delimiter: "\n"
+#    - id: COM11
+#      alias: card4
+#      protocol: LINE
+#      delimiter: "\n"
+    - id: COM9
+      alias: card5
+      protocol: LINE
+      delimiter: "\n"
+    - id: COM10
+      alias: card6
+      protocol: LINE
+      delimiter: "\n"
+    - id: COM8
+      alias: card7
+      protocol: LINE
+      delimiter: "\n"
+
+
+card-reader:
+  enabled: true
+  uppercase: true        # 解析後轉大寫
+  trimCr: true           # 若 delimiter 是 "\r\n"，會再去除尾巴殘留的 CR
+  defaultReverse: false  # 預設不做 Reverse
+  readers:               # 可逐台覆蓋 reverse 規則
+    - alias: card1
+      reverse: false      # IsReverse = true
+    - alias: card2
+      reverse: false
+    - alias: card3
+      reverse: false
+#    - alias: card4
+#      reverse: false
+    - alias: card5
+      reverse: false
+    - alias: card6
+      reverse: false
+    - alias: card7
+      reverse: false

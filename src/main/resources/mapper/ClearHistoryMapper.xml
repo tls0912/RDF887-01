@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.czkuo.rdf88701.infra.mapper.ClearHistoryMapper">
+    <delete id="deleteTableDataBeforeTime">
+        DELETE FROM ${tableName}
+        WHERE ${colName} <![CDATA[ < ]]> #{clearBefore}
+        ORDER BY ${colName}
+        LIMIT #{limit}
+    </delete>
+
+    <delete id="deleteTableDataBeforeTime">
+        DELETE FROM ${tableName}
+        WHERE ${colName} <![CDATA[ < ]]> #{clearBefore}
+        ORDER BY ${colName}
+        LIMIT #{limit}
+    </delete>
+
+    <delete id="deleteMqttEventLogBeforeTime">
+        DELETE FROM mqtt_event_log
+        WHERE created_time <![CDATA[ < ]]> #{clearBefore} LIMIT #{limit}
+    </delete>
+
+    <delete id="deleteMqttMessageLogBeforeTimeByIdDesc">
+        DELETE FROM mqtt_message_log
+        WHERE created_time <![CDATA[ < ]]> #{clearBefore}
+        AND cmd_id='S002' and id_desc='CHECK_READY'
+        ORDER BY created_time
+        LIMIT #{limit}
+    </delete>
+
+    <delete id="deleteMqttEventStatusLogBeforeTime">
+        DELETE FROM mqtt_event_status_log
+        WHERE change_time <![CDATA[ < ]]> #{clearBefore} LIMIT #{limit}
+    </delete>
+
+
+</mapper>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.czkuo.rdf88701.infra.mapper.StrappingLogMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.czkuo.rdf88701.infra.entity.StrappingLog">
+        <id column="id" property="id" />
+        <result column="machine_pos" property="machinePos" />
+        <result column="machine_id" property="machineId" />
+        <result column="seq_index" property="seqIndex" />
+        <result column="seq_epoch" property="seqEpoch" />
+        <result column="product_id" property="productId" />
+        <result column="result" property="result" />
+        <result column="strapping_pos" property="strappingPos" />
+        <result column="event_time" property="eventTime" />
+        <result column="created_time" property="createdTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, machine_pos, machine_id, seq_index, seq_epoch, product_id, result, strapping_pos, event_time, created_time
+    </sql>
+
+</mapper>

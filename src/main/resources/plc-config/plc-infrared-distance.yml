@@ -1,0 +1,127 @@
+plc-infrared-distance:
+  infrareds:
+    - id: 1
+      name: "InfraredDistance#1"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: "B"
+          address: 0x7C8   # B07C8
+          length: 8
+        - type: "W"
+          address: 0x1360  # W1360
+          length: 8
+      write-areas:
+        - type: "B"
+          address: 0x1C8   # B01C8
+          length: 8
+        - type: "W"
+          address: 0x360   # W0360
+          length: 8
+
+    - id: 2
+      name: "InfraredDistance#2"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: "B"
+          address: 0x7D0
+          length: 8
+        - type: "W"
+          address: 0x1368
+          length: 8
+      write-areas:
+        - type: "B"
+          address: 0x1D0
+          length: 8
+        - type: "W"
+          address: 0x368
+          length: 8
+
+    - id: 3
+      name: "InfraredDistance#3"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: "B"
+          address: 0x7D8
+          length: 8
+        - type: "W"
+          address: 0x1370
+          length: 8
+      write-areas:
+        - type: "B"
+          address: 0x1D8
+          length: 8
+        - type: "W"
+          address: 0x370
+          length: 8
+
+    - id: 4
+      name: "InfraredDistance#4"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: "B"
+          address: 0x7E0
+          length: 8
+        - type: "W"
+          address: 0x1378
+          length: 8
+      write-areas:
+        - type: "B"
+          address: 0x1E0
+          length: 8
+        - type: "W"
+          address: 0x378
+          length: 8
+
+    - id: 5
+      name: "InfraredDistance#5"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: "B"
+          address: 0x7E8
+          length: 8
+        - type: "W"
+          address: 0x1380
+          length: 8
+      write-areas:
+        - type: "B"
+          address: 0x1E8
+          length: 8
+        - type: "W"
+          address: 0x380
+          length: 8
+
+    - id: 6
+      name: "InfraredDistance#6"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: "B"
+          address: 0x7F0
+          length: 8
+        - type: "W"
+          address: 0x1388
+          length: 8
+      write-areas:
+        - type: "B"
+          address: 0x1F0
+          length: 8
+        - type: "W"
+          address: 0x388
+          length: 8
+
+    - id: 7
+      name: "InfraredDistance#7"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: "B"
+          address: 0x7F8
+          length: 8
+        - type: "W"
+          address: 0x1390
+          length: 8
+      write-areas:
+        - type: "B"
+          address: 0x1F8
+          length: 8
+        - type: "W"
+          address: 0x390
+          length: 8

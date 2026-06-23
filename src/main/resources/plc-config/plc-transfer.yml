@@ -1,0 +1,163 @@
+plc-transfer:
+  transfers:
+    - id: 1
+      name: "Transfer#1"
+      plcDeviceName: "PLC-Sub"
+      read-areas:
+        - type: B
+          address: 0x700
+          length: 8
+        - type: W
+          address: 0x1100
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x100
+          length: 8
+        - type: W
+          address: 0x100
+          length: 32
+
+    - id: 2
+      name: "Transfer#2"
+      plcDeviceName: "PLC-Sub"
+      read-areas:
+        - type: B
+          address: 0x708
+          length: 8
+        - type: W
+          address: 0x1120
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x108
+          length: 8
+        - type: W
+          address: 0x120
+          length: 32
+
+    - id: 3
+      name: "Transfer#3"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: B
+          address: 0x710
+          length: 8
+        - type: W
+          address: 0x1140
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x110
+          length: 8
+        - type: W
+          address: 0x140
+          length: 32
+
+    - id: 4
+      name: "Transfer#4"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: B
+          address: 0x718
+          length: 8
+        - type: W
+          address: 0x1160
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x118
+          length: 8
+        - type: W
+          address: 0x160
+          length: 32
+
+    - id: 5
+      name: "Transfer#5"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: B
+          address: 0x720
+          length: 8
+        - type: W
+          address: 0x1180
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x120
+          length: 8
+        - type: W
+          address: 0x180
+          length: 32
+
+    - id: 6
+      name: "Transfer#6"
+      plcDeviceName: "PLC-Main"
+      read-areas:
+        - type: B
+          address: 0x728
+          length: 8
+        - type: W
+          address: 0x11A0
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x128
+          length: 8
+        - type: W
+          address: 0x1A0
+          length: 32
+
+    - id: 7
+      name: "Transfer#7"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: B
+          address: 0x730
+          length: 8
+        - type: W
+          address: 0x11C0
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x130
+          length: 8
+        - type: W
+          address: 0x1C0
+          length: 32
+
+    - id: 8
+      name: "Transfer#8"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: B
+          address: 0x738
+          length: 8
+        - type: W
+          address: 0x11E0
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x138
+          length: 8
+        - type: W
+          address: 0x1E0
+          length: 32
+
+    - id: 9
+      name: "Transfer#9"
+      plcDeviceName: "PLC-Packer"
+      read-areas:
+        - type: B
+          address: 0x740
+          length: 8
+        - type: W
+          address: 0x1200
+          length: 32
+      write-areas:
+        - type: B
+          address: 0x140
+          length: 8
+        - type: W
+          address: 0x200
+          length: 32

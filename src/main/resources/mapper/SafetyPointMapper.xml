@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.czkuo.rdf88701.infra.mapper.SafetyPointMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.czkuo.rdf88701.infra.entity.SafetyPoint">
+        <id column="id" property="id" />
+        <result column="group_word" property="groupWord" />
+        <result column="bit_hex" property="bitHex" />
+        <result column="addr_expr" property="addrExpr" />
+        <result column="type_code" property="typeCode" />
+        <result column="point_name" property="pointName" />
+        <result column="remark" property="remark" />
+        <result column="enabled" property="enabled" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, group_word, bit_hex, addr_expr, type_code, point_name, remark, enabled
+    </sql>
+
+</mapper>

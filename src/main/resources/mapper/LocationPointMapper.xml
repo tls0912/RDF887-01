@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.czkuo.rdf88701.infra.mapper.LocationPointMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.czkuo.rdf88701.infra.entity.LocationPoint">
+        <id column="id" property="id" />
+        <result column="zone_code" property="zoneCode" />
+        <result column="code" property="code" />
+        <result column="name" property="name" />
+        <result column="coordinate_x" property="coordinateX" />
+        <result column="coordinate_y" property="coordinateY" />
+        <result column="coordinate_z" property="coordinateZ" />
+        <result column="bank" property="bank" />
+        <result column="bay" property="bay" />
+        <result column="level" property="level" />
+        <result column="location_type" property="locationType" />
+        <result column="enabled" property="enabled" />
+        <result column="is_occupied" property="isOccupied" />
+        <result column="is_locked" property="isLocked" />
+        <result column="is_reserved" property="isReserved" />
+        <result column="lock_reason" property="lockReason" />
+        <result column="preferred_status" property="preferredStatus" />
+        <result column="created_time" property="createdTime" />
+        <result column="updated_time" property="updatedTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, zone_code, code, name, coordinate_x, coordinate_y, coordinate_z, bank, bay, level, location_type, enabled, is_occupied, is_locked, is_reserved, lock_reason, preferred_status, created_time, updated_time
+    </sql>
+
+    <update id="updateOccupiedFlag">
+        UPDATE location_point
+        SET is_occupied = #{flag},
+        updated_time = CURRENT_TIMESTAMP
+        WHERE id = #{id}
+    </update>
+
+    <select id="findAvailableStorageWithoutReservationExcluding"
+            parameterType="map"
+            resultMap="BaseResultMap">
+        SELECT
+        lp.id, zone_code, code, name, coordinate_x, coordinate_y, coordinate_z, bank, bay, level, location_type, enabled, is_occupied, is_locked, is_reserved, lock_reason, preferred_status, created_time, updated_time
+        FROM location_point lp
+        LEFT JOIN location_reservation_record rr
+        ON rr.location_point_id = lp.id
+        AND rr.fulfilled = 0
+        AND rr.cancelled = 0
+        AND rr.expired   = 0
+        WHERE lp.enabled = 'Y'
+        AND lp.location_type = 'STORAGE'
+        AND lp.is_locked  = 'N'
+        AND lp.is_reserved= 'N'
+        AND lp.is_occupied= 'N'
+        AND rr.id IS NULL
+        <if test="params.excludedLocationIds != null and params.excludedLocationIds.size() > 0">
+            AND lp.id NOT IN
+            <foreach item="id" collection="params.excludedLocationIds" open="(" separator="," close=")">
+                #{id}
+            </foreach>
+        </if>
+        ORDER BY lp.level ASC, lp.bank DESC, lp.bay ASC
+        LIMIT #{params.limit}
+        <if test="params.forUpdate != null and params.forUpdate">
+            FOR UPDATE SKIP LOCKED
+        </if>
+    </select>
+
+    <!-- 根據 location name 查詢位置點主鍵 ID -->
+    <select id="selectIdByName" resultType="java.lang.Long">
+        SELECT id
+        FROM location_point
+        WHERE name = #{name}
+        LIMIT 1
+    </select>
+
+    <!-- 根據 transfer 裝置 ID 查詢對應的位置點清單 -->
+    <select id="selectIdsByTransferId" resultType="java.lang.Long">
+        SELECT id
+        FROM location_point
+        WHERE name LIKE CONCAT('Transfer#', #{transferId}, '%')
+        AND enabled = 'Y'
+    </select>
+
+    <!-- 根據 gripper 裝置 ID 查詢對應的位置點清單 -->
+    <select id="selectIdsByGripperId" resultType="java.lang.Long">
+        SELECT id
+        FROM location_point
+        WHERE name LIKE CONCAT('Gripper#', #{gripperId}, '%')
+        AND enabled = 'Y'
+    </select>
+
+
+
+    <!--
+        查詢所有儲格（含容器與產品資訊，帳籍/物理旗標分開）
+        - 多表 Join：location_point、location_tracking、container_main、container_data
+        - 回傳 WipSlotDetailDTO（含儲格、容器、產品、佔用等資訊，適用於 UI 或 S004 回覆）
+        - status = 帳籍佔用旗標（slot_present_status），is_occupied = 物理佔用旗標
+    -->
+    <resultMap id="WipSlotDetailMap" type="com.czkuo.rdf88701.domain.dto.wip.WipSlotDetailDTO">
+        <result column="location_code" property="locationCode"/>
+        <result column="location_name" property="locationName"/>
+        <result column="zone_code" property="zoneCode"/>
+        <result column="location_type" property="locationType"/>
+        <result column="slot_present_status" property="status"/>
+        <result column="is_locked" property="isLocked"/>
+        <result column="is_reserved" property="isReserved"/>
+        <result column="is_occupied" property="isOccupied"/>
+        <result column="container_alias_code" property="containerAliasCode"/>
+        <result column="container_type" property="containerType"/>
+        <result column="container_code" property="containerBarcode"/>
+        <result column="lot_no" property="lotNo"/>
+        <result column="part_no" property="partNo"/>
+        <result column="verified_quantity" property="verifiedQuantity"/>
+        <result column="ocr_text1" property="ocrText1"/>
+        <result column="ocr_text2" property="ocrText2"/>
+        <result column="arrived_time" property="arrivedTime"/>
+    </resultMap>
+
+    <select id="selectAllWipSlotDetails" resultMap="WipSlotDetailMap">
+        SELECT
+        lp.code AS location_code,
+        lp.name AS location_name,
+        lp.zone_code,
+        lp.location_type,
+        -- 帳籍佔用狀態：有 tracking（帳上有掛容器）為 'ON'，無則 'OFF'
+        CASE WHEN lt.id IS NULL THEN 'OFF' ELSE 'ON' END AS slot_present_status,
+        IF(lp.is_locked='Y', TRUE, FALSE) AS is_locked,
+        IF(lp.is_reserved='Y', TRUE, FALSE) AS is_reserved,
+        IF(lp.is_occupied='Y', TRUE, FALSE) AS is_occupied,   -- 物理旗標
+        cm.alias_code AS container_alias_code,
+        cm.container_type,
+        cm.container_code,
+        cm.lot_no,
+        cm.part_no,
+        cd.estimated_quantity,
+        cd.verified_quantity,
+        cd.ocr_text1,
+        cd.ocr_text2,
+        lt.arrived_time
+        FROM location_point lp
+        LEFT JOIN location_tracking lt ON lp.id = lt.location_point_id
+        LEFT JOIN container_main cm ON lt.container_main_id = cm.id
+        LEFT JOIN (
+        SELECT cdata.*
+        FROM container_data cdata
+        INNER JOIN (
+        SELECT container_main_id, MAX(id) AS max_id
+        FROM container_data
+        GROUP BY container_main_id
+        ) last ON cdata.container_main_id = last.container_main_id AND cdata.id = last.max_id
+        ) cd ON cm.id = cd.container_main_id
+        WHERE lp.location_type = 'STORAGE'
+        AND lp.enabled = 'Y'
+        ORDER BY lp.code
+    </select>
+    <!-- 查詢指定區域下的儲格現況（zoneCode） -->
+    <select id="selectWipSlotDetailsByZone" resultMap="WipSlotDetailMap">
+        SELECT
+        lp.code AS location_code,
+        lp.name AS location_name,
+        lp.zone_code,
+        lp.location_type,
+        CASE WHEN lt.id IS NULL THEN 'OFF' ELSE 'ON' END AS slot_present_status,
+        IF(lp.is_locked='Y', TRUE, FALSE) AS is_locked,
+        IF(lp.is_reserved='Y', TRUE, FALSE) AS is_reserved,
+        IF(lp.is_occupied='Y', TRUE, FALSE) AS is_occupied,
+        cm.alias_code AS container_alias_code,
+        cm.container_type,
+        cm.container_code,
+        cm.lot_no,
+        cm.part_no,
+        cd.estimated_quantity,
+        cd.verified_quantity,
+        cd.ocr_text1,
+        cd.ocr_text2,
+        lt.arrived_time
+        FROM location_point lp
+        LEFT JOIN location_tracking lt ON lp.id = lt.location_point_id
+        LEFT JOIN container_main cm ON lt.container_main_id = cm.id
+        LEFT JOIN (
+        SELECT cdata.*
+        FROM container_data cdata
+        INNER JOIN (
+        SELECT container_main_id, MAX(id) AS max_id
+        FROM container_data
+        GROUP BY container_main_id
+        ) last ON cdata.container_main_id = last.container_main_id AND cdata.id = last.max_id
+        ) cd ON cm.id = cd.container_main_id
+        WHERE lp.location_type = 'STORAGE'
+        AND lp.enabled = 'Y'
+        AND lp.zone_code = #{zoneCode}
+        ORDER BY lp.code
+    </select>
+
+    <!-- 查詢所有帳實不一致的儲格現況 -->
+    <select id="selectMismatchedSlotDetails" resultMap="WipSlotDetailMap">
+        SELECT
+        lp.code AS location_code,
+        lp.name AS location_name,
+        lp.zone_code,
+        lp.location_type,
+        CASE WHEN lt.id IS NULL THEN 'OFF' ELSE 'ON' END AS slot_present_status,
+        IF(lp.is_locked='Y', TRUE, FALSE) AS is_locked,
+        IF(lp.is_reserved='Y', TRUE, FALSE) AS is_reserved,
+        IF(lp.is_occupied='Y', TRUE, FALSE) AS is_occupied,
+        cm.alias_code AS container_alias_code,
+        cm.container_type,
+        cm.container_code,
+        cm.lot_no,
+        cm.part_no,
+        cd.estimated_quantity,
+        cd.verified_quantity,
+        cd.ocr_text1,
+        cd.ocr_text2,
+        lt.arrived_time
+        FROM location_point lp
+        LEFT JOIN location_tracking lt ON lp.id = lt.location_point_id
+        LEFT JOIN container_main cm ON lt.container_main_id = cm.id
+        LEFT JOIN (
+        SELECT cdata.*
+        FROM container_data cdata
+        INNER JOIN (
+        SELECT container_main_id, MAX(id) AS max_id
+        FROM container_data
+        GROUP BY container_main_id
+        ) last ON cdata.container_main_id = last.container_main_id AND cdata.id = last.max_id
+        ) cd ON cm.id = cd.container_main_id
+        WHERE lp.location_type = 'STORAGE'
+        AND lp.enabled = 'Y'
+        AND (
+        (lt.id IS NULL AND lp.is_occupied = 'Y')     -- 帳籍沒容器但感測有貨
+        OR (lt.id IS NOT NULL AND lp.is_occupied = 'N') -- 帳籍有容器但感測沒貨
+        )
+        ORDER BY lp.code
+    </select>
+
+</mapper>

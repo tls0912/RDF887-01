@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.czkuo.rdf88701.infra.mapper.MqttEventLogMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.czkuo.rdf88701.infra.entity.MqttEventLog">
+        <id column="id" property="id" />
+        <result column="event_type" property="eventType" />
+        <result column="tid" property="tid" />
+        <result column="topic" property="topic" />
+        <result column="target_system" property="targetSystem" />
+        <result column="require_ack" property="requireAck" />
+        <result column="status" property="status" />
+        <result column="event_time" property="eventTime" />
+        <result column="send_time" property="sendTime" />
+        <result column="ack_time" property="ackTime" />
+        <result column="retry_count" property="retryCount" />
+        <result column="payload" property="payload" />
+        <result column="result_message" property="resultMessage" />
+        <result column="next_attempt_time" property="nextAttemptTime" />
+        <result column="created_time" property="createdTime" />
+        <result column="updated_time" property="updatedTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, event_type, tid, topic, target_system, require_ack, status, event_time, send_time, ack_time, retry_count, payload, result_message, next_attempt_time, created_time, updated_time
+    </sql>
+
+</mapper>

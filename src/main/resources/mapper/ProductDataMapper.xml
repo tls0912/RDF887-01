@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.czkuo.rdf88701.infra.mapper.ProductDataMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.czkuo.rdf88701.infra.entity.ProductData">
+        <id column="id" property="id" />
+        <result column="product_main_id" property="productMainId" />
+        <result column="ocr_text" property="ocrText" />
+        <result column="layer_index" property="layerIndex" />
+        <result column="quality_check_result" property="qualityCheckResult" />
+        <result column="is_lid" property="isLid" />
+        <result column="created_time" property="createdTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, product_main_id, ocr_text, layer_index, quality_check_result, is_lid, created_time
+    </sql>
+
+</mapper>

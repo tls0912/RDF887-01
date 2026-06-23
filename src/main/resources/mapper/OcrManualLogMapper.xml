@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.czkuo.rdf88701.infra.mapper.OcrManualLogMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.czkuo.rdf88701.infra.entity.OcrManualLog">
+        <id column="id" property="id" />
+        <result column="container_main_id" property="containerMainId" />
+        <result column="curr_ocr_text1" property="currOcrText1" />
+        <result column="curr_ocr_text2" property="currOcrText2" />
+        <result column="ref_site" property="refSite" />
+        <result column="ref_container_id" property="refContainerId" />
+        <result column="ref_ocr_text1" property="refOcrText1" />
+        <result column="ref_ocr_text2" property="refOcrText2" />
+        <result column="bad_ocr" property="badOcr" />
+        <result column="part_match" property="partMatch" />
+        <result column="ocr1_match" property="ocr1Match" />
+        <result column="ocr2_match" property="ocr2Match" />
+        <result column="manual_decision" property="manualDecision" />
+        <result column="manual_by" property="manualBy" />
+        <result column="manual_time" property="manualTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, container_main_id, curr_ocr_text1, curr_ocr_text2, ref_site, ref_container_id, ref_ocr_text1, ref_ocr_text2, bad_ocr, part_match, ocr1_match, ocr2_match, manual_decision, manual_by, manual_time
+    </sql>
+
+</mapper>

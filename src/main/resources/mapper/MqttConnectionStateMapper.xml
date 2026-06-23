@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.czkuo.rdf88701.infra.mapper.MqttConnectionStateMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.czkuo.rdf88701.infra.entity.MqttConnectionState">
+        <id column="id" property="id" />
+        <result column="remote_system" property="remoteSystem" />
+        <result column="connected" property="connected" />
+        <result column="last_connected_time" property="lastConnectedTime" />
+        <result column="last_heartbeat_time" property="lastHeartbeatTime" />
+        <result column="created_time" property="createdTime" />
+        <result column="updated_time" property="updatedTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, remote_system, connected, last_connected_time, last_heartbeat_time, created_time, updated_time
+    </sql>
+
+</mapper>

@@ -1,0 +1,19 @@
+plc-labeling:
+  devices:
+    - id: 1
+      name: "Labeling#1"
+      plcDeviceName: "PLC-Packer"
+      writeAreas:
+        - type: "B"
+          address: 0x218  # B0218
+          length: 8       # B0218 ~ B021F
+        - type: "W"
+          address: 0x3B0  # W03B0
+          length: 8       # W03B0 ~ W03B7
+      readAreas:
+        - type: "B"
+          address: 0x818  # B0818
+          length: 8       # B0818 ~ B081F
+        - type: "W"
+          address: 0x13B0 # W13B0
+          length: 8       # W13B0 ~ W13B7

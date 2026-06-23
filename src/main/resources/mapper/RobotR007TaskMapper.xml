@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.czkuo.rdf88701.infra.mapper.RobotR007TaskMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.czkuo.rdf88701.infra.entity.RobotR007Task">
+        <id column="id" property="id" />
+        <result column="log_id" property="logId" />
+        <result column="inbox_id" property="inboxId" />
+        <result column="tid" property="tid" />
+        <result column="lot_id" property="lotId" />
+        <result column="carrier_id" property="carrierId" />
+        <result column="wip_name" property="wipName" />
+        <result column="dest_loc" property="destLoc" />
+        <result column="eqp_port" property="eqpPort" />
+        <result column="device_name" property="deviceName" />
+        <result column="stk_port" property="stkPort" />
+        <result column="tray_high" property="trayHigh" />
+        <result column="tray_type" property="trayType" />
+        <result column="tray_num" property="trayNum" />
+        <result column="move_priority" property="movePriority" />
+        <result column="mission_trip" property="missionTrip" />
+        <result column="odo" property="odo" />
+        <result column="amr_speed" property="amrSpeed" />
+        <result column="amr_robot_speed" property="amrRobotSpeed" />
+        <result column="ppkg_body_size" property="ppkgBodySize" />
+        <result column="flip" property="flip" />
+        <result column="zip_required" property="zipRequired" />
+        <result column="amr_required" property="amrRequired" />
+        <result column="zip_state" property="zipState" />
+        <result column="zip_attempts" property="zipAttempts" />
+        <result column="zip_last_attempt_time" property="zipLastAttemptTime" />
+        <result column="zip_accept_time" property="zipAcceptTime" />
+        <result column="zip_result_code" property="zipResultCode" />
+        <result column="zip_result_message" property="zipResultMessage" />
+        <result column="zip_request_json" property="zipRequestJson" />
+        <result column="zip_response_json" property="zipResponseJson" />
+        <result column="amr_tid" property="amrTid" />
+        <result column="amr_state" property="amrState" />
+        <result column="amr_attempts" property="amrAttempts" />
+        <result column="amr_last_attempt_time" property="amrLastAttemptTime" />
+        <result column="amr_last_ack_time" property="amrLastAckTime" />
+        <result column="amr_result_message" property="amrResultMessage" />
+        <result column="amr_forward_log_id" property="amrForwardLogId" />
+        <result column="amr_ack_start_log_id" property="amrAckStartLogId" />
+        <result column="amr_ack_end_log_id" property="amrAckEndLogId" />
+        <result column="amr_request_json" property="amrRequestJson" />
+        <result column="amr_last_ack_json" property="amrLastAckJson" />
+        <result column="internal_state" property="internalState" />
+        <result column="external_last_result" property="externalLastResult" />
+        <result column="external_last_time" property="externalLastTime" />
+        <result column="fail_reason" property="failReason" />
+        <result column="cancel_reason" property="cancelReason" />
+        <result column="raw_message_json" property="rawMessageJson" />
+        <result column="created_time" property="createdTime" />
+        <result column="updated_time" property="updatedTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, log_id, inbox_id, tid, lot_id, carrier_id, wip_name, dest_loc, eqp_port, device_name, stk_port, tray_high, tray_type, tray_num, move_priority, mission_trip, odo, amr_speed, amr_robot_speed, ppkg_body_size, flip, zip_required, amr_required, zip_state, zip_attempts, zip_last_attempt_time, zip_accept_time, zip_result_code, zip_result_message, zip_request_json, zip_response_json, amr_tid, amr_state, amr_attempts, amr_last_attempt_time, amr_last_ack_time, amr_result_message, amr_forward_log_id, amr_ack_start_log_id, amr_ack_end_log_id, amr_request_json, amr_last_ack_json, internal_state, external_last_result, external_last_time, fail_reason, cancel_reason, raw_message_json, created_time, updated_time
+    </sql>
+
+</mapper>

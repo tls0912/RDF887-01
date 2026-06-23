@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.czkuo.rdf88701.infra.mapper.InfraredTaskMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.czkuo.rdf88701.infra.entity.InfraredTask">
+        <id column="id" property="id" />
+        <result column="request_id" property="requestId" />
+        <result column="infrared_id" property="infraredId" />
+        <result column="container_main_id" property="containerMainId" />
+        <result column="task_type" property="taskType" />
+        <result column="task_status" property="taskStatus" />
+        <result column="priority_level" property="priorityLevel" />
+        <result column="dispatched_time" property="dispatchedTime" />
+        <result column="completed_time" property="completedTime" />
+        <result column="cancelled_time" property="cancelledTime" />
+        <result column="done_time" property="doneTime" />
+        <result column="cancelled_reason" property="cancelledReason" />
+        <result column="remark" property="remark" />
+        <result column="created_time" property="createdTime" />
+        <result column="updated_time" property="updatedTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, request_id, infrared_id, container_main_id, task_type, task_status, priority_level, dispatched_time, completed_time, cancelled_time, done_time, cancelled_reason, remark, created_time, updated_time
+    </sql>
+
+    <!--
+      查詢指定 infraredId 下最高優先任務
+      - 僅限狀態為：PENDING、DISPATCHED、IN_PROGRESS、RETRY、COMPLETED、FAILED
+      - 優先排序依據：
+        1. task_status 排序：PENDING < DISPATCHED < IN_PROGRESS < RETRY < COMPLETED < FAILED
+        2. priority_level 降冪（高優先）
+        3. id 升冪（先進先出）
+    -->
+    <select id="findTopTaskByInfraredOrdered" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List" />
+        FROM infrared_task
+        WHERE infrared_id = #{infraredId}
+        AND task_status IN ('PENDING', 'DISPATCHED', 'IN_PROGRESS', 'RETRY', 'COMPLETED', 'FAILED')
+        AND done_time IS NULL
+        ORDER BY
+        CASE task_status
+        WHEN 'PENDING' THEN 0
+        WHEN 'DISPATCHED' THEN 1
+        WHEN 'IN_PROGRESS' THEN 2
+        WHEN 'RETRY' THEN 3
+        WHEN 'COMPLETED' THEN 4
+        WHEN 'FAILED' THEN 5
+        ELSE 99
+        END,
+        priority_level DESC,
+        id ASC
+        LIMIT 1
+    </select>
+
+</mapper>

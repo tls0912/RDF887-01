@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.czkuo.rdf88701.infra.mapper.OcrVerificationMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.czkuo.rdf88701.infra.entity.OcrVerification">
+        <id column="id" property="id" />
+        <result column="container_main_id" property="containerMainId" />
+        <result column="state" property="state" />
+        <result column="carrier_id" property="carrierId" />
+        <result column="lot_id" property="lotId" />
+        <result column="tray_type" property="trayType" />
+        <result column="ref_site" property="refSite" />
+        <result column="ref_container_id" property="refContainerId" />
+        <result column="curr_ocr_text1" property="currOcrText1" />
+        <result column="curr_ocr_text2" property="currOcrText2" />
+        <result column="ref_ocr_text1" property="refOcrText1" />
+        <result column="ref_ocr_text2" property="refOcrText2" />
+        <result column="local_pass" property="localPass" />
+        <result column="bad_ocr" property="badOcr" />
+        <result column="part_match" property="partMatch" />
+        <result column="ocr1_match" property="ocr1Match" />
+        <result column="ocr2_match" property="ocr2Match" />
+        <result column="s073_tid" property="s073Tid" />
+        <result column="s073_status" property="s073Status" />
+        <result column="s073_result_code" property="s073ResultCode" />
+        <result column="s073_sent_time"        property="s073SentTime" />
+        <result column="s073_retry_count"      property="s073RetryCount" />
+        <result column="s073_last_retry_time"  property="s073LastRetryTime" />
+        <result column="s073_next_retry_time"  property="s073NextRetryTime" />
+        <result column="manual_decision" property="manualDecision" />
+        <result column="manual_by" property="manualBy" />
+        <result column="manual_time" property="manualTime" />
+        <result column="final_result" property="finalResult" />
+        <result column="created_time" property="createdTime" />
+        <result column="updated_time" property="updatedTime" />
+        <result column="curr_back_one_light_path"     property="currBackOneLightPath" />
+        <result column="curr_back_three_light_path"   property="currBackThreeLightPath" />
+        <result column="curr_front_one_light_path"    property="currFrontOneLightPath" />
+        <result column="curr_front_three_light_path"  property="currFrontThreeLightPath" />
+        <result column="ref_back_one_light_path"      property="refBackOneLightPath" />
+        <result column="ref_back_three_light_path"    property="refBackThreeLightPath" />
+        <result column="ref_front_one_light_path"     property="refFrontOneLightPath" />
+        <result column="ref_front_three_light_path"   property="refFrontThreeLightPath" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, container_main_id, state, carrier_id, lot_id, tray_type, ref_site, ref_container_id, curr_ocr_text1, curr_ocr_text2, ref_ocr_text1, ref_ocr_text2, local_pass, bad_ocr, part_match, ocr1_match, ocr2_match, s073_tid, s073_status, s073_result_code s073_sent_time, s073_retry_count, s073_last_retry_time, s073_next_retry_time, manual_decision, manual_by, manual_time, final_result, created_time, updated_time, curr_back_one_light_path, curr_back_three_light_path, curr_front_one_light_path, curr_front_three_light_path, ref_back_one_light_path, ref_back_three_light_path, ref_front_one_light_path, ref_front_three_light_path
+    </sql>
+
+</mapper>

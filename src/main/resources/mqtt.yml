@@ -1,0 +1,70 @@
+mqtt:
+  client:
+    system: saa
+
+  connections:
+    ase:
+      broker: tcp://localhost:1883
+      clientId: saa-ase
+      sendTopic: WBG/CIM/AUTOLINE/VM/EQP
+      recvTopic: WBG/CIM/AUTOLINE/VM/MCS
+    seec:
+      broker: tcp://localhost:1883
+      clientId: saa-seec
+      sendTopic: SAA
+      recvTopic: SEEC
+
+  command:
+    require-connected: true          # 發送指令前是否必須「已連線」
+    handshake:                       # 給 MqttConnectionService 的握手參數
+      attempts: 3                    # 重試次數
+      wait-seconds: 5                # 每次送 S001 後等待連線就緒的秒數
+      backoff-seconds: 2             # 兩次握手間退避秒數
+
+  audit:
+    queue:
+      enabled: true
+      max-size: 5000
+      batch-size: 100
+      flush-interval-ms: 300
+
+  outbox:
+    enabled: false
+    batch-size: 50
+    max-attempts: 10
+    initial-backoff-seconds: 2
+    multiplier: 2.0
+    max-backoff-seconds: 60
+    retry-fixed-delay-ms: 1000
+    initial-delay-ms: 0              # worker 啟動延遲，避免剛開機與握手/建連搶資源
+    handshake-before-retry: true     # 未連線時先丟 S001 再排下次
+
+  auto-report:
+    s001:
+      enabled: true
+      target: BOTH                   # ASE / SEEC / BOTH / ALL
+      delay-seconds: 5
+      only-when-disconnected: true   # 只有尚未連線才送（避免啟動時重複噴 S001）
+      use-handshake-until-connected: true   # true：用「握手直到連上」模式（參數沿用 command.handshake）
+      reset-state-on-startup: true   # 啟動時先把目標 peers 的快照設為 DISCONNECTED，避免上一輪殘留「已連線」
+      # ↓ 下兩個只在 use-handshake-until-connected=false 的「單純發送模式」使用
+      max-attempts: 3
+      backoff-seconds: 5
+      hint: "auto-startup"
+
+  heartbeat:
+    enabled: true
+    send-immediately-on-connect: true
+    fixed-delay-ms: 60000
+    jitter-seconds: 0         # 需要就設 >0
+    target: CONNECTED_ONLY    # 或 ALL
+    timeout-seconds: 5        # 心跳逾時門檻（秒）。某 peer 超過 N 秒沒有更新 last_heartbeat_time（即沒回 S002/ACK）就視為斷線；
+                              # MqttConnectionService.checkHeartbeatTimeout() 會標記 DISCONNECTED，並可嘗試送 S001 重新握手。
+    timeout-check-ms: 5000  # 逾時巡檢排程的週期（毫秒）。每隔此間隔掃描一次各 peer 的 last_heartbeat_time 來判斷是否逾時。
+
+  card:
+    enabled: true
+    targetSystem: ase    # 預設丟到 ase
+    debounceMs: 300      # 300ms 內同一 reader 同一卡號視為重複
+    aliasTarget: {}      # 如需 per-reader 指到別的系統，在這裡覆蓋
+    # card6: ase

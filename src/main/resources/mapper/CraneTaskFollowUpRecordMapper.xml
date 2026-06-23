@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.czkuo.rdf88701.infra.mapper.CraneTaskFollowUpRecordMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.czkuo.rdf88701.infra.entity.CraneTaskFollowUpRecord">
+        <id column="id" property="id" />
+        <result column="root_task_id" property="rootTaskId" />
+        <result column="original_task_id" property="originalTaskId" />
+        <result column="reason_code" property="reasonCode" />
+        <result column="reason_desc" property="reasonDesc" />
+        <result column="follow_up_task_id" property="followUpTaskId" />
+        <result column="handled" property="handled" />
+        <result column="handled_time" property="handledTime" />
+        <result column="created_time" property="createdTime" />
+        <result column="updated_time" property="updatedTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, root_task_id, original_task_id, reason_code, reason_desc, follow_up_task_id, handled, handled_time, created_time, updated_time
+    </sql>
+
+</mapper>

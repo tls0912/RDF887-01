@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.czkuo.rdf88701.infra.mapper.RobotR029TaskMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.czkuo.rdf88701.infra.entity.RobotR029Task">
+        <id column="id" property="id" />
+        <result column="log_id" property="logId" />
+        <result column="inbox_id" property="inboxId" />
+        <result column="tid" property="tid" />
+        <result column="piece_per_lot" property="piecePerLot" />
+        <result column="tray_type" property="trayType" />
+        <result column="tray_desc" property="trayDesc" />
+        <result column="crane_speed" property="craneSpeed" />
+        <result column="fork_speed" property="forkSpeed" />
+        <result column="priority" property="priority" />
+        <result column="lane" property="lane" />
+        <result column="internal_state" property="internalState" />
+        <result column="external_last_result" property="externalLastResult" />
+        <result column="external_last_time" property="externalLastTime" />
+        <result column="fail_reason" property="failReason" />
+        <result column="raw_message_json" property="rawMessageJson" />
+        <result column="active_lane" property="activeLane" />
+        <result column="created_time" property="createdTime" />
+        <result column="updated_time" property="updatedTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, log_id, inbox_id, tid, piece_per_lot, tray_type, tray_desc, crane_speed, fork_speed, priority, lane, internal_state, external_last_result, external_last_time, fail_reason, raw_message_json, active_lane, created_time, updated_time
+    </sql>
+
+</mapper>

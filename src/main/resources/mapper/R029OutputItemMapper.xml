@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.czkuo.rdf88701.infra.mapper.R029OutputItemMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.czkuo.rdf88701.infra.entity.R029OutputItem">
+        <id column="id" property="id" />
+        <result column="task_id" property="taskId" />
+        <result column="from_carrier_id" property="fromCarrierId" />
+        <result column="new_carrier_id" property="newCarrierId" />
+        <result column="pieces" property="pieces" />
+        <result column="state" property="state" />
+        <result column="created_time" property="createdTime" />
+        <result column="updated_time" property="updatedTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, task_id, from_carrier_id, new_carrier_id, pieces, state, created_time, updated_time
+    </sql>
+
+</mapper>

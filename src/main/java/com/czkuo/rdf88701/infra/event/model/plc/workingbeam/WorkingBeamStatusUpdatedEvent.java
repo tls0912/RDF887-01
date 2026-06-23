@@ -1,0 +1,27 @@
+package com.czkuo.rdf88701.infra.event.model.plc.workingbeam;
+
+import com.czkuo.rdf88701.domain.plc.state.workingbeam.WorkingBeamDeviceStatus;
+import com.czkuo.rdf88701.domain.plc.state.workingbeam.WorkingBeamState;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.ToString;
+
+/**
+ * WorkingBeamStatusUpdatedEvent
+ * - 表示單一 Working Beam 的設備狀態更新事件
+ * - 用於事件推播、狀態記錄、或狀態同步流程
+ */
+@Getter
+@ToString
+@RequiredArgsConstructor
+public class WorkingBeamStatusUpdatedEvent {
+
+    /** Working Beam 裝置 ID */
+    private final int workingBeamId;
+
+    /** 最新設備狀態資料（完整快照） */
+    private final WorkingBeamDeviceStatus deviceStatus;
+
+    /** 最新判斷後的狀態（如 READY、IN_PROGRESS 等） */
+    private final WorkingBeamState currentState;
+}

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.czkuo.rdf88701.infra.mapper.LabelingInfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.czkuo.rdf88701.infra.entity.LabelingInfo">
+        <id column="id" property="id" />
+        <result column="request_key" property="requestKey" />
+        <result column="source_cmd_id" property="sourceCmdId" />
+        <result column="tid" property="tid" />
+        <result column="container_main_id" property="containerMainId" />
+        <result column="site_code" property="siteCode" />
+        <result column="label_no" property="labelNo" />
+        <result column="payload" property="payload" />
+        <result column="status" property="status" />
+        <result column="expires_at" property="expiresAt" />
+        <result column="created_time" property="createdTime" />
+        <result column="updated_time" property="updatedTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, request_key, source_cmd_id, tid, container_main_id, site_code, label_no, payload, status, expires_at, created_time, updated_time
+    </sql>
+
+    <!-- 基礎擴充 -->
+    <select id="findByRequestKey" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM labeling_info
+        WHERE request_key = #{requestKey}
+        LIMIT 1
+    </select>
+
+    <update id="updateStatus">
+        UPDATE labeling_info
+        SET status = #{status}, updated_time = NOW()
+        WHERE id = #{id}
+    </update>
+
+    <!-- Watermark -->
+    <select id="selectMaxId" resultType="long">
+        SELECT IFNULL(MAX(id), 0) FROM labeling_info
+    </select>
+
+    <!-- Claim：站位最早 READY（加行鎖） -->
+    <select id="selectReadyForClaim" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM labeling_info
+        WHERE status = 'READY'
+        AND (expires_at IS NULL OR expires_at > NOW())
+        AND (site_code IS NULL OR site_code = #{siteCode})
+        ORDER BY created_time ASC, id ASC
+        LIMIT 1
+        FOR UPDATE
+    </select>
+
+    <!-- 綁定站位/容器/標籤號（只在 READY 狀態下） -->
+    <update id="bindToSiteAndContainer">
+        UPDATE labeling_info
+        SET site_code = #{siteCode},
+            container_main_id = #{containerMainId},
+            label_no = #{labelNo},
+            updated_time = NOW()
+        WHERE id = #{id}
+          AND status = 'READY'
+    </update>
+
+    <!-- Claim：只挑 watermark 之後(id > afterId) 的第一筆 READY（加行鎖） -->
+    <select id="selectReadyAfterId" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM labeling_info
+        WHERE status = 'READY'
+        AND id > #{afterId}
+        AND (expires_at IS NULL OR expires_at > NOW())
+        AND (site_code IS NULL OR site_code = #{siteCode})
+        ORDER BY created_time ASC, id ASC
+        LIMIT 1
+        FOR UPDATE
+    </select>
+
+    <!-- 查詢：依 container/site 找一筆 READY（無鎖） -->
+    <select id="findReady" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM labeling_info
+        WHERE status = 'READY'
+        AND (expires_at IS NULL OR expires_at > NOW())
+        <if test="containerMainId != null">
+            AND container_main_id = #{containerMainId}
+        </if>
+        <if test="siteCode != null">
+            AND site_code = #{siteCode}
+        </if>
+        ORDER BY created_time DESC, id DESC
+        LIMIT 1
+    </select>
+
+</mapper>

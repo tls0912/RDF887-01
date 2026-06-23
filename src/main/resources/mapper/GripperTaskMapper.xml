@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.czkuo.rdf88701.infra.mapper.GripperTaskMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.czkuo.rdf88701.infra.entity.GripperTask">
+        <id column="id" property="id" />
+        <result column="request_id" property="requestId" />
+        <result column="request_version" property="requestVersion" />
+        <result column="gripper_id" property="gripperId" />
+        <result column="task_type" property="taskType" />
+        <result column="task_status" property="taskStatus" />
+        <result column="container_main_id" property="containerMainId" />
+        <result column="from_location_id" property="fromLocationId" />
+        <result column="to_location_id" property="toLocationId" />
+        <result column="target_height_mm" property="targetHeightMm" />
+        <result column="layer_count" property="layerCount" />
+        <result column="dispatched_time" property="dispatchedTime" />
+        <result column="completed_time" property="completedTime" />
+        <result column="cancelled_time" property="cancelledTime" />
+        <result column="cancelled_reason" property="cancelledReason" />
+        <result column="operator" property="operator" />
+        <result column="remark" property="remark" />
+        <result column="created_time" property="createdTime" />
+        <result column="updated_time" property="updatedTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, request_id, request_version, gripper_id, task_type, task_status, container_main_id, from_location_id, to_location_id, target_height_mm, layer_count, dispatched_time, completed_time, cancelled_time, cancelled_reason, operator, remark, created_time, updated_time
+    </sql>
+
+    <!-- DTO 映射：GripperTask + Container -->
+    <resultMap id="GripperTaskWithContainerMap" type="com.czkuo.rdf88701.application.dto.GripperTaskWithContainerDTO">
+        <id     column="id" property="id" />
+        <result column="gripper_id" property="gripperId" />
+        <result column="task_type" property="taskType" />
+        <result column="task_status" property="taskStatus" />
+        <result column="container_unit_id" property="containerMainId" />
+        <result column="alias_code" property="aliasCode" />
+        <result column="container_type" property="containerType" />
+        <result column="created_time" property="createdTime" />
+        <result column="completed_time" property="completedTime" />
+    </resultMap>
+
+    <!-- 查詢包含 container_main 的任務清單 -->
+    <select id="selectWithContainerByGripperId" resultMap="GripperTaskWithContainerMap">
+        SELECT
+            gt.id, gt.gripper_id, gt.task_type, gt.task_status,
+            gt.container_unit_id, gt.created_time, gt.completed_time,
+            cm.alias_code, cm.container_type
+        FROM gripper_task gt
+                 LEFT JOIN container_main cm ON gt.container_unit_id = cm.id
+        WHERE gt.gripper_id = #{gripperId}
+        ORDER BY gt.created_time DESC
+    </select>
+
+    <!-- 查詢包含 container_main 的任務清單（支援動態條件與分頁） -->
+    <select id="selectWithContainerByCondition" resultMap="GripperTaskWithContainerMap">
+        SELECT
+        gt.id, gt.gripper_id, gt.task_type, gt.task_status,
+        gt.container_unit_id, gt.created_time, gt.completed_time,
+        cm.alias_code, cm.container_type
+        FROM gripper_task gt
+        LEFT JOIN container_main cm ON gt.container_unit_id = cm.id
+        WHERE 1 = 1
+        <if test="gripperId != null">
+            AND gt.gripper_id = #{gripperId}
+        </if>
+        <if test="taskStatus != null and taskStatus != ''">
+            AND gt.task_status = #{taskStatus}
+        </if>
+        <if test="createdAfter != null">
+            AND gt.created_time <![CDATA[ >= ]]> #{createdAfter}
+        </if>
+        <if test="createdBefore != null">
+            AND gt.created_time <![CDATA[ <= ]]> #{createdBefore}
+        </if>
+        ORDER BY gt.created_time DESC
+    </select>
+
+    <!-- 查詢指定 Gripper 的最優先任務 -->
+    <select id="findTopTaskByGripperOrdered" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM gripper_task
+        WHERE gripper_id = #{gripperId}
+        AND task_status IN ('PENDING', 'DISPATCHED', 'IN_PROGRESS', 'RETRY', 'COMPLETED', 'FAILED')
+        AND done_time IS NULL
+        ORDER BY
+        CASE task_status
+        WHEN 'PENDING' THEN 0
+        WHEN 'DISPATCHED' THEN 1
+        WHEN 'IN_PROGRESS' THEN 2
+        WHEN 'RETRY' THEN 3
+        WHEN 'COMPLETED' THEN 4
+        WHEN 'FAILED' THEN 5
+        ELSE 99
+        END,
+        priority_level DESC,
+        id ASC
+        LIMIT 1
+    </select>
+
+    <!-- 查詢指定容器在該 Gripper 上最後一筆 PICK 任務 -->
+    <select id="findLastPickTaskByContainer" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM gripper_task
+        WHERE gripper_id = #{gripperId}
+        AND container_main_id = #{containerMainId}
+        AND task_type = 'PICK'
+        ORDER BY created_time DESC
+        LIMIT 1
+    </select>
+
+
+</mapper>

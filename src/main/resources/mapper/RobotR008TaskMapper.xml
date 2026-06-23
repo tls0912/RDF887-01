@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.czkuo.rdf88701.infra.mapper.RobotR008TaskMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.czkuo.rdf88701.infra.entity.RobotR008Task">
+        <id column="id" property="id" />
+        <result column="log_id" property="logId" />
+        <result column="inbox_id" property="inboxId" />
+        <result column="tid" property="tid" />
+        <result column="lot_id" property="lotId" />
+        <result column="carrier_id" property="carrierId" />
+        <result column="wip_name" property="wipName" />
+        <result column="dest_loc" property="destLoc" />
+        <result column="eqp_port" property="eqpPort" />
+        <result column="device_name" property="deviceName" />
+        <result column="stk_port" property="stkPort" />
+        <result column="tray_high" property="trayHigh" />
+        <result column="tray_type" property="trayType" />
+        <result column="bin_type" property="binType" />
+        <result column="tray_num" property="trayNum" />
+        <result column="move_priority" property="movePriority" />
+        <result column="mission_trip" property="missionTrip" />
+        <result column="odo" property="odo" />
+        <result column="amr_speed" property="amrSpeed" />
+        <result column="amr_robot_speed" property="amrRobotSpeed" />
+        <result column="ppkg_body_size" property="ppkgBodySize" />
+        <result column="internal_state" property="internalState" />
+        <result column="external_last_result" property="externalLastResult" />
+        <result column="external_last_time" property="externalLastTime" />
+        <result column="fail_reason" property="failReason" />
+        <result column="cancel_reason" property="cancelReason" />
+        <result column="raw_message_json" property="rawMessageJson" />
+        <result column="created_time" property="createdTime" />
+        <result column="updated_time" property="updatedTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, log_id, inbox_id, tid, lot_id, carrier_id, wip_name, dest_loc, eqp_port, device_name, stk_port, tray_high, tray_type, bin_type, tray_num, move_priority, mission_trip, odo, amr_speed, amr_robot_speed, ppkg_body_size, internal_state, external_last_result, external_last_time, fail_reason, cancel_reason, raw_message_json, created_time, updated_time
+    </sql>
+    <select id="selectBinTypeByCarrierId" resultType="java.lang.String">
+        SELECT bin_type
+        FROM robot_r008_task
+        WHERE carrier_id = #{carrierId}
+        ORDER BY id DESC Limit 1
+    </select>
+</mapper>

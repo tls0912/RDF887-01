@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.czkuo.rdf88701.infra.mapper.TtRecordItemMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.czkuo.rdf88701.infra.entity.TtRecordItem">
+        <id column="id" property="id" />
+        <result column="record_id" property="recordId" />
+        <result column="step_no" property="stepNo" />
+        <result column="step_name" property="stepName" />
+        <result column="raw_value" property="rawValue" />
+        <result column="time_sec" property="timeSec" />
+        <result column="remark_id" property="remarkId" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, record_id, step_no, step_name, raw_value, time_sec, remark_id
+    </sql>
+
+    <select id="selectItemsByRecordId" resultType="com.czkuo.rdf88701.application.dto.report.tt.TtRecordItemRowDto">
+        SELECT
+            step_no   AS stepNo,
+            step_name AS stepName,
+            raw_value AS rawValue,
+            time_sec  AS timeSec,
+            remark_id AS remarkId
+        FROM tt_record_item
+        WHERE record_id = #{recordId}
+        ORDER BY step_no ASC
+    </select>
+
+</mapper>

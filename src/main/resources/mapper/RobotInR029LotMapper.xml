@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.czkuo.rdf88701.infra.mapper.RobotInR029LotMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.czkuo.rdf88701.infra.entity.RobotInR029Lot">
+        <id column="id" property="id" />
+        <result column="log_id" property="logId" />
+        <result column="carrier_id" property="carrierId" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, log_id, carrier_id
+    </sql>
+
+    <!-- 只取 carrier_id，避免撈整行 -->
+    <select id="selectLotIdsByLogId" resultType="java.lang.String">
+        SELECT carrier_id
+        FROM robot_in_r029_lot
+        WHERE log_id = #{logId}
+        ORDER BY id DESC
+    </select>
+
+    <!-- MySQL 寫法：INSERT IGNORE（若換 DB，請改用等效語法） -->
+    <insert id="bulkInsertIgnore">
+        INSERT IGNORE INTO robot_in_r029_lot (log_id, carrier_id)
+        VALUES
+        <foreach collection="lotIds" item="lotId" separator=",">
+            (#{logId}, #{lotId})
+        </foreach>
+    </insert>
+
+    <select id="selectIdByLotId" resultType="java.lang.String">
+        SELECT id
+        FROM robot_in_r029_lot
+        WHERE carrier_id = #{carrierId}
+        ORDER BY id DESC Limit 1
+    </select>
+</mapper>

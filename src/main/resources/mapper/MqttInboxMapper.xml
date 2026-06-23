@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.czkuo.rdf88701.infra.mapper.MqttInboxMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.czkuo.rdf88701.infra.entity.MqttInbox">
+        <id column="id" property="id" />
+        <result column="log_id" property="logId" />
+        <result column="tid" property="tid" />
+        <result column="cmd_id" property="cmdId" />
+        <result column="sender" property="sender" />
+        <result column="receiver" property="receiver" />
+        <result column="topic" property="topic" />
+        <result column="recv_time" property="recvTime" />
+        <result column="process_state" property="processState" />
+        <result column="process_errors" property="processErrors" />
+        <result column="processed_time" property="processedTime" />
+        <result column="lock_owner" property="lockOwner" />
+        <result column="lock_until" property="lockUntil" />
+        <result column="priority" property="priority" />
+        <result column="attempts" property="attempts" />
+        <result column="next_attempt_time" property="nextAttemptTime" />
+        <result column="mapped_task_type" property="mappedTaskType" />
+        <result column="mapped_task_id" property="mappedTaskId" />
+        <result column="created_time" property="createdTime" />
+        <result column="updated_time" property="updatedTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, log_id, tid, cmd_id, sender, receiver, topic, recv_time, process_state, process_errors, processed_time, lock_owner, lock_until, priority, attempts, next_attempt_time, mapped_task_type, mapped_task_id, created_time, updated_time
+    </sql>
+
+    <!-- 入隊：INSERT IGNORE（依 UNIQUE KEY(log_id) 防重） -->
+    <insert id="insertIgnore" parameterType="com.czkuo.rdf88701.infra.entity.MqttInbox">
+        INSERT IGNORE INTO mqtt_inbox
+        (log_id, tid, cmd_id, sender, receiver, topic, recv_time,
+         process_state, priority, attempts, next_attempt_time, created_time, updated_time)
+        VALUES
+        (#{logId}, #{tid}, #{cmdId}, #{sender}, #{receiver}, #{topic}, #{recvTime},
+        #{processState}, #{priority}, #{attempts}, #{nextAttemptTime}, NOW(), NOW())
+    </insert>
+
+    <select id="selectIdByLogId" parameterType="long" resultType="long">
+        SELECT id FROM mqtt_inbox WHERE log_id = #{logId}
+    </select>
+
+    <!-- 候選取件（鎖行；MySQL 8：FOR UPDATE SKIP LOCKED） -->
+    <select id="selectCandidateIdForUpdate" resultType="long">
+        SELECT id
+        FROM mqtt_inbox
+        WHERE process_state IN ('RECEIVED','VALIDATED','PARSED','QUEUED')
+          AND (lock_until IS NULL OR lock_until &lt; NOW())
+          AND next_attempt_time &lt;= NOW()
+        ORDER BY priority ASC, recv_time ASC, id ASC
+            LIMIT 1
+        FOR UPDATE SKIP LOCKED
+    </select>
+
+    <!-- 進入 IN_PROGRESS（佔鎖 + attempts+1；條件保護） -->
+    <update id="updateToInProgress">
+        UPDATE mqtt_inbox
+        SET process_state='IN_PROGRESS',
+            lock_owner=#{workerId},
+            lock_until=DATE_ADD(NOW(), INTERVAL #{ttlSec} SECOND),
+            attempts=attempts+1,
+            updated_time=NOW()
+        WHERE id=#{id}
+          AND process_state IN ('RECEIVED','VALIDATED','PARSED','QUEUED')
+          AND (lock_until IS NULL OR lock_until &lt; NOW())
+          AND next_attempt_time &lt;= NOW()
+    </update>
+
+    <update id="updateToInProgressNoNextAttemptTime">
+        UPDATE mqtt_inbox
+        SET process_state='IN_PROGRESS',
+            lock_owner=#{workerId},
+            lock_until=DATE_ADD(NOW(), INTERVAL #{ttlSec} SECOND),
+            attempts=attempts+1,
+            updated_time=NOW()
+        WHERE id=#{id}
+          AND process_state IN ('RECEIVED','VALIDATED','PARSED','QUEUED')
+          AND (lock_until IS NULL OR lock_until &lt; NOW())
+    </update>
+
+    <update id="markQueued">
+        UPDATE mqtt_inbox
+        SET process_state='QUEUED',
+            lock_owner=NULL,
+            lock_until=NULL,
+            updated_time=NOW()
+        WHERE id=#{id}
+    </update>
+
+    <update id="markDone">
+        UPDATE mqtt_inbox
+        SET process_state='DONE',
+            processed_time=NOW(),
+            lock_owner=NULL,
+            lock_until=NULL,
+            mapped_task_type=#{mappedTaskType},
+            mapped_task_id=#{mappedTaskId},
+            updated_time=NOW()
+        WHERE id=#{id}
+    </update>
+
+    <update id="markRejected">
+        UPDATE mqtt_inbox
+        SET process_state='REJECTED',
+            process_errors=CONCAT(
+                    COALESCE(process_errors,''),
+                    CASE WHEN LENGTH(COALESCE(process_errors,''))&gt;0 THEN '\n' ELSE '' END,
+                    '[', DATE_FORMAT(NOW(), '%Y-%m-%d %H:%i:%s'), '] ', #{reason}
+                           ),
+            processed_time=NOW(),
+            lock_owner=NULL,
+            lock_until=NULL,
+            updated_time=NOW()
+        WHERE id=#{id}
+    </update>
+
+    <update id="markCancelled">
+        UPDATE mqtt_inbox
+        SET process_state='CANCELLED',
+            process_errors=CONCAT(
+                    COALESCE(process_errors,''),
+                    CASE WHEN LENGTH(COALESCE(process_errors,''))&gt;0 THEN '\n' ELSE '' END,
+                    '[', DATE_FORMAT(NOW(), '%Y-%m-%d %H:%i:%s'), '] ', #{reason}
+                           ),
+            processed_time=NOW(),
+            lock_owner=NULL,
+            lock_until=NULL,
+            updated_time=NOW()
+        WHERE id=#{id}
+    </update>
+
+    <update id="releaseExpiredLocks">
+        UPDATE mqtt_inbox
+        SET process_state='QUEUED',
+            lock_owner=NULL,
+            lock_until=NULL,
+            next_attempt_time=NOW(),
+            updated_time=NOW()
+        WHERE process_state='IN_PROGRESS'
+          AND lock_until &lt; NOW()
+    </update>
+
+    <update id="requeueWithBackoff">
+        UPDATE mqtt_inbox
+        SET process_state='QUEUED',
+            lock_owner=NULL,
+            lock_until=NULL,
+            next_attempt_time=DATE_ADD(NOW(), INTERVAL #{seconds} SECOND),
+            updated_time=NOW()
+        WHERE id=#{id}
+    </update>
+
+    <!-- 只選取 R029 的候選（FOR UPDATE SKIP LOCKED） -->
+    <select id="selectCandidateIdForUpdateByCmd" resultType="long">
+      <![CDATA[
+            SELECT id
+            FROM mqtt_inbox
+            WHERE cmd_id = #{cmdId}
+              AND process_state IN ('RECEIVED','VALIDATED','PARSED','QUEUED')
+              AND (lock_until IS NULL OR lock_until < NOW())
+              AND next_attempt_time <= NOW()
+            ORDER BY priority ASC, recv_time ASC, tid ASC, id ASC
+                LIMIT 1
+            ]]>
+    </select>
+    <select id="selectCandidateIdForUpdateByCmdNoNextAttemptTime" resultType="long">
+        <![CDATA[
+            SELECT id
+            FROM mqtt_inbox
+            WHERE cmd_id = #{cmdId}
+              AND process_state IN ('RECEIVED','VALIDATED','PARSED','QUEUED')
+              AND (lock_until IS NULL OR lock_until < NOW())
+            ORDER BY priority ASC, recv_time ASC, tid ASC, id ASC
+                LIMIT 1
+            ]]>
+    </select>
+    <!-- 調整優先權 -->
+    <update id="updatePriority">
+        UPDATE mqtt_inbox
+        SET priority = #{priority}, updated_time = NOW()
+        WHERE id = #{id}
+    </update>
+
+</mapper>

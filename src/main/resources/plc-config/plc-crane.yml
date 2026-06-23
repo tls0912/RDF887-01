@@ -1,0 +1,21 @@
+plc-crane:
+  cranes:
+    - id: 1
+      name: "Crane#1"
+      plcDeviceName: "PLC-Main"
+
+      read-areas:
+        - type: B
+          address: 0x0630
+          length: 48
+        - type: W
+          address: 0x1080
+          length: 64
+
+      write-areas:
+        - type: B
+          address: 0x0030
+          length: 32
+        - type: W
+          address: 0x0050
+          length: 64

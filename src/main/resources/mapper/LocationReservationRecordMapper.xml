@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.czkuo.rdf88701.infra.mapper.LocationReservationRecordMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.czkuo.rdf88701.infra.entity.LocationReservationRecord">
+        <id column="id" property="id" />
+        <result column="container_main_id" property="containerMainId" />
+        <result column="location_point_id" property="locationPointId" />
+        <result column="reserved_by" property="reservedBy" />
+        <result column="reserved_reason" property="reservedReason" />
+        <result column="reserved_time" property="reservedTime" />
+        <result column="expired_time" property="expiredTime" />
+        <result column="fulfilled" property="fulfilled" />
+        <result column="fulfilled_time" property="fulfilledTime" />
+        <result column="cancelled" property="cancelled" />
+        <result column="cancelled_time" property="cancelledTime" />
+        <result column="cancelled_reason" property="cancelledReason" />
+        <result column="expired" property="expired" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, container_main_id, location_point_id, reserved_by, reserved_reason, reserved_time, expired_time, fulfilled, fulfilled_time, cancelled, cancelled_time, cancelled_reason, expired
+    </sql>
+
+    <!--
+        查詢指定儲位上，尚未 fulfilled / cancelled / expired，
+        且 expired_time 尚未到期（或為 NULL）的預約紀錄。
+        回傳最早建立的那一筆（reserved_time 最小）。
+     -->
+    <select id="selectActiveReservation" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM location_reservation_record
+        WHERE location_point_id = #{locationPointId}
+        AND fulfilled = 0
+        AND cancelled = 0
+        AND expired = 0
+        AND (expired_time IS NULL OR expired_time > NOW())
+        ORDER BY reserved_time ASC
+        LIMIT 1
+    </select>
+
+    <!--
+        查詢所有過期但尚未 fulfilled / cancelled / expired 的儲位預約紀錄
+        用於自動清除或狀態更新機制
+    -->
+    <select id="findUnmarkedExpired" resultMap="BaseResultMap">
+        SELECT *
+        FROM location_reservation_record
+        WHERE expired_time IS NOT NULL
+        AND expired_time &lt; #{now}
+        AND (expired IS NULL OR expired = 0)
+        AND (fulfilled IS NULL OR fulfilled = 0)
+        AND (cancelled IS NULL OR cancelled = 0)
+    </select>
+
+</mapper>

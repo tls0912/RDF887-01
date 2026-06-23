@@ -1,0 +1,19 @@
+package com.czkuo.rdf88701.presentation.websocket.dto;
+
+import lombok.Builder;
+import lombok.Data;
+
+import java.util.List;
+
+/**
+ * Site 狀態批次推播訊息
+ * <p>
+ * 用於 WebSocket 推送多筆 Site 狀態更新資料。
+ */
+@Data
+@Builder
+public class SiteStatusBatchMessage {
+
+    /** 多筆 Site 狀態資料 */
+    private List<SiteStatusUpdatedMessage> sites;
+}

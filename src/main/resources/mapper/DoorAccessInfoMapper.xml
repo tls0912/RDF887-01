@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.czkuo.rdf88701.infra.mapper.DoorAccessInfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.czkuo.rdf88701.infra.entity.DoorAccessInfo">
+        <id column="id" property="id" />
+        <result column="tid" property="tid" />
+        <result column="door_no" property="doorNo" />
+        <result column="req_value" property="reqValue" />
+        <result column="status" property="status" />
+        <result column="ack_result" property="ackResult" />
+        <result column="ack_message" property="ackMessage" />
+        <result column="staff_list" property="staffList" />
+        <result column="ack_at" property="ackAt" />
+        <result column="retries" property="retries" />
+        <result column="last_error" property="lastError" />
+        <result column="writeback_status" property="writebackStatus" />
+        <result column="writeback_attempts" property="writebackAttempts" />
+        <result column="writeback_error" property="writebackError" />
+        <result column="written_at" property="writtenAt" />
+        <result column="created_at" property="createdAt" />
+        <result column="updated_at" property="updatedAt" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, tid, door_no, req_value, status, ack_result, ack_message, staff_list, ack_at, retries, last_error, writeback_status, writeback_attempts, writeback_error, written_at, created_at, updated_at
+    </sql>
+
+</mapper>

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.czkuo.rdf88701.infra.mapper.ContainerMainMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.czkuo.rdf88701.infra.entity.ContainerMain">
+        <id column="id" property="id" />
+        <result column="alias_code" property="aliasCode" />
+        <result column="container_type" property="containerType" />
+        <result column="container_code" property="containerCode" />
+        <result column="lot_no" property="lotNo" />
+        <result column="part_no" property="partNo" />
+        <result column="state" property="state" />
+        <result column="closed_time" property="closedTime" />
+        <result column="created_time" property="createdTime" />
+        <result column="updated_time" property="updatedTime" />
+    </resultMap>
+
+    <!-- 通用查询結果列 -->
+    <sql id="Base_Column_List">
+        id, alias_code, container_type, container_code, lot_no, part_no, state, closed_time, created_time, updated_time
+    </sql>
+
+    <!-- 聚合查詢：ContainerMain + 最新 ContainerData -->
+    <resultMap id="ContainerMainWithDataMap" type="com.czkuo.rdf88701.infra.entity.ContainerMain">
+        <id column="id" property="id" />
+        <result column="alias_code" property="aliasCode" />
+        <result column="container_type" property="containerType" />
+        <result column="container_code" property="containerCode" />
+        <result column="lot_no" property="lotNo" />
+        <result column="part_no" property="partNo" />
+        <result column="state" property="state" />
+        <result column="closed_time" property="closedTime" />
+        <result column="created_time" property="createdTime" />
+        <result column="updated_time" property="updatedTime" />
+
+        <association property="latestData" javaType="com.czkuo.rdf88701.infra.entity.ContainerData">
+            <id column="data_id" property="id" />
+            <result column="ocr_text1" property="ocrText1" />
+            <result column="ocr_text2" property="ocrText2" />
+            <result column="estimated_quantity" property="estimatedQuantity" />
+            <result column="verified_quantity" property="verifiedQuantity" />
+            <result column="data_created_time" property="createdTime" />
+        </association>
+    </resultMap>
+
+    <select id="selectWithLatestDataById" resultMap="ContainerMainWithDataMap">
+        SELECT m.*,
+               d.id AS data_id,
+               d.ocr_text1,
+               d.ocr_text2,
+               d.estimated_quantity,
+               d.verified_quantity,
+               d.created_time AS data_created_time
+        FROM container_main m
+                 LEFT JOIN container_data d
+                           ON d.container_main_id = m.id
+                               AND d.id = (
+                                   SELECT MAX(d2.id)
+                                   FROM container_data d2
+                                   WHERE d2.container_main_id = m.id
+                               )
+        WHERE m.id = #{id}
+    </select>
+
+    <select id="findAllInWarehouse" resultMap="BaseResultMap">
+        SELECT m.*
+        FROM container_main m
+                 JOIN location_tracking lt ON m.id = lt.container_main_id
+                 JOIN location_point lp ON lt.location_point_id = lp.id
+        WHERE lp.location_type = 'STORAGE'
+    </select>
+
+    <resultMap id="ContainerWithLocationResultMap" type="com.czkuo.rdf88701.infra.dto.ContainerWithLocation">
+        <id column="id" property="id" />
+        <result column="alias_code" property="aliasCode" />
+        <result column="container_type" property="containerType" />
+        <result column="container_code" property="containerCode" />
+        <result column="lot_no" property="lotNo" />
+        <result column="part_no" property="partNo" />
+        <result column="location_id" property="locationId" />
+        <result column="location_code" property="locationCode" />
+        <result column="level" property="level" />
+        <result column="bank" property="bank" />
+        <result column="bay" property="bay" />
+    </resultMap>
+
+    <select id="findAllInWarehouseWithLocation" resultMap="ContainerWithLocationResultMap">
+        SELECT
+            m.id,
+            m.alias_code,
+            m.container_type,
+            m.container_code,
+            m.lot_no,
+            m.part_no,
+            lp.id   AS location_id,
+            lp.code AS location_code,
+            lp.level,
+            lp.bank,
+            lp.bay
+        FROM container_main m
+                 JOIN location_tracking lt ON m.id = lt.container_main_id
+                 JOIN location_point lp ON lt.location_point_id = lp.id
+        WHERE lp.location_type = 'STORAGE'
+    </select>
+
+    <select id="selectProcessingContainerIds" resultType="java.lang.Long">
+        SELECT DISTINCT container_main_id
+        FROM (
+                 -- 未被接受的請求
+                 SELECT container_main_id
+                 FROM crane_request
+                 WHERE accepted = 'N'
+
+                 UNION
+
+                 -- 任務尚未完成者（排除已 done 且為 COMPLETED 或 FAILED）
+                 SELECT container_main_id
+                 FROM crane_task
+                 WHERE (
+                           task_status IN ('IN_PROGRESS', 'PENDING', 'DISPATCHED', 'RETRY')
+                               OR (done_time IS NULL AND task_status IN ('COMPLETED', 'FAILED'))
+                           )
+             ) AS t
+    </select>
+
+    <!-- ====================== 自訂擴充：拆 / 併 ====================== -->
+
+    <!-- 只更新容器名稱 -->
+    <update id="updateAliasCodeById">
+        UPDATE container_main
+        SET alias_code = #{aliasCode}
+        WHERE id = #{id}
+    </update>
+
+    <!-- 取得 base 下的最大拆分尾碼。
+     僅匹配：name = base 或 name = base_<數字>，避免把其他底線混進來。
+     注意：底線需以 REPLACE(..., '_', '\\_') 轉義，以字面量比對。 -->
+    <select id="findMaxSplitIndexByBase" resultType="java.lang.Integer">
+        SELECT MAX(CAST(SUBSTRING(alias_code, CHAR_LENGTH(#{base}) + 2) AS UNSIGNED)) AS max_idx
+        FROM container_main
+        WHERE alias_code = #{base}
+           OR (
+            alias_code LIKE CONCAT(#{base}, '\\_%') ESCAPE '\\'
+                AND alias_code REGEXP CONCAT('^', REPLACE(#{base}, '_', '\\_'), '_[0-9]+$')
+            )
+    </select>
+
+    <select id="findAllInWarehouseWithLocationByContentKind"
+            parameterType="string"
+            resultMap="ContainerWithLocationResultMap">
+        SELECT
+            m.id,
+            m.alias_code,
+            m.container_type,
+            m.container_code,
+            m.lot_no,
+            m.part_no,
+            lp.id   AS location_id,
+            lp.code AS location_code,
+            lp.level,
+            lp.bank,
+            lp.bay
+        FROM container_main m
+                 JOIN location_tracking lt
+                      ON m.id = lt.container_main_id
+                 JOIN location_point lp
+                      ON lt.location_point_id = lp.id
+            /* 取【最新】 container_data，再依 content_kind 篩選 */
+                 JOIN container_data cd
+                      ON cd.container_main_id = m.id
+                          AND cd.id = (
+                              SELECT MAX(cd2.id)
+                              FROM container_data cd2
+                              WHERE cd2.container_main_id = m.id
+                          )
+        WHERE lp.location_type = 'STORAGE'
+          AND cd.content_kind = #{contentKind}
+    </select>
+
+    <update id="updateStateById">
+        UPDATE container_main
+        SET
+            state = #{state},
+            closed_time = #{closedTime}
+        WHERE id = #{id}
+    </update>
+
+</mapper>

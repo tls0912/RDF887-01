@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.czkuo.rdf88701.infra.mapper.TtSignalDefMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.czkuo.rdf88701.infra.entity.TtSignalDef">
+        <id column="id" property="id" />
+        <result column="device_type" property="deviceType" />
+        <result column="device_name" property="deviceName" />
+        <result column="plc_word" property="plcWord" />
+        <result column="step_no" property="stepNo" />
+        <result column="step_name" property="stepName" />
+        <result column="is_time" property="isTime" />
+        <result column="unit_divisor" property="unitDivisor" />
+        <result column="created_at" property="createdAt" />
+        <result column="updated_at" property="updatedAt" />
+        <result column="plc_area" property="plcArea" />
+        <result column="location_Point" property="locationPoint" />
+        <result column="device_area"   property="deviceArea"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, device_type, device_name, plc_word, step_no, step_name, is_time, unit_divisor, created_at, updated_at,plc_area,location_Point,device_area
+    </sql>
+
+</mapper>

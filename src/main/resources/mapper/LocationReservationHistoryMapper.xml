@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.czkuo.rdf88701.infra.mapper.LocationReservationHistoryMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.czkuo.rdf88701.infra.entity.LocationReservationHistory">
+        <id column="id" property="id" />
+        <result column="origin_id" property="originId" />
+        <result column="container_main_id" property="containerMainId" />
+        <result column="location_point_id" property="locationPointId" />
+        <result column="reserved_by" property="reservedBy" />
+        <result column="reserved_reason" property="reservedReason" />
+        <result column="reserved_time" property="reservedTime" />
+        <result column="expired_time" property="expiredTime" />
+        <result column="fulfilled" property="fulfilled" />
+        <result column="fulfilled_time" property="fulfilledTime" />
+        <result column="cancelled" property="cancelled" />
+        <result column="cancelled_time" property="cancelledTime" />
+        <result column="cancelled_reason" property="cancelledReason" />
+        <result column="expired" property="expired" />
+        <result column="change_type" property="changeType" />
+        <result column="archived_time" property="archivedTime" />
+        <result column="operator" property="operator" />
+        <result column="remark" property="remark" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, origin_id, container_main_id, location_point_id, reserved_by, reserved_reason, reserved_time, expired_time, fulfilled, fulfilled_time, cancelled, cancelled_time, cancelled_reason, expired, change_type, archived_time, operator, remark
+    </sql>
+
+</mapper>

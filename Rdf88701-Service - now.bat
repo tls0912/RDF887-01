@@ -1,0 +1,1 @@
+java -jar D:\#SOURCE\RDF887-01\target\RDF887-01-0.0.1-SNAPSHOT.jar

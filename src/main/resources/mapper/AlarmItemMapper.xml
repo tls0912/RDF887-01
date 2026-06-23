@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.czkuo.rdf88701.infra.mapper.AlarmItemMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.czkuo.rdf88701.infra.entity.AlarmItem">
+        <id column="id" property="id" />
+        <result column="global_code" property="globalCode" />
+        <result column="type" property="type" />
+        <result column="equipment" property="equipment" />
+        <result column="local_code" property="localCode" />
+        <result column="title_zh" property="titleZh" />
+        <result column="title_en" property="titleEn" />
+        <result column="enabled" property="enabled" />
+        <result column="allow_plc_trigger" property="allowPlcTrigger" />
+        <result column="is_triggered" property="isTriggered" />
+        <result column="want_plc_trigger" property="wantPlcTrigger" />
+        <result column="updated_at" property="updatedAt" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, global_code, type, equipment, local_code, title_zh, title_en, enabled, allow_plc_trigger, is_triggered, want_plc_trigger, updated_at
+    </sql>
+
+    <!-- =========================================================
+         快查：依 global_code 取單筆
+         ========================================================= -->
+    <select id="selectByGlobalCode" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM alarm_item
+        WHERE global_code = #{code}
+        LIMIT 1
+    </select>
+
+    <!-- =========================================================
+         佇列領取：FOR UPDATE SKIP LOCKED
+         - 條件：want_plc_trigger=1 AND allow_plc_trigger=1 AND enabled=1
+         - 小心：必須在 @Transactional 中呼叫
+         - 只取必要欄位，避免回表
+         ========================================================= -->
+    <!-- 佇列領取：FOR UPDATE SKIP LOCKED（必須在 @Transactional 中呼叫） -->
+    <select id="lockAndFetchPending" resultMap="BaseResultMap" parameterType="int">
+      <![CDATA[
+            SELECT id, global_code, local_code, title_zh, title_en
+            FROM alarm_item
+            WHERE want_plc_trigger = 1
+              AND allow_plc_trigger = 1
+              AND enabled = 1
+            ORDER BY global_code
+                LIMIT #{limit}
+            FOR UPDATE SKIP LOCKED
+      ]]>
+    </select>
+
+
+    <!-- =========================================================
+         值變才更新：避免無效 UPDATE 與多餘 log
+         ========================================================= -->
+    <update id="setTriggeredIfChanged">
+        UPDATE alarm_item
+        SET is_triggered = #{val}
+        WHERE global_code = #{code}
+          AND is_triggered != #{val}
+    </update>
+
+    <update id="setWantPlcIfAllowed">
+        UPDATE alarm_item
+        SET want_plc_trigger = #{on}
+        WHERE global_code = #{code}
+          AND enabled = 1
+          AND allow_plc_trigger = 1
+          AND want_plc_trigger != #{on}
+    </update>
+
+    <!-- =========================================================
+         批次操作：成功送出後清 0、失敗回補 1
+         ========================================================= -->
+    <update id="clearWantPlcByIds">
+        UPDATE alarm_item
+        SET want_plc_trigger = 0
+        WHERE id IN
+        <foreach collection="ids" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </update>
+
+    <update id="reenqueueForPlcByGlobalCodes">
+        UPDATE alarm_item
+        SET want_plc_trigger = 1
+        WHERE global_code IN
+        <foreach collection="codes" item="c" open="(" separator="," close=")">
+            #{c}
+        </foreach>
+        AND want_plc_trigger = 0
+        AND enabled = 1
+        AND allow_plc_trigger = 1
+    </update>
+
+</mapper>

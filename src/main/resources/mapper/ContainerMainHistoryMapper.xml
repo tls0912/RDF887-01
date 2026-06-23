@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.czkuo.rdf88701.infra.mapper.ContainerMainHistoryMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.czkuo.rdf88701.infra.entity.ContainerMainHistory">
+        <id column="id" property="id" />
+        <result column="alias_code" property="aliasCode" />
+        <result column="container_type" property="containerType" />
+        <result column="container_code" property="containerCode" />
+        <result column="lot_no" property="lotNo" />
+        <result column="part_no" property="partNo" />
+        <result column="state" property="state" />
+        <result column="closed_time" property="closedTime" />
+        <result column="change_type" property="changeType" />
+        <result column="archived_time" property="archivedTime" />
+        <result column="operator" property="operator" />
+        <result column="remark" property="remark" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, origin_id, alias_code, container_type, container_code, lot_no, part_no, state, closed_time, change_type, archived_time, operator, remark
+    </sql>
+
+</mapper>

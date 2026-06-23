@@ -1,0 +1,84 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: RDF887-01
+
+  jackson:  #  保留在主檔即可
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Taipei
+
+  config:
+    import:
+      - classpath:datasource.yml
+      - classpath:mybatis-plus.yml
+      - classpath:page-helper.yml
+      - classpath:mqtt.yml
+      - classpath:camera.yml
+      - classpath:serial.yml
+      - classpath:plc-config/plc-devices.yml
+      - classpath:plc-config/plc-gripper.yml
+      - classpath:plc-config/plc-crane.yml
+      - classpath:plc-config/plc-transfer.yml
+      - classpath:plc-config/plc-working-beam.yml
+      - classpath:plc-config/plc-infrared-distance.yml
+      - classpath:plc-config/plc-strapping.yml
+      - classpath:plc-config/plc-labeling.yml
+      - classpath:plc-config/plc-ocr.yml
+      - classpath:plc-config/plc-aoi.yml
+      - classpath:plc-config/plc-site.yml
+      - classpath:plc-config/plc-safety.yml
+
+logging:
+  level:
+    org.mybatis: warn
+    org.mybatis.spring: warn
+    org.apache.ibatis: warn
+    org.mybatis.logging: warn
+    org.mybatis.logging.slf4j.Slf4jImpl: warn
+    org.springframework.jdbc: warn
+
+
+labeler:
+  device-name: PLC-Packer
+
+  printer:
+    ip: 192.168.3.230
+    port: 9100
+
+  monitor:
+    fixed-delay-ms: 200
+
+  zpl:
+    font-size: 60        # 基本字級
+    # 如果要更細 ZplOptions 參數，可在 ZplTemplateService 改成 @ConfigurationProperties 綁定
+
+  s020:
+    enabled: true       # 沒打通 LOT/CARRIED 前先關閉
+    target-system: ase
+
+zipstocker:
+  default-target: ZIPA
+  targets:
+    zipa:
+      base-url: "http://192.168.3.19:7074/"
+    zipb:
+      base-url: "http://192.168.3.21:7074/"
+
+ocr:
+  vendor:
+    base-url: "http://192.168.3.240:50/"
+    api-key: ""   # 有需要再填
+
+emqx:
+  base-url: "http://localhost:18083"
+  app-id: "c7ad44cbad762a5d"       # 依你的 EMQX Dashboard/App
+  app-secret: "M9AtcVfcP9Bd4ZSZV689BbK4Vvn7bofsZa9CrI6j9CZmHcoJ"
+
+#（可選）特定 system 覆寫期望訂閱（多 topic / 自訂 QoS）
+# emqx:
+#   expected-subscriptions:
+#     ase:
+#       - { topic: "ase/in/#", qos: 0 }
+#       - { topic: "ase/cmd/reply", qos: 1 }

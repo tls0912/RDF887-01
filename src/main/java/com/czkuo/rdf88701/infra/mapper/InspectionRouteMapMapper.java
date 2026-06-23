@@ -1,0 +1,18 @@
+package com.czkuo.rdf88701.infra.mapper;
+
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.czkuo.rdf88701.infra.entity.InspectionRouteMap;
+import org.apache.ibatis.annotations.Mapper;
+
+/**
+ * <p>
+ * 異物檢路線對應：夾爪→(FIRST站, SECOND站, 相機) Mapper 接口
+ * </p>
+ *
+ * @author czkuo
+ * @since 2025-09-10
+ */
+@Mapper
+public interface InspectionRouteMapMapper extends BaseMapper<InspectionRouteMap> {
+
+}

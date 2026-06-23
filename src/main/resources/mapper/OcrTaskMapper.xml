@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.czkuo.rdf88701.infra.mapper.OcrTaskMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.czkuo.rdf88701.infra.entity.OcrTask">
+        <id column="id" property="id" />
+        <result column="ocr_device_id" property="ocrDeviceId" />
+        <result column="container_main_id" property="containerMainId" />
+        <result column="status" property="status" />
+        <result column="created_time" property="createdTime" />
+        <result column="started_time" property="startedTime" />
+        <result column="completed_time" property="completedTime" />
+        <result column="ocr_text1" property="ocrText1" />
+        <result column="ocr_text2" property="ocrText2" />
+        <result column="error_message" property="errorMessage" />
+        <result column="timing_capture_ms" property="timingCaptureMs" />
+        <result column="timing_ocr_processing_ms" property="timingOcrProcessingMs" />
+        <result column="timing_packaging_ms" property="timingPackagingMs" />
+        <result column="created_at" property="createdAt" />
+        <result column="updated_at" property="updatedAt" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, ocr_device_id, container_main_id, status, created_time, started_time, completed_time, ocr_text1, ocr_text2, error_message, timing_capture_ms, timing_ocr_processing_ms, timing_packaging_ms, created_at, updated_at
+    </sql>
+
+</mapper>

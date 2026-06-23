@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.czkuo.rdf88701.infra.mapper.TtRecordMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.czkuo.rdf88701.infra.entity.TtRecord">
+        <id column="id" property="id"/>
+        <result column="device_type" property="deviceType"/>
+        <result column="device_name" property="deviceName"/>
+        <result column="plc_group" property="plcGroup"/>
+        <result column="tt_index" property="ttIndex"/>
+        <result column="transfer_no" property="transferNo"/>
+        <result column="created_time" property="createdTime"/>
+        <result column="remark_id" property="remarkId"/>
+        <result column="device_area"   property="deviceArea"/>
+        <result column="time_sec"   property="timeSec"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, device_type, device_name, plc_group, tt_index, transfer_no, created_time,remark_id,device_area
+    </sql>
+
+    <sql id="RecordFilterWhere">
+        WHERE r.created_time <![CDATA[ >= ]]> #{f.from}
+        AND r.created_time <![CDATA[ < ]]>  #{f.to}
+        <if test="f.deviceType != null and f.deviceType != ''">
+            AND r.device_type = #{f.deviceType}
+        </if>
+        <if test="f.deviceName != null and f.deviceName != ''">
+            AND r.device_name = #{f.deviceName}
+        </if>
+        <if test="f.transferNo != null">
+            AND r.transfer_no = #{f.transferNo}
+        </if>
+    </sql>
+
+    <!-- summary：avgCycleSec 先算好；p95 後面用 Java 算 -->
+    <select id="selectDeviceSummary" resultType="com.czkuo.rdf88701.application.dto.report.tt.TtDeviceSummaryDto">
+        SELECT
+        r.device_type  AS deviceType,
+        r.device_name  AS deviceName,
+        COUNT(*)       AS recordCount,
+        COALESCE(AVG(t.cycle_sec), 0) AS avgCycleSec,
+        0 AS p95CycleSec
+        FROM tt_record r
+        JOIN (
+        SELECT i.record_id, SUM(i.time_sec) AS cycle_sec
+        FROM tt_record_item i
+        GROUP BY i.record_id
+        ) t ON t.record_id = r.id
+        <include refid="RecordFilterWhere"/>
+        GROUP BY r.device_type, r.device_name
+        ORDER BY r.device_type, r.device_name
+    </select>
+
+    <resultMap id="RecordRowMap" type="com.czkuo.rdf88701.application.dto.report.tt.TtRecordRowDto">
+        <id     column="id"          property="id"/>
+        <result column="createdTime" property="createdTime"/>
+        <result column="ttIndex"     property="ttIndex"/>
+        <result column="plcGroup"    property="plcGroup"/>
+        <result column="transferNo"  property="transferNo"/>
+        <result column="cycleSec"   property="cycleSec"/>
+        <result column="remarkId"   property="remarkId"/>
+        <result column="deviceArea"   property="deviceArea"/>
+    </resultMap>
+
+    <!-- records page：一筆 record 一列 + cycleSec -->
+    <select id="selectRecordPage" resultMap="RecordRowMap">
+        SELECT
+        r.id AS id,
+        r.created_time AS createdTime,
+        r.tt_index AS ttIndex,
+        r.plc_group AS plcGroup,
+        r.transfer_no AS transferNo,
+        SUM(i.time_sec) AS cycleSec,
+        i.remark_id AS remarkId,
+        r.device_area AS deviceArea
+        FROM tt_record r
+        LEFT JOIN tt_record_item i
+        ON i.record_id = r.id
+        <include refid="RecordFilterWhere"/>
+        GROUP BY
+        r.id,
+        r.created_time,
+        r.tt_index,
+        r.plc_group,
+        r.transfer_no,
+        i.remark_id,
+        r.device_area
+        ORDER BY r.created_time DESC, r.id DESC
+    </select>
+
+    <select id="selectCycleListForDevice" resultType="java.math.BigDecimal">
+        SELECT COALESCE(t.cycle_sec, 0) AS cycleSec
+        FROM tt_record r
+        LEFT JOIN (
+        SELECT i.record_id, SUM(i.time_sec) AS cycle_sec
+        FROM tt_record_item i
+        GROUP BY i.record_id
+        ) t ON t.record_id = r.id
+        <include refid="RecordFilterWhere"/>
+    </select>
+
+    <sql id="RecordFilterWhereGroupID">
+        WHERE r.created_time <![CDATA[ >= ]]> #{f.from}
+        AND r.created_time <![CDATA[ < ]]>  #{f.to}
+        AND i.remark_id is not null
+        <if test="f.remarkId != null">
+            AND r.remark_id = #{f.remarkId}
+        </if>
+    </sql>
+
+    <!-- records page：一筆 record 一列 + cycleSec -->
+    <select id="selectRecordPageGroupID" resultMap="RecordRowMap">
+        SELECT
+        r.id AS id,
+        r.created_time AS createdTime,
+        0 AS ttIndex,
+        r.device_Name AS plcGroup,
+        0 AS transferNo,
+        SUM(i.time_sec) AS cycleSec,
+        i.remark_id AS remarkId,
+        r.device_area AS deviceArea
+        FROM tt_record r
+        LEFT JOIN tt_record_item i
+        ON i.record_id = r.id
+        <include refid="RecordFilterWhereGroupID"/>
+        GROUP BY
+        r.id,
+        r.created_time,
+        r.tt_index,
+        r.plc_group,
+        r.transfer_no,
+        i.remark_id,
+        r.device_area
+        ORDER BY r.created_time DESC, r.id DESC
+    </select>
+
+    <select id="selectExportData" resultMap="RecordRowMap">
+        select Z.id,z.createdTime,z.plcGroup,z.cycleSec,z.remarkId,z.deviceArea,x.`step_name`,x.`time_sec`
+        from (
+        SELECT r.id AS id,
+        r.created_time AS createdTime,
+        0 AS ttIndex,
+        r.device_Name AS plcGroup,
+        0 AS transferNo,
+        SUM(i.time_sec) AS cycleSec,
+        i.remark_id AS remarkId,
+        r.device_area AS deviceArea
+        FROM tt_record r
+        LEFT JOIN tt_record_item i
+        ON i.record_id = r.id
+        WHERE r.created_time <![CDATA[ >= ]]> #{f.from}
+        AND r.created_time <![CDATA[ < ]]>  #{f.to}
+        AND time_sec > 0
+        GROUP BY
+        r.id,
+        r.created_time,
+        r.tt_index,
+        r.plc_group,
+        r.transfer_no,
+        i.remark_id,
+        r.device_area
+        ) z
+        LEFT JOIN tt_record_item x
+        ON x.record_id = z.id
+        where x.time_sec > 0
+        ORDER BY z.createdTime DESC, z.id DESC
+    </select>
+</mapper>

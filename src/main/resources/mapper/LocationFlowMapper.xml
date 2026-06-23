@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.czkuo.rdf88701.infra.mapper.LocationFlowMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.czkuo.rdf88701.infra.entity.LocationFlow">
+        <id column="id" property="id" />
+        <result column="container_main_id" property="containerMainId" />
+        <result column="location_point_id" property="locationPointId" />
+        <result column="entry_type" property="entryType" />
+        <result column="exit_type" property="exitType" />
+        <result column="arrived_time" property="arrivedTime" />
+        <result column="left_time" property="leftTime" />
+        <result column="entry_operator" property="entryOperator" />
+        <result column="exit_operator" property="exitOperator" />
+        <result column="source_task_id" property="sourceTaskId" />
+        <result column="remark" property="remark" />
+        <result column="archived_time" property="archivedTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, container_main_id, location_point_id, entry_type, exit_type, arrived_time, left_time, entry_operator, exit_operator, source_task_id, remark, archived_time
+    </sql>
+
+    <update id="markPreviousAsLeft" parameterType="map">
+        UPDATE location_flow
+        SET left_time = #{leftTime}
+        WHERE container_main_id = #{containerMainId}
+          AND left_time IS NULL
+            ORDER BY arrived_time DESC
+        LIMIT 1
+    </update>
+
+</mapper>

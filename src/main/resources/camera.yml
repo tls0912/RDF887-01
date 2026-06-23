@@ -1,0 +1,27 @@
+camera:
+  modbus:
+    host: 192.168.0.100
+    port: 502
+    unitId: 1
+    referenceBase: 40000
+    triggerPulseMs: 120
+    poll:
+      enabled: true
+      periodMs: 250
+      autoTriggerSecond: true
+
+    registers:
+      cam1: { state: 40000, error: 40001, firstCount: 40002, secondCount: 40003, total: 40004, times: 40005 }
+      cam2: { state: 40010, error: 40011, firstCount: 40012, secondCount: 40013, total: 40014, times: 40015 }
+      cmd: { c1First: 40020, c1Second: 40021, c2First: 40022, c2Second: 40023, resetAll: 40024 }
+
+    # 一機兩虛擬站：first 用於第一次，second 用於第二次
+    mapping:
+      CAM1:
+        virtualSites:
+          first:  "VIRTUAL#5"   # 你要對應到 LocationTracking 的 SiteCode
+          second: "VIRTUAL#6"
+      CAM2:
+        virtualSites:
+          first:  "VIRTUAL#7"
+          second: "VIRTUAL#8"

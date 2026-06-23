@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.czkuo.rdf88701.infra.mapper.L005SessionMapper">
+
+    <!-- 通用查詢映射結果 -->
+    <resultMap id="BaseResultMap" type="com.czkuo.rdf88701.infra.entity.L005Session">
+        <id column="id" property="id" />
+
+        <!-- 基本資料 -->
+        <result column="barcode" property="barcode" />
+        <result column="tid" property="tid" />
+
+        <!-- 內部狀態 -->
+        <result column="internal_state" property="internalState" />
+        <result column="ack_deadline_at" property="ackDeadlineAt" />
+
+        <!-- 對外結果 -->
+        <result column="external_last_result" property="externalLastResult" />
+        <result column="external_last_time" property="externalLastTime" />
+        <result column="fail_reason" property="failReason" />
+
+        <!-- 對方 ACK 資料 -->
+        <result column="peer_result" property="peerResult" />
+        <result column="peer_result_msg" property="peerResultMsg" />
+        <result column="peer_carrier_id" property="peerCarrierId" />
+        <result column="peer_lot_id" property="peerLotId" />
+        <result column="peer_tray_high" property="peerTrayHigh" />
+        <result column="peer_tray_type" property="peerTrayType" />
+        <result column="peer_msg_type" property="peerMsgType" />
+        <result column="peer_ack_at" property="peerAckAt" />
+        <result column="peer_ack_payload_json" property="peerAckPayloadJson" />
+
+        <!-- 管理欄位 -->
+        <result column="is_valid" property="isValid" />
+        <result column="invalid_by_tid" property="invalidByTid" />
+        <result column="created_at" property="createdAt" />
+        <result column="updated_at" property="updatedAt" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, barcode, tid, internal_state, ack_deadline_at, external_last_result, external_last_time, fail_reason, peer_result, peer_result_msg, peer_carrier_id, peer_lot_id, peer_tray_high, peer_tray_type, peer_msg_type, peer_ack_at, peer_ack_payload_json, is_valid, invalid_by_tid, created_at, updated_at
+    </sql>
+
+</mapper>

@@ -1,0 +1,55 @@
+plc-strapping:
+  devices:
+    - id: 1
+      name: "Strapping#1"
+      plcDeviceName: "PLC-Packer"
+      writeAreas:
+        - type: "B"
+          address: 0x200
+          length: 8
+        - type: "W"
+          address: 0x398
+          length: 8
+      readAreas:
+        - type: "B"
+          address: 0x800
+          length: 8
+        - type: "W"
+          address: 0x1398
+          length: 8
+
+    - id: 2
+      name: "Strapping#2"
+      plcDeviceName: "PLC-Packer"
+      writeAreas:
+        - type: "B"
+          address: 0x208
+          length: 8
+        - type: "W"
+          address: 0x3A0
+          length: 8
+      readAreas:
+        - type: "B"
+          address: 0x808
+          length: 8
+        - type: "W"
+          address: 0x13A0
+          length: 8
+
+    - id: 3
+      name: "Strapping#3"
+      plcDeviceName: "PLC-Packer"
+      writeAreas:
+        - type: "B"
+          address: 0x210
+          length: 8
+        - type: "W"
+          address: 0x3A8
+          length: 8
+      readAreas:
+        - type: "B"
+          address: 0x810
+          length: 8
+        - type: "W"
+          address: 0x13A8
+          length: 8

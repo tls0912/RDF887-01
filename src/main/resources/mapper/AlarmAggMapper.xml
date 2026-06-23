@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.czkuo.rdf88701.infra.mapper.AlarmAggMapper">
+
+    <sql id="logFilter">
+        <where>
+            l.created_at <![CDATA[ >= ]]> #{from}
+            AND l.created_at <![CDATA[ < ]]> #{to}
+            <if test="type != null and type != 'ALL'">
+                AND i.type = #{type}
+            </if>
+            <if test="equipments != null and equipments.size() > 0">
+                AND i.equipment IN
+                <foreach collection="equipments" item="e" open="(" close=")" separator=",">#{e}</foreach>
+            </if>
+        </where>
+    </sql>
+
+    <!-- timeline：hour/day 桶聚合（MySQL 8 遞迴 CTE） -->
+    <select id="selectTimeline" resultType="com.czkuo.rdf88701.application.dto.report.Alarm.TimelineBucketRow">
+        WITH RECURSIVE seq AS (
+        SELECT CASE
+        WHEN #{bucket}='day' THEN DATE_FORMAT(#{from}, '%Y-%m-%d 00:00:00')
+        ELSE DATE_FORMAT(#{from}, '%Y-%m-%d %H:00:00')
+        END AS bstart
+        UNION ALL
+        SELECT CASE
+        WHEN #{bucket}='day' THEN DATE_FORMAT(DATE_ADD(bstart, INTERVAL 1 DAY),  '%Y-%m-%d 00:00:00')
+        ELSE DATE_FORMAT(DATE_ADD(bstart, INTERVAL 1 HOUR), '%Y-%m-%d %H:00:00')
+        END
+        FROM seq
+        WHERE bstart &lt; #{to}
+        )
+        SELECT
+        s.bstart AS bucketStart,
+        COALESCE(SUM(CASE WHEN l.event_type='TRIGGER' THEN 1 END),0) AS triggerCount,
+        COALESCE(SUM(CASE WHEN l.event_type='CLEAR'   THEN 1 END),0) AS clearCount
+        FROM seq s
+        LEFT JOIN alarm_item_log l
+        ON l.created_at &gt;= s.bstart
+        AND l.created_at &lt; CASE
+        WHEN #{bucket}='day' THEN DATE_ADD(s.bstart, INTERVAL 1 DAY)
+        ELSE DATE_ADD(s.bstart, INTERVAL 1 HOUR)
+        END
+        LEFT JOIN alarm_item i ON i.global_code = l.global_code
+        <include refid="logFilter"/>
+        GROUP BY s.bstart
+        ORDER BY s.bstart
+    </select>
+
+    <!-- topByCount：只算 TRIGGER 次數 -->
+    <select id="selectTopByCount" resultType="com.czkuo.rdf88701.application.dto.report.Alarm.TopRow">
+        SELECT
+        i.global_code AS globalCode,
+        i.title_zh    AS titleZh,
+        i.title_en    AS titleEn,
+        COUNT(*)      AS count,
+        0             AS totalDurationSeconds
+        FROM alarm_item_log l
+        JOIN alarm_item i ON i.global_code = l.global_code
+        <include refid="logFilter"/>
+        AND l.event_type='TRIGGER'
+        GROUP BY i.global_code, i.title_zh, i.title_en
+        ORDER BY COUNT(*) DESC, i.global_code
+        LIMIT #{limit}
+    </select>
+</mapper>

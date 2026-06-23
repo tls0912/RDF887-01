@@ -1,0 +1,145 @@
+plc-working-beam:
+  working-beams:
+    - id: 1
+      name: "WorkingBeam#1"
+      plcDeviceName: "PLC-Sub"
+      readAreas:
+        - type: "B"
+          address: 0x748
+          length: 8
+        - type: "W"
+          address: 0x1220
+          length: 8
+      writeAreas:
+        - type: "B"
+          address: 0x148
+          length: 8
+        - type: "W"
+          address: 0x220
+          length: 8
+
+    - id: 2
+      name: "WorkingBeam#2"
+      plcDeviceName: "PLC-Packer"
+      readAreas:
+        - type: "B"
+          address: 0x750
+          length: 8
+        - type: "W"
+          address: 0x1228
+          length: 8
+      writeAreas:
+        - type: "B"
+          address: 0x150
+          length: 8
+        - type: "W"
+          address: 0x228
+          length: 8
+
+    - id: 3
+      name: "WorkingBeam#3"
+      plcDeviceName: "PLC-Packer"
+      readAreas:
+        - type: "B"
+          address: 0x758
+          length: 8
+        - type: "W"
+          address: 0x1230
+          length: 8
+      writeAreas:
+        - type: "B"
+          address: 0x158
+          length: 8
+        - type: "W"
+          address: 0x230
+          length: 8
+
+    - id: 4
+      name: "WorkingBeam#4"
+      plcDeviceName: "PLC-Packer"
+      readAreas:
+        - type: "B"
+          address: 0x760
+          length: 8
+        - type: "W"
+          address: 0x1238
+          length: 8
+      writeAreas:
+        - type: "B"
+          address: 0x160
+          length: 8
+        - type: "W"
+          address: 0x238
+          length: 8
+
+    - id: 5
+      name: "WorkingBeam#5"
+      plcDeviceName: "PLC-Packer"
+      readAreas:
+        - type: "B"
+          address: 0x768
+          length: 8
+        - type: "W"
+          address: 0x1240
+          length: 8
+      writeAreas:
+        - type: "B"
+          address: 0x168
+          length: 8
+        - type: "W"
+          address: 0x240
+          length: 8
+
+    - id: 6
+      name: "WorkingBeam#6"
+      plcDeviceName: "PLC-Packer"
+      readAreas:
+        - type: "B"
+          address: 0x770
+          length: 8
+        - type: "W"
+          address: 0x1248
+          length: 8
+      writeAreas:
+        - type: "B"
+          address: 0x170
+          length: 8
+        - type: "W"
+          address: 0x248
+          length: 8
+
+    - id: 7
+      name: "WorkingBeam#7"
+      plcDeviceName: "PLC-Packer"
+      readAreas:
+        - type: "B"
+          address: 0x778
+          length: 8
+        - type: "W"
+          address: 0x1250
+          length: 8
+      writeAreas:
+        - type: "B"
+          address: 0x178
+          length: 8
+        - type: "W"
+          address: 0x250
+          length: 8
+
+    - id: 8
+      name: "WorkingBeam#8"
+      plcDeviceName: "PLC-Packer"
+      readAreas:
+        - type: "B"
+          address: 0x780
+          length: 8
+        - type: "W"
+          address: 0x1258
+          length: 8
+      writeAreas:
+        - type: "B"
+          address: 0x180
+          length: 8
+        - type: "W"
+          address: 0x258
+          length: 8

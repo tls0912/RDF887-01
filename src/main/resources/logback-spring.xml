@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="30 seconds">
+
+    <statusListener class="ch.qos.logback.core.status.OnConsoleStatusListener"/>
+
+    <!-- 加上預設值，避免環境變數沒設時出錯 -->
+    <property name="LOG_PATH" value="${LOG_PATH:-D:/logs/rdf88701}"/>
+    <property name="APP_NAME" value="${APP_NAME:-rdf88701}"/>
+
+    <!-- Console -->
+    <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 文字檔：改用 SizeAndTimeBasedRollingPolicy -->
+    <appender name="FileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter"><level>INFO</level></filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/%d{yyyy-MM-dd}/${APP_NAME}.%i.log</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>100MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- JSON 檔：也換成 SizeAndTimeBasedRollingPolicy -->
+    <appender name="JsonFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter"><level>INFO</level></filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/%d{yyyy-MM-dd}/${APP_NAME}.json.%i.log.gz</fileNamePattern>
+            <maxFileSize>200MB</maxFileSize>
+            <maxHistory>30</maxHistory>
+            <totalSizeCap>200GB</totalSizeCap>
+        </rollingPolicy>
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+            <charset>UTF-8</charset>
+            <includeMdc>true</includeMdc>
+            <!-- 可選：固定欄位 -->
+            <customFields>{"app":"${APP_NAME:-rdf88701}","env":"${SPRING_PROFILES_ACTIVE:-default}"}</customFields>
+        </encoder>
+    </appender>
+
+    <!-- 用 async 包起來（保留 async，root 不要再直接掛同步 appender） -->
+    <appender name="AsyncText" class="ch.qos.logback.classic.AsyncAppender">
+        <queueSize>8192</queueSize>
+        <discardingThreshold>0</discardingThreshold>
+        <appender-ref ref="FileAppender"/>
+    </appender>
+
+    <appender name="AsyncJson" class="ch.qos.logback.classic.AsyncAppender">
+        <queueSize>8192</queueSize>
+        <discardingThreshold>0</discardingThreshold>
+        <appender-ref ref="JsonFile"/>
+    </appender>
+
+    <appender name="AsyncZip" class="ch.qos.logback.classic.AsyncAppender">
+        <queueSize>8192</queueSize>
+        <discardingThreshold>0</discardingThreshold>
+        <appender-ref ref="ZipAppender"/>
+    </appender>
+
+    <!-- MQTT 專用：也換新 policy（要不要壓縮自選） -->
+    <appender name="MqttAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter"><level>INFO</level></filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/%d{yyyy-MM-dd}/mqtt.%i.log</fileNamePattern>
+            <maxFileSize>100MB</maxFileSize>
+            <maxHistory>14</maxHistory>
+            <totalSizeCap>2GB</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{40} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Infrared 專用 -->
+    <appender name="InfraredAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter"><level>INFO</level></filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/%d{yyyy-MM-dd}/infrared.%i.log</fileNamePattern>
+            <maxFileSize>10MB</maxFileSize>
+            <maxHistory>14</maxHistory>
+            <totalSizeCap>2GB</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{40} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- ZIP 專用 -->
+    <appender name="ZipAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter"><level>INFO</level></filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/%d{yyyy-MM-dd}/zip.%i.log</fileNamePattern>
+            <maxFileSize>200MB</maxFileSize>
+            <maxHistory>14</maxHistory>
+            <totalSizeCap>10GB</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{40} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Root：只掛 Console + 兩個 Async，避免重複寫檔 -->
+    <root level="INFO">
+        <appender-ref ref="Console"/>
+        <appender-ref ref="AsyncText"/>
+        <appender-ref ref="AsyncJson"/>
+    </root>
+
+    <!-- 專用 logger（想同時進主檔就 keep 預設 additivity=true；若只進專檔，請設 additivity="false"） -->
+    <logger name="com.czkuo.rdf88701.application.mqtt" level="INFO">
+        <appender-ref ref="MqttAppender"/>
+    </logger>
+
+    <logger name="com.czkuo.rdf88701.application.service.mqtt" level="INFO">
+        <appender-ref ref="MqttAppender"/>
+    </logger>
+
+    <logger name="com.czkuo.rdf88701.infra.mqtt" level="INFO">
+        <appender-ref ref="MqttAppender"/>
+    </logger>
+
+    <logger name="com.czkuo.rdf88701.application.listener" level="INFO" additivity="true">
+        <appender-ref ref="InfraredAppender"/>
+    </logger>
+
+    <!-- ZIP：兩支 class 獨立出 zip.log，但也會寫到主檔（因為 additivity 預設 true） -->
+    <logger name="com.czkuo.rdf88701.presentation.web.controller.ZipStockerApiController" level="INFO">
+        <appender-ref ref="AsyncZip"/>
+    </logger>
+
+    <logger name="com.czkuo.rdf88701.application.service.zip.ZipStockerEventService" level="INFO">
+        <appender-ref ref="AsyncZip"/>
+    </logger>
+
+    <logger name="com.czkuo.rdf88701" level="DEBUG"/>
+</configuration>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.czkuo.rdf88701.infra.mapper.LocationTrackingMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.czkuo.rdf88701.infra.entity.LocationTracking">
+        <id column="id" property="id" />
+        <result column="container_main_id" property="containerMainId" />
+        <result column="location_point_id" property="locationPointId" />
+        <result column="arrived_time" property="arrivedTime" />
+        <result column="last_verified_time" property="lastVerifiedTime" />
+        <result column="updated_time" property="updatedTime" />
+        <result column="flow_id" property="flowId" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, container_main_id, location_point_id, arrived_time, last_verified_time, updated_time, flow_id
+    </sql>
+
+    <!-- 根據 flow_id 查詢 location_flow.entry_type -->
+    <select id="findEntryTypeByFlowId" resultType="java.lang.String">
+        SELECT entry_type
+        FROM location_flow
+        WHERE id = #{flowId}
+    </select>
+
+    <select id="selectAllPresentAliasCodes" resultType="java.lang.String">
+        SELECT cm.alias_code
+        FROM location_tracking lt
+        JOIN container_main cm ON cm.id = lt.container_main_id
+        WHERE cm.alias_code IS NOT NULL
+        AND cm.alias_code &lt;&gt; ''
+    </select>
+
+    <select id="selectPresentAliasCodesNot272829" resultType="java.lang.String">
+        SELECT cm.alias_code
+        FROM location_tracking lt
+        JOIN container_main cm ON cm.id = lt.container_main_id
+        WHERE cm.alias_code IS NOT NULL
+        AND cm.alias_code &lt;&gt; ''
+        AND location_point_id NOT IN('225','226','227','236','257')
+    </select>
+
+    <!-- 用多筆 location_point_id 查詢對應位置的container_main_id -->
+    <select id="selectContainersByLocations" resultType="java.lang.Long">
+        SELECT container_main_id
+        FROM location_tracking
+        WHERE location_point_id in (#{ids})
+    </select>
+
+    <!-- 用 working_beam_id 查詢對應控制範圍的container_main_id -->
+    <select id="selectContainersByWorkingBeamId" resultType="com.czkuo.rdf88701.infra.entity.LocationTracking">
+        SELECT B.*
+        FROM working_beam_control_range A
+        INNER join location_tracking B ON A.location_point_id=B.location_point_id
+        WHERE working_beam_id= #{id}
+    </select>
+
+
+    <select id="countEmptyOwnStorage" resultType="java.lang.Integer">
+        SELECT
+        SUM(CASE WHEN B.id IS NULL THEN 1 ELSE 0 END) AS not_joined_count
+        FROM location_point A
+        LEFT JOIN location_tracking B
+        ON A.id = B.location_point_id
+        WHERE A.location_type = 'STORAGE'
+    </select>
+</mapper>

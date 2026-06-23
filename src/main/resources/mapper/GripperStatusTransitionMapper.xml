@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.czkuo.rdf88701.infra.mapper.GripperStatusTransitionMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.czkuo.rdf88701.infra.entity.GripperStatusTransition">
+        <id column="id" property="id" />
+        <result column="gripper_id" property="gripperId" />
+        <result column="from_status" property="fromStatus" />
+        <result column="to_status" property="toStatus" />
+        <result column="sub_status" property="subStatus" />
+        <result column="triggered_by_task_id" property="triggeredByTaskId" />
+        <result column="snapshot_time" property="snapshotTime" />
+        <result column="duration_ms" property="durationMs" />
+        <result column="changed_time" property="changedTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, gripper_id, from_status, to_status, sub_status, triggered_by_task_id, snapshot_time, duration_ms, changed_time
+    </sql>
+
+</mapper>

@@ -1,0 +1,37 @@
+plc-aoi:
+  devices:
+    - id: 1
+      name: "AOI#1"
+      plcDeviceName: "PLC-Packer"
+      writeAreas:
+        - type: "B"
+          address: 0x238  # B0238
+          length: 8       # B0238 ~ B023F
+        - type: "W"
+          address: 0x3D0  # W03D0
+          length: 8       # W03D0 ~ W03D7
+      readAreas:
+        - type: "B"
+          address: 0x838  # B0838
+          length: 8       # B0838 ~ B083F
+        - type: "W"
+          address: 0x13D0 # W13D0
+          length: 8       # W13D0 ~ W13D7
+
+    - id: 2
+      name: "AOI#2"
+      plcDeviceName: "PLC-Packer"
+      writeAreas:
+        - type: "B"
+          address: 0x240  # B0240
+          length: 8       # B0240 ~ B0247
+        - type: "W"
+          address: 0x3D8  # W03D8
+          length: 8       # W03D8 ~ W03DF
+      readAreas:
+        - type: "B"
+          address: 0x840  # B0840
+          length: 8       # B0840 ~ B0847
+        - type: "W"
+          address: 0x13D8 # W13D8
+          length: 8       # W13D8 ~ W13DF

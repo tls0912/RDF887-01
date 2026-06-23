@@ -1,0 +1,37 @@
+plc-ocr:
+  devices:
+    - id: 1
+      name: "OCR#1"
+      plcDeviceName: "PLC-Packer"
+      writeAreas:
+        - type: "B"
+          address: 0x220  # B0220
+          length: 8       # B0220 ~ B0227
+        - type: "W"
+          address: 0x3B8  # W03B8
+          length: 8       # W03B8 ~ W03BF
+      readAreas:
+        - type: "B"
+          address: 0x820  # B0820
+          length: 8       # B0820 ~ B0827
+        - type: "W"
+          address: 0x13B8 # W13B8
+          length: 8       # W13B8 ~ W13BF
+
+    - id: 2
+      name: "OCR#2"
+      plcDeviceName: "PLC-Packer"
+      writeAreas:
+        - type: "B"
+          address: 0x228  # B0228
+          length: 8       # B0228 ~ B022F
+        - type: "W"
+          address: 0x3C0  # W03C0
+          length: 8       # W03C0 ~ W03C7
+      readAreas:
+        - type: "B"
+          address: 0x828  # B0828
+          length: 8       # B0828 ~ B082F
+        - type: "W"
+          address: 0x13C0 # W13C0
+          length: 8       # W13C0 ~ W13C7

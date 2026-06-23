@@ -1,0 +1,5 @@
+pagehelper:
+  helperDialect: mysql           # 適用於 MySQL
+  reasonable: true               # pageNum < 1 則自動轉為 1
+  supportMethodsArguments: true  # 支援傳入 PageHelper 參數
+  params: count=countSql         # 自動生成 count 語句
