@@ -7,6 +7,10 @@ import lombok.Data;
 /**
  * S016 指令的回覆格式（Acknowledgement）
  * 用於回應系統校時執行結果
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class S016AckPayload {

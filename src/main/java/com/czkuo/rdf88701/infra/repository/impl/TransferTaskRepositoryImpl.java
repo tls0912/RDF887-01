@@ -22,6 +22,10 @@ import java.util.Optional;
  * TransferTask 資料存取實作
  * - 提供 Transfer 任務的 CRUD 與歷史歸檔功能
  * - 依據條件進行查詢與排序
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Repository
 @RequiredArgsConstructor

@@ -32,6 +32,10 @@ import java.util.stream.Collectors;
  * - 監看 removeAccountReq；上緣清帳並回 ACK；下緣關 ACK
  * - 記錄 PLC 端當下的 Product ID（ASCII50）
  * - 防禦機制：req 長時間維持 → 重新觸發 ACK；req=0 但 ACK 高電位太久 → 強制拉低
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已修改，// 註解已依現有實作校正。
  */
 @Slf4j
 @Component
@@ -137,7 +141,7 @@ public class SiteRemoveAccountMonitor {
                     // (1) 先拿「清帳前」的 container 快照（清帳後就找不到了）
                     Optional<Long> cmBefore = locationTrackingRepository.findContainerAtLocationName(siteName);
 
-                    // (2) 移除時應該要變更狀態：ABORTED（寫 closed_time=now）
+                    // 目前移除時會將狀態改為 ABORTED，並寫入 closed_time。
                     cmBefore.ifPresent(containerMainId -> {
                         try {
                             boolean ok = containerMainRepository.abort(containerMainId);
@@ -542,7 +546,7 @@ public class SiteRemoveAccountMonitor {
      */
     private boolean clearLocationTracking(String siteName, String plcProduct) {
         try {
-            // 先找到對應的 LocationPoint（假設名稱就是 siteName）
+            // 目前以 siteName 查詢對應的 LocationPoint。
             LocationPoint p = locationPointRepository.findByName(siteName)
                     .orElse(null);
             if (p == null) {

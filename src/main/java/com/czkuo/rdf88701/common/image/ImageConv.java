@@ -21,6 +21,10 @@ import java.util.Iterator;
  *   BayerRG8/GR8/GB8/BG8、YUYV(422)。
  * - 若你的相機用到 10/12/16 bit 格式或其他 YUV 變種，需再擴充。
  * - Spring Boot 預設 headless=true，可正常使用 ImageIO。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 public final class ImageConv {
     private ImageConv() {}

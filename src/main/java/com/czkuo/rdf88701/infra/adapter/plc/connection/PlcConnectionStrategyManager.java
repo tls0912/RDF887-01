@@ -13,8 +13,14 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * PLC 連線策略管理器：
- * 提供 port 重試、熔斷、使用記憶機制（降級/切換策略的基礎）
+ * PLC 連線策略管理器。
+ *
+ * <p>以 deviceName + port 為單位記錄連線失敗次數與最後失敗時間，提供暫時熔斷
+ * 與可用 port 篩選，讓 PlcClientManager 在多 port 裝置上執行 failover。</p>
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

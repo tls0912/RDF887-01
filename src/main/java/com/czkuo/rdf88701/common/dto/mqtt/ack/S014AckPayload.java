@@ -8,6 +8,10 @@ import java.util.List;
 /**
  * S014 指令的回覆格式（Acknowledgement）
  * 用於回應零件預警清單結果（成功 / 失敗）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class S014AckPayload {

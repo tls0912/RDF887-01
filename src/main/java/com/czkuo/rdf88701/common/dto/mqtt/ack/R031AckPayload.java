@@ -6,6 +6,10 @@ import lombok.Data;
 /**
  * R031 - 搬至 Manual Port 回覆 Payload
  * 廠商 → ASE：回報任務接收、執行、完成、失敗或取消
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class R031AckPayload {

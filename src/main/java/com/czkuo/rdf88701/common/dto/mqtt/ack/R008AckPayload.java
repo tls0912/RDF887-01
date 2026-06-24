@@ -10,6 +10,10 @@ import java.math.BigDecimal;
  * R008 回覆格式（Ack）：回覆機台A搬貨到WIP(STK)任務狀態
  * - 用於 SAA→SEEC、ASE→廠商 兩種場景
  * - MESSAGE 欄位內容與指令相同（須 echo 批號與設備資訊）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class R008AckPayload {

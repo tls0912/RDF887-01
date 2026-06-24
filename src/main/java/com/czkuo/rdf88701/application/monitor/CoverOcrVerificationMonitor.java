@@ -43,6 +43,10 @@ import java.util.Set;
  * - 視狀態推進 S073（含 timeout/冷卻/重送）
  * <p>
  * 3) 本 Monitor 只做「建/推進 OCR 驗證」，不做搬運/落帳（no DROP）。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已修改，// 註解已依現有實作校正。
  */
 @Slf4j
 @Component
@@ -144,7 +148,7 @@ public class CoverOcrVerificationMonitor {
         }
 
         // (D) 交給 service：以 anchorCmId 當上下文 key，並用 tray/current 的 OCR 快照做自判 + 發S073
-        //     重點：upsert 的「container_main_id」應該是 anchor（避免拆批分身重複上下文）
+        // 目前 upsert 使用 anchor 作為 container_main_id，避免拆批分身重複上下文。
         //     但快照來源（OCR/partNo）仍是 tray/current 與 ref/cover
         OcrVerification ctx = ocrVerificationService.upsertAutoSnapshotAndHandleS073(anchorCmId, md);
 

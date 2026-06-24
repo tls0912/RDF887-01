@@ -9,6 +9,10 @@ import org.springframework.stereotype.Component;
  * Working Beam Bit 區專用 Encoder
  * - Application 填 PlcWorkingBeamBitCommand → 編碼為 PLC bit array（boolean[]）
  * - PLC 回傳 bit[] → 轉換為 WorkingBeamPlcBitStatus
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Component
 public class PlcWorkingBeamBitEncoder {

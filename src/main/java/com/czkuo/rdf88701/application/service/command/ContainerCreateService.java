@@ -27,6 +27,10 @@ import java.util.UUID;
 /**
  * 建立容器服務
  * - 支援從 L005 ACK 來的建帳前置資訊（upsert 主檔 + container_data.content_kind + attr 寫入）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Service

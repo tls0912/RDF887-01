@@ -20,6 +20,10 @@ import java.util.stream.Collectors;
  * 注意：
  * - 若前端在局域網不同來源（WPF 內建 HttpClient 通常沒同源限制），
  *   你也可以在這裡加上 @CrossOrigin 做 CORS 放行。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @RestController
 @RequestMapping("/api/hmi")

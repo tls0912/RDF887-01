@@ -8,6 +8,10 @@ import java.util.List;
 /**
  * U020 - Output WIP 架人員取貨回覆 Payload
  * 廠商 → ASE：回覆批號已處理或提示結束或錯誤
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class U020AckPayload {

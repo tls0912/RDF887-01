@@ -14,6 +14,10 @@ import org.springframework.stereotype.Component;
  * TransferWordCommandAssembler
  * - 專責將 TransferTask 組裝為 PlcTransferWordCommand 結構，對應 PLC Word 命令格式
  * - 支援三種指令類型：MOVE / PICK / DROP
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Component
 @RequiredArgsConstructor

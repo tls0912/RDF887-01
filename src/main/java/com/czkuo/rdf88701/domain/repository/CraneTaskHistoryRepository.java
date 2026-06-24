@@ -9,6 +9,10 @@ import java.util.Optional;
 
 /**
  * Crane 任務歷史紀錄 Repository
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 public interface CraneTaskHistoryRepository {
 

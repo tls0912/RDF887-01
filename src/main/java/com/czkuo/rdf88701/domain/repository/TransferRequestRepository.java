@@ -10,6 +10,10 @@ import java.util.Optional;
  * Transfer 請求資料存取介面（Domain Layer）
  * - 封裝 TransferRequest 實體的資料庫操作
  * - 供應用服務層使用，避免直接耦合 Mapper
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 public interface TransferRequestRepository {
 

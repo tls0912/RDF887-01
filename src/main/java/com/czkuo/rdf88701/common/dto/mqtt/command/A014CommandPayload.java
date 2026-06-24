@@ -6,6 +6,10 @@ import lombok.Data;
 /**
  * A014 指令：AGV 回到換電站
  * - 由 SEEC 發送給 SAA，通知 AGV 回到換電站，並提供電池與里程資訊
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class A014CommandPayload {

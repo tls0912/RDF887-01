@@ -13,6 +13,10 @@ import org.springframework.stereotype.Component;
  * - 解析與組裝 PC 控制區段（Bit: Bxxxx / Word: Wxxxx）
  * - 將 PLC byte[] ↔ StrappingCommandStatus 雙向轉換
  * - 專用於 Strapping 的控制指令與回應資料解析
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

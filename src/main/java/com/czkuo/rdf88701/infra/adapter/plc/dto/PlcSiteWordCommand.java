@@ -8,6 +8,10 @@ import lombok.Data;
  * - 區段：W03E0 ~ W03FF（32 Words）
  * - Product ID：W03E6 ~ W03FE（25 Words = 50 ASCII）
  * - Spare Tail：W03FF
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 @Builder

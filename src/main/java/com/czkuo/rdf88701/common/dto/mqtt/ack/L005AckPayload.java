@@ -6,6 +6,10 @@ import lombok.Data;
 /**
  * L005 - WIP_Load 條碼回覆 Payload
  * ASE → 廠商 回傳條碼解析後的資訊與入 STK 判定結果
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class L005AckPayload {

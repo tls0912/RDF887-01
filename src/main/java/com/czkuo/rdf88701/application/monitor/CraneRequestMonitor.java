@@ -7,8 +7,14 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 /**
- * Scheduler Job → 呼叫 Monitor Service
- * 必須拆分，讓 Service 層可以被 Spring AOP 正確代理 → 解決 synchronization 問題
+ * Crane request 掃描排程。
+ *
+ * <p>此類只負責以固定間隔觸發 CraneRequestMonitorService，實際資料庫查詢與
+ * request 處理留在 service 層，讓 Spring AOP 與交易代理能正常套用。</p>
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

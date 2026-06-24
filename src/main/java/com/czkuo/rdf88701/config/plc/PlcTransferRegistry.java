@@ -10,6 +10,10 @@ import java.util.stream.Collectors;
  * PlcTransferRegistry
  * - 專責提供 plc-transfer.yml 中的 Transfer 設備設定
  * - 與 PlcDeviceRegistry 分層職責
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Component
 @RequiredArgsConstructor

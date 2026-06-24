@@ -36,6 +36,10 @@ import java.util.Objects;
  *
  * 備註：
  * - 若 sender=ASE，按規格 MESSAGE 不應帶 STK_PORT；此處僅記錄不阻擋流程。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

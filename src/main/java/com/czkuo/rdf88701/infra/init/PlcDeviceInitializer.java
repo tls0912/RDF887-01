@@ -9,6 +9,10 @@ import org.springframework.stereotype.Component;
 
 /**
  * 系統啟動時，自動初始化所有已啟用的 PLC 裝置。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

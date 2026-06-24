@@ -20,6 +20,10 @@ import org.springframework.util.StringUtils;
  * - 處理流程包含：
  *   1. 記錄 COMMAND 訊息至 mqtt_message_log
  *   2. [預留] 實際執行事件處理（如推播警示、DB 紀錄等）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已修改，// 註解已依現有實作校正。
  */
 @Slf4j
 @Component
@@ -107,7 +111,7 @@ public class S020CommandHandler extends AbstractCommandHandler<S020CommandPayloa
         }
 
         // 3️⃣ [預留] 進行事件通知、警示推播等業務流程
-        // TODO: 依需求做事件警示、DB 入庫等處理
+        // 目前僅保留後續處理入口，尚未實作額外流程。
     }
 
     /**

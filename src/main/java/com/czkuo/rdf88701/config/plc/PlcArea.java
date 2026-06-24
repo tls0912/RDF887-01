@@ -3,6 +3,10 @@ package com.czkuo.rdf88701.config.plc;
 /**
  * 通用 PLC 區段定義介面
  * - 提供區段類型（B/W）、起始地址與長度，供 Polling Router 通用處理
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 public interface PlcArea {
 

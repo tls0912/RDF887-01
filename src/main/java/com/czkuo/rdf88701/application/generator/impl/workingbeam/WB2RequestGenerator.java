@@ -35,6 +35,10 @@ import static com.czkuo.rdf88701.application.monitor.AutoR029Planner.TestMode;
  * (a) Transfer#7 位置在 VIRTUAL#10（以 Level 對應）
  * (b) Transfer#7 無帳（DB）
  * 否則禁止建立 WB 請求。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component("WB2")

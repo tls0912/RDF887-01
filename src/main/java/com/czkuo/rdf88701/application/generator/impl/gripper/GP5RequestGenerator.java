@@ -37,6 +37,10 @@ import java.util.concurrent.ConcurrentHashMap;
  * - 若會露出一般片 → 需要先做「異物檢」流程：
  * 先 MOVE 到 VIRTUAL#6，再 MOVE 到 VIRTUAL#7（兩段皆完成後，才回到原本的 DROP/拆站流程）。
  * - 若不會露出（例如 PICK 後頂層仍有上蓋，或整把搬空）→ 不需異物檢，照原邏輯執行。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component("GP5")

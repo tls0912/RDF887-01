@@ -25,6 +25,10 @@ import org.springframework.stereotype.Component;
  * 防回聲迴圈：
  *   - 透過 ReplyOnceValve：同一 sender+CMD_ID+TID 在 TTL 內只允許回覆一次
  *   - 第二次之後仍會記錄與刷新心跳，但不再回覆 ACK
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

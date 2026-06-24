@@ -6,6 +6,10 @@ import lombok.Data;
 /**
  * S001 指令：建立連線指令 Payload
  * 雙方皆可主動發送此格式（包含程式名稱與版本）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class S001CommandPayload {

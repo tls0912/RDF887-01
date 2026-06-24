@@ -23,6 +23,10 @@ import java.util.*;
  * - 將 data URL / Base64 影像解碼 → 寫入檔案系統 → 建立 image_asset 記錄
  * - 路徑規則：{root}/{scene}/yyyy/MM/dd/{refPrefix}-{refId}/{role}{ext}
  *   refPrefix: EVENT=ev, MESSAGE=msg, SESSION=ses
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Service

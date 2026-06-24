@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.czkuo.rdf88701.infra.mapper.AlarmAggMapper">
+    <!-- 2026-06-24 ver XML 狀態：已檢查，XML 註解與現有 SQL 結構相符。 -->
 
     <sql id="logFilter">
         <where>

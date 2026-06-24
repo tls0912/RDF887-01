@@ -6,6 +6,10 @@ import lombok.Data;
 /**
  * S074 任務查詢請求 Payload
  * ASE → 廠商：詢問目前系統中尚未完成的搬運任務清單
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class S074CommandPayload {

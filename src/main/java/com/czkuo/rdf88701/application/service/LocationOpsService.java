@@ -35,6 +35,10 @@ import static org.springframework.http.HttpStatus.*;
  * 3) 進/出帳會寫入 location_flow：
  *    - bind(): 先把該 container 任何未結束的 flow 設定離開時間，再插入一筆新的進帳 flow（entryType 預設 MANUAL）
  *    - clear(): 將未離開的 flow 補上 left_time 與 exitType=MANUAL、exitOperator=system（可依需求調整）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Service

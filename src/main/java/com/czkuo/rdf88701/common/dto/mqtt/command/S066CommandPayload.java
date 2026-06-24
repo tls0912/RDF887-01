@@ -8,6 +8,10 @@ import java.util.List;
 /**
  * S066 指令：標籤資訊印製（格式二）
  * ASE → 廠商，用於傳送更詳細的標籤內容以供列印
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class S066CommandPayload {

@@ -13,6 +13,10 @@ import org.springframework.stereotype.Component;
  * PlcTransferBitWriter
  * - 專責寫入 Transfer 指定 Bit（交握用）
  * - 支援 Transfer ID 控制
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

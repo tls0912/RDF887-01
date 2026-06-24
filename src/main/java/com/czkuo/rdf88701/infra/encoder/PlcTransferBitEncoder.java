@@ -10,6 +10,10 @@ import org.springframework.stereotype.Component;
  * - 專責將 Transfer Bit 指令與狀態進行編碼與解碼
  * - PC → PLC：PlcTransferBitCommand → boolean[]
  * - PLC → PC：boolean[] → PlcTransferBitStatus
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Component
 public class PlcTransferBitEncoder {

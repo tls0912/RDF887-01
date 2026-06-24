@@ -21,6 +21,10 @@ import java.util.Optional;
  *     寫失敗呼叫 {@link #markWritebackFailed(Long, String)}（可啟動重試策略）。
  *  4) 逾時保護（可選）：排程呼叫 {@link #markTimeoutAsNg(long, String)}，
  *     將久未回的 PENDING 標記 TIMEOUT/NG，並交由 Writer 寫回 PLC。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 public interface StartAccessInfoRepository {
 

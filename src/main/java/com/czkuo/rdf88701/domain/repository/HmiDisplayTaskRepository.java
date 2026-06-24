@@ -21,6 +21,10 @@ import java.util.Optional;
  *   <li>若使用較舊版本資料庫，請改採兩段式「領取標記」設計。</li>
  * </ul>
  * </p>
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 public interface HmiDisplayTaskRepository {
 

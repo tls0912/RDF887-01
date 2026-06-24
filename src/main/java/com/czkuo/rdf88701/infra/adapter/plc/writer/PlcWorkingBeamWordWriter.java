@@ -13,6 +13,10 @@ import org.springframework.stereotype.Component;
  * PlcWorkingBeamWordWriter
  * 專責將 WorkingBeam 任務的 Word 資料寫入 PLC
  * 對應區段：W0220~W0227（8 Words）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

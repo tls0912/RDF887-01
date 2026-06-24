@@ -27,6 +27,10 @@ import org.springframework.transaction.annotation.Transactional;
  * 說明：
  * - 我們採「值變才更新」：若本來就已經在佇列中，不重複更新/記錄。
  * - Handler 標註 @Transactional：#2 的更新與 log 寫入要同成敗。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

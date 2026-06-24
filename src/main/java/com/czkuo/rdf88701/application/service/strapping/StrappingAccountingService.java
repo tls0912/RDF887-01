@@ -14,6 +14,10 @@ import java.time.LocalDateTime;
  * - 標記原位置 flow 為離開
  * - 移除 LocationTracking 快照資料
  * - 釋放佔用的位址（Site#29）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Service

@@ -7,6 +7,10 @@ import lombok.Data;
  * S022 回覆格式：設備控制狀態（Control State）
  * 廠商回覆 ASE 詢問的設備控制模式狀態，
  * 例如：REMOTE（遠端控制）、LOCAL（本地控制）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class S022AckPayload {

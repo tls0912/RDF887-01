@@ -30,6 +30,10 @@ import org.springframework.web.bind.annotation.RestController;
  * ZIP → MCS WebAPI（MCS 端）
  * - 僅接收 ZIP 發來的 Primary，回覆 Secondary（回原生 JSON，不能包 ResponseResult）
  * - 本版本增強：將「請求/回覆」以 JSON 形式完整記錄到日誌，方便稽核追蹤
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @RestController

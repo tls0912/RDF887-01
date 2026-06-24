@@ -11,6 +11,10 @@ import java.util.List;
 /**
  * WipSlotQueryService
  * - 封裝儲格現況查詢，供各種 Handler / UI / 業務調用
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Service
 @RequiredArgsConstructor

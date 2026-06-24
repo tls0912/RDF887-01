@@ -9,6 +9,10 @@ import lombok.Data;
  *   base + 0 = Site Ready
  *   base + 2 = Remove Account Ack
  *   base + 3 = Port Report Ack（若站無此位可不使用）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class PlcSiteBitCommand {

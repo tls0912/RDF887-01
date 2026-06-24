@@ -11,6 +11,10 @@ import java.util.stream.Collectors;
  * PlcInfraredRegistry
  * - 提供 plc-infrared-distance.yml 中的紅外線測距感測器配置
  * - 支援名稱、ID、PLC Device、讀寫區資訊查詢
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Component
 @RequiredArgsConstructor

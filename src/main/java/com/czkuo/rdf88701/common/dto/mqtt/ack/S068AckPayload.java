@@ -8,6 +8,10 @@ import lombok.Data;
  * ASE 回覆是否允許進行打帶動作。
  * - OK: 可以打帶
  * - NG: 不可以打帶
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class S068AckPayload {

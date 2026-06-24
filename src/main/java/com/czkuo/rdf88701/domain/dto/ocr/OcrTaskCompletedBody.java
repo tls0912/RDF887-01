@@ -9,6 +9,10 @@ import lombok.Data;
  * status 允許：SUCCESS / FAILED
  * - SUCCESS: 可帶 ocrText、timingBreakdown
  * - FAILED : 可帶 errorMessage
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)

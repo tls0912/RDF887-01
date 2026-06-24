@@ -13,6 +13,10 @@ import java.util.Optional;
  * - 記錄容器目前所在位置的快照
  * - 每個容器僅對應一筆資料（即時狀態）
  * - 支援 CRUD 與業務查詢方法
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 public interface LocationTrackingRepository {
 

@@ -12,6 +12,10 @@ import org.springframework.stereotype.Component;
  * - 專責紅外線測高設備的指令資料解析
  * - 將 PLC 傳來的 byte[] ↔ InfraredCommandStatus 進行雙向轉換
  * - 支援 Bit / Word 區資料解析與編碼
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

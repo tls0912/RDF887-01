@@ -22,6 +22,10 @@ import java.util.Set;
 /**
  * 專責將 CraneTask 組裝為 PlcCraneWordCommand 的組裝器
  * FROM/TO 資料可分段組裝
+ *
+ * 2026-06-24 狀態：已修改，註解已依現有實作校正。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component
@@ -142,7 +146,7 @@ public class CraneWordCommandAssembler {
 
         if (isExchangeWarehouse) {
             if (!containerCode.isEmpty()) return containerCode;
-            // 重要：用 repository 的「條件更新 + 重試 + 唯一性」方法，避免競態/撞碼
+            // 目前實作：產生一組 SW 條碼，寫回 ContainerMain 後回傳。
             String ensured = genSwBarcode();
             log.warn("ContainerCode missing for exchange warehouse, auto-generated: {}", ensured);
 

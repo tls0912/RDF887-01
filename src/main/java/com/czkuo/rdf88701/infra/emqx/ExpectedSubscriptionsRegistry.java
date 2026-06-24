@@ -11,6 +11,10 @@ import java.util.*;
  * 把「期望訂閱」整理成 system -> List<TopicQos>
  * 預設使用 mqtt.connections[*].recvTopic（QoS=0）
  * 若 emqx.expected-subscriptions 有設定，則以覆寫為準（可多 topic）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Component
 @RequiredArgsConstructor

@@ -57,6 +57,10 @@ import java.util.concurrent.atomic.AtomicReference;
  *   - 本類僅用 AtomicX 做狀態暫存（baseline + last state），避免同步成本。
  *   - 寫任務狀態時盡量 idempotent（多次 update 同一狀態不致出錯）。
  *   - Repository 層若可提供「原子更新」（例如 WHERE status!=target 或 WHERE is_closed=0），可進一步提升穩定性。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已修改，// 註解已依現有實作校正。
  */
 @Slf4j
 @Component
@@ -374,7 +378,7 @@ public class CameraModbusMonitor {
                     persistSecondTimesByJob(awaitedJobId, j.getContainerMainId(), times);
                 });
 
-                // 建議 Repository 實作「只在 is_closed=0 時才更新」的原子方法，避免重複關單造成誤判
+                // 目前實作呼叫 markSecondDoneAndCloseIfActive(awaitedJobId)，只關閉仍為 active 的檢測任務。
                 inspectionJobRepository.markSecondDoneAndCloseIfActive(awaitedJobId);
 
                 log.info("[{}] 無 active job，但以計數補關 job#{} 成功（secondCount 與 delta 已寫入 attr）",
@@ -852,7 +856,7 @@ public class CameraModbusMonitor {
                     }
                     return Optional.of(level);
                 } catch (NumberFormatException ignore) {
-                    // fallthrough：改走「抽取第一段數字」策略
+                    // 解析失敗時，改走抽取第一段數字的解析流程。
                 }
             }
         }

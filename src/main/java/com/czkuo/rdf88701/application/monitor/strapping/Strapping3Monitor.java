@@ -24,6 +24,10 @@ import java.util.Optional;
  * 觸發：Transfer#9 productPresent==true 且 Level==VIRTUAL#16
  * 條件：Strapping#3 Standby + WaitCMD + IDLE
  * 流程：先發 S068(取 TID)→DB 查 TID 結果 OK→下 PLC；含 CMD/COMP 三段握手與成功後清帳
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已修改，// 註解已依現有實作校正。
  */
 @Slf4j
 @Component
@@ -65,7 +69,7 @@ public class Strapping3Monitor {
     private static final long TRANSFER9_ID = 9L;
     private static final String TRANSFER9_NAME = "Transfer#9";
     private static final String VIRTUAL_16 = "VIRTUAL#16";
-    // 依 PLC 對應：VIRTUAL#16 的 Level（請依實機調整）
+    // 目前以 LEVEL_V16 表示 VIRTUAL#16 的 PLC level。
     private static final int LEVEL_V16 = 216;
 
     // 任務參數

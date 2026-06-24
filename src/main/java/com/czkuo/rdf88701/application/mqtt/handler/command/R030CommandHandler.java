@@ -20,6 +20,10 @@ import org.springframework.stereotype.Component;
  *   1. 記錄 COMMAND 訊息至 mqtt_message_log
  *   2. [預留] 執行搬運指令與現場派工邏輯
  *   3. 回傳 ACK（回報狀態/分派結果）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已修改，// 註解已依現有實作校正。
  */
 @Slf4j
 @Component
@@ -65,7 +69,7 @@ public class R030CommandHandler extends AbstractCommandHandler<R030CommandPayloa
         );
 
         // 2️⃣ [預留] 執行 AGV/現場派工邏輯
-        // TODO: 實際任務派工、下發設備、流程控管等
+        // 目前僅保留後續處理入口，尚未實作額外流程。
 
         // 3️⃣ 組建 ACK payload
         R030AckPayload ack = new R030AckPayload();

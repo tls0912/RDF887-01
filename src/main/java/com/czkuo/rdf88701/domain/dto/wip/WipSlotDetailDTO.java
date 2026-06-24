@@ -7,6 +7,10 @@ import java.time.LocalDateTime;
 /**
  * WipSlotDetailDTO
  * - 儲格/位置資訊 + 容器資訊 + 產品資訊（給 UI 展示）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class WipSlotDetailDTO {

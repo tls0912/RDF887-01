@@ -45,6 +45,10 @@ import java.util.concurrent.ConcurrentHashMap;
  * - 只要 MAIN lane 還有「可補位」需求（例如 Site#27 無蓋 且 OCR 與 Site#14 成對相同）
  * → 禁止 TR5 進行 RECALL（14→13），避免把 pool 的蓋載走
  * → 必須等補完後，才允許回收
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component("TR5")

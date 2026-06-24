@@ -12,6 +12,10 @@ import java.time.Instant;
 /**
  * InfraredDeviceStatus
  * - 封裝紅外線測高裝置的 PLC 狀態快照（Bit + Word）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Getter
 @Setter

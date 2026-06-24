@@ -7,6 +7,10 @@ import lombok.Data;
  * R018 回覆格式（Ack）：回覆刪除任務執行情況
  * - 用於 SAA→ASE、SEEC→SAA 兩種場景
  * - MESSAGE 結構與指令相同
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class R018AckPayload {

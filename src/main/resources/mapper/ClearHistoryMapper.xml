@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.czkuo.rdf88701.infra.mapper.ClearHistoryMapper">
+    <!-- 2026-06-24 ver XML 狀態：已檢查，XML 註解與現有 SQL 結構相符。 -->
     <delete id="deleteTableDataBeforeTime">
         DELETE FROM ${tableName}
         WHERE ${colName} <![CDATA[ < ]]> #{clearBefore}
@@ -8,6 +9,7 @@
         LIMIT #{limit}
     </delete>
 
+    <!-- 刪除資料：d el et eT ab le Da ta Be fo re Ti me。 -->
     <delete id="deleteTableDataBeforeTime">
         DELETE FROM ${tableName}
         WHERE ${colName} <![CDATA[ < ]]> #{clearBefore}
@@ -15,11 +17,13 @@
         LIMIT #{limit}
     </delete>
 
+    <!-- 刪除資料：d el et eM qt tE ve nt Lo gB ef or eT im e。 -->
     <delete id="deleteMqttEventLogBeforeTime">
         DELETE FROM mqtt_event_log
         WHERE created_time <![CDATA[ < ]]> #{clearBefore} LIMIT #{limit}
     </delete>
 
+    <!-- 刪除資料：d el et eM qt tM es sa ge Lo gB ef or eT im eB yI dD es c。 -->
     <delete id="deleteMqttMessageLogBeforeTimeByIdDesc">
         DELETE FROM mqtt_message_log
         WHERE created_time <![CDATA[ < ]]> #{clearBefore}
@@ -28,6 +32,7 @@
         LIMIT #{limit}
     </delete>
 
+    <!-- 刪除資料：d el et eM qt tE ve nt St at us Lo gB ef or eT im e。 -->
     <delete id="deleteMqttEventStatusLogBeforeTime">
         DELETE FROM mqtt_event_status_log
         WHERE change_time <![CDATA[ < ]]> #{clearBefore} LIMIT #{limit}

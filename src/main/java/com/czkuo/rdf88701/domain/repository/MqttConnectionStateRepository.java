@@ -11,6 +11,10 @@ import java.util.Optional;
  * MqttConnectionStateRepository
  * - 管理 MQTT 對應系統的連線狀態（mqtt_connection_state 資料表）
  * - 提供 CRUD 與業務邏輯專用查詢方法
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 public interface MqttConnectionStateRepository {
 

@@ -13,6 +13,10 @@ import org.springframework.stereotype.Component;
  * Transfer 任務完成事件監聽器
  * - 根據 retCode 決定後續行為（帳籍轉移、狀態更新）
  * - 特別處理 PICK（移到 Transfer）與 DROP（從 Transfer 移出）邏輯
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

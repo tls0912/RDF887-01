@@ -25,6 +25,10 @@ import java.util.Optional;
  * 不處理：
  *  - 工蓋層數（work_cover_layers）：交由其他業務流程設定
  *  - 已有值的 cover/product：不覆蓋
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

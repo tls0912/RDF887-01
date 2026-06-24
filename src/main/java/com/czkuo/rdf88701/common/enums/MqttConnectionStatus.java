@@ -25,6 +25,10 @@ package com.czkuo.rdf88701.common.enums;
  * </p>
  *
  * ⚠ 注意：此狀態不可直接等同於 MQTT 連線層的 keep-alive，需透過應用層判斷維護。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 public enum MqttConnectionStatus {
 

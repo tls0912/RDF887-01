@@ -5,6 +5,11 @@ import com.czkuo.rdf88701.domain.event.HistoryEvent;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentLinkedQueue;
+/**
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
+ */
 
 public abstract class GenericHistoryInsertService<T, H> {
 

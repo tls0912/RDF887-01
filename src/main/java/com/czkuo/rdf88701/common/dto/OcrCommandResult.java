@@ -11,6 +11,10 @@ import java.time.LocalDateTime;
  * - 封裝 MCS→OCR 指令的回傳結果（HTTP/Webhook 無關）
  * - success：代表本次指令流程是否成功（例如完成送出/處理），不等同於 vendor 是否接受
  * - vendorAccepted：OCR 廠商是否接受（createTask 的 accepted）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 @NoArgsConstructor

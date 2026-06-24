@@ -7,6 +7,11 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 /** 設備狀態變更通知 */
+/**
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
+ */
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class OcrDeviceStatusChangedBody {

@@ -17,6 +17,10 @@ import org.springframework.stereotype.Component;
  * 功能：
  *   1. 將 ACK 訊息記錄至 mqtt_message_log（含 TOOL_LIST）
  *   2. 預留擴充處理，例如確認推播成功或分析 TOOL 使用狀況
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已修改，// 註解已依現有實作校正。
  */
 @Slf4j
 @Component
@@ -61,7 +65,7 @@ public class S014AckHandler extends AbstractAckHandler<S014AckPayload> {
         );
 
         // 3️⃣ [可擴充] 若 result=OK，後續可執行成功通知、比對清單等邏輯
-        // TODO: 處理 TOOL_LIST 實際後續流程（如存 DB 或進行警示比對）
+        // 目前僅保留 TOOL_LIST 回覆處理入口，尚未實作 DB 寫入或警示比對。
     }
 
     /**

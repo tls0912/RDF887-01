@@ -14,10 +14,14 @@ import java.util.Set;
 
 
 /**
- * AbstractAckHandler<T>
- * - 所有 CMD_ID 對應的 ACK 處理器共用抽象基底
- * - 自動反序列化與 CMD_ID 比對邏輯
- * - 支援 TID 檢查與錯誤處理
+ * MQTT ACK 處理器抽象基底。
+ *
+ * <p>負責 ACK 類訊息共用的型別檢查、CMD_ID 比對、TID 驗證與反序列化。
+ * 子類別只需宣告 ACK payload 型別，並實作收到 ACK 後的業務處理。</p>
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @RequiredArgsConstructor

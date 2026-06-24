@@ -47,6 +47,10 @@ import java.util.concurrent.ConcurrentHashMap;
  *  - 不用 properties 做對映表，全部用位址計算式
  *  - DB 是唯一真相（ACK/逾時皆寫入 DB，再由本類回寫 PLC）
  *  - 三段式補償：寫結果→打握手→清請求；任何一步失敗，該列會被標記 FAILED 以供重試/人工介入
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

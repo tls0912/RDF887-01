@@ -9,6 +9,10 @@ import org.springframework.stereotype.Component;
 /**
  * SiteDataDecoder
  * - 專門解析 PLC 傳來的 Bit/Word 資料，轉為 SiteDeviceStatus 狀態物件。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

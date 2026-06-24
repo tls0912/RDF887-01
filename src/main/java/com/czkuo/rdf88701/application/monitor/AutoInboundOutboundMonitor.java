@@ -21,6 +21,10 @@ import java.util.Set;
  * AutoInboundOutboundMonitor
  * - 入庫：Site#15 受 activeTarget 控制；Site#4 / Site#8 直接入庫到首個可用儲位
  * - 出庫：先補 ALL_COVER（多組池/待料/Transfer 組合）；若不成立則出庫到 Site#9
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.czkuo.rdf88701.infra.mapper.LocationPointMapper">
+    <!-- 2026-06-24 ver XML 狀態：已檢查，XML 註解與現有 SQL 結構相符。 -->
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.czkuo.rdf88701.infra.entity.LocationPoint">
@@ -30,6 +31,7 @@
         id, zone_code, code, name, coordinate_x, coordinate_y, coordinate_z, bank, bay, level, location_type, enabled, is_occupied, is_locked, is_reserved, lock_reason, preferred_status, created_time, updated_time
     </sql>
 
+    <!-- 更新資料：u pd at eO cc up ie dF la g。 -->
     <update id="updateOccupiedFlag">
         UPDATE location_point
         SET is_occupied = #{flag},
@@ -37,6 +39,7 @@
         WHERE id = #{id}
     </update>
 
+    <!-- 查詢單筆資料：find Available Storage Without Reservation Excluding。 -->
     <select id="findAvailableStorageWithoutReservationExcluding"
             parameterType="map"
             resultMap="BaseResultMap">
@@ -99,6 +102,7 @@
         - 回傳 WipSlotDetailDTO（含儲格、容器、產品、佔用等資訊，適用於 UI 或 S004 回覆）
         - status = 帳籍佔用旗標（slot_present_status），is_occupied = 物理佔用旗標
     -->
+    <!-- 結果映射：W ip Sl ot De ta il Ma p。 -->
     <resultMap id="WipSlotDetailMap" type="com.czkuo.rdf88701.domain.dto.wip.WipSlotDetailDTO">
         <result column="location_code" property="locationCode"/>
         <result column="location_name" property="locationName"/>
@@ -119,6 +123,7 @@
         <result column="arrived_time" property="arrivedTime"/>
     </resultMap>
 
+    <!-- 查詢清單：s el ec tA ll Wi pS lo tD et ai ls。 -->
     <select id="selectAllWipSlotDetails" resultMap="WipSlotDetailMap">
         SELECT
         lp.code AS location_code,

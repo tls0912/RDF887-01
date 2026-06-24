@@ -43,6 +43,10 @@ import java.util.concurrent.ConcurrentMap;
  * 併發/一致性：
  * - claim 系列方法有 @Transactional，對應 Mapper 查詢使用 FOR UPDATE（在 XML 內），可避免多節點重複領取。
  * - watermark 存在記憶體（ConcurrentHashMap），服務重啟會失；如需跨重啟，可改小表持久化（非必須）。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Service

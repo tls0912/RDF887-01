@@ -3,6 +3,10 @@ package com.czkuo.rdf88701.domain.plc.state.gripper;
 /**
  * 定義 Gripper 任務握手階段
  * 適用於單段式的交握控制狀態（無 FROM/TO 區分）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 public enum GripperHandshakePhase {
 

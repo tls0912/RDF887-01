@@ -12,6 +12,10 @@ import java.util.Arrays;
  * - 將 Site Word 指令打包為 byte[]（比照 Transfer 的編碼方式）
  * - 區段：W03E0 ~ W03FF（共 32 Words）
  *   - W03E6 ~ W03FE = Product ID（25 Words = 最多 50 ASCII 字元）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Component
 public class PlcSiteWordEncoder {

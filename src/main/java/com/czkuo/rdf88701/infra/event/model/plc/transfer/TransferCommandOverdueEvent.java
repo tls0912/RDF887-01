@@ -8,6 +8,10 @@ import lombok.ToString;
  * Transfer 指令資料過期（Command Overdue）警告事件
  * - 當 PLC 指令區長時間未更新時觸發
  * - 可用於監控是否有指令卡住、異常未清除等情況
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Getter
 @ToString

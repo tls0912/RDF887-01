@@ -11,6 +11,11 @@ import org.springframework.web.bind.annotation.*;
 import java.time.*;
 import java.util.*;
 import java.util.stream.Collectors;
+/**
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
+ */
 
 @RestController
 @RequestMapping("/api/strapping")

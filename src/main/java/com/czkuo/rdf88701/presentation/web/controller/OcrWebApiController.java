@@ -13,6 +13,10 @@ import org.springframework.web.bind.annotation.*;
 
 /**
  * OCR → 迅得 回呼入口（僅驗證/記錄/委派到 Service）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @RestController

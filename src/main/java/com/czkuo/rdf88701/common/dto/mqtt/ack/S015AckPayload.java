@@ -6,6 +6,10 @@ import lombok.Data;
 /**
  * S015 指令的回覆格式（Acknowledgement）
  * 回應零件預警設定結果（成功 / 失敗）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class S015AckPayload {

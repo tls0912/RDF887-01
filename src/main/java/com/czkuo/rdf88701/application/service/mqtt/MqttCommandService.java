@@ -22,6 +22,10 @@ import java.util.List;
  * - 預設採用 Outbox 可靠推送：入箱 + 立即嘗試一次；重送與 ACK 收斂由 Outbox/Worker 處理
  * - 若要改回「直接發送」：設定 mqtt.command.use-outbox=false
  * - ID_DESC 維持固定字串，不吃設定檔
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Service

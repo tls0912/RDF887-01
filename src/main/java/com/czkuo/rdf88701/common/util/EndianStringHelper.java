@@ -7,6 +7,10 @@ import java.util.Arrays;
 
 /**
  * EndianStringHelper 提供字串與 byte[] 間的轉換，並支援高低位（大小端）轉換。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 public class EndianStringHelper {
 

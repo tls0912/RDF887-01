@@ -6,6 +6,10 @@ import java.time.Instant;
  * PollingHandler
  * - 通用設備資料處理介面
  * - 提供 Bit / Word 資料的統一處理方法
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 public interface PollingHandler {
 

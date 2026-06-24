@@ -11,6 +11,10 @@ import java.util.stream.Collectors;
  * PlcSiteRegistry
  * - 專責提供 plc-site.yml 中的 Site 設備設定
  * - 與 PlcDeviceRegistry 分層職責
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Component
 @RequiredArgsConstructor

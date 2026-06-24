@@ -6,6 +6,10 @@ import lombok.Data;
 /**
  * S044 指令：查詢安全 Sensor 清單
  * ASE 發送查詢，要求廠商提供目前系統具備的安全設備列表
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class S044CommandPayload {

@@ -50,30 +50,14 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * ZipStockerEventService
- * ------------------------------------------------------------
- * MCS 端處理來自 ZIP Stocker 的事件（Primary → Secondary）。
- * 本 Service 被 {@link ZipStockerApiController} 呼叫，負責：
- * - 接收 ZIP 的 Primary 資料
- * - 觸發對應業務流程（例如發送 MQTT 命令、寫資料庫、狀態更新）
- * - 回覆 Secondary 給 ZIP
- * <p>
- * 已實作事件：
- * 1) 入庫上報   onStockerInput
- * 2) 出庫上報   onStockerOutput
- * 3) 狀態回報   onStatusReport
- * 4) 讀卡事件   onCardReader（本版已將卡號正規化為十進位再送 S010）
- * <p>
- * 設定說明（application.yml 可覆寫）：
- * zip:
- * mqtt:
- * target-system: ase                  # 目標外部系統（預設 ase）
- * l005-ack-timeout-ms: 5000          # 等 L005 ACK 逾時（毫秒）
- * l005-ack-poll-interval-ms: 100     # 等 L005 ACK 輪詢間隔（毫秒）
- * card:
- * reverse: false                     # 是否對 hex 做兩兩倒序（小端→大端）
- * uppercase: true                    # 是否先轉大寫再處理
- * always-hex: false                  # 是否無條件當 hex 解析（跳過偵測）
+ * ZIP Stocker 上報事件服務。
+ *
+ * <p>處理 ZIP → MCS 的 Primary 事件，執行對應資料庫更新、MQTT 命令、相機拍照
+ * 或 Robot 流程，並回覆 Secondary 給 ZIP Stocker。</p>
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Service

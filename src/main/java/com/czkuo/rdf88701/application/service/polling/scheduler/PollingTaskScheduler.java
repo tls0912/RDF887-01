@@ -20,6 +20,10 @@ import java.util.stream.Collectors;
  * - 控制每個 PLC 裝置的輪詢任務生命週期（啟動、停止、重試、恢復）
  * - 同時監控 Read 與 Write 區域
  * - 與 PollingDataRouter 結合，將輪詢結果導入對應的資料處理器
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

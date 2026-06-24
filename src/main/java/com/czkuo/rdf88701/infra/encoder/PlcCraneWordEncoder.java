@@ -10,6 +10,10 @@ import java.util.Arrays;
 /**
  * 將 PlcCraneWordCommand 轉為 PLC Word array（byte[]，每 word 2 bytes）
  * 支援 From / To 區段（W0050~W008D）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Component
 public class PlcCraneWordEncoder {

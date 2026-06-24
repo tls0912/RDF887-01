@@ -28,6 +28,10 @@ import java.util.concurrent.atomic.AtomicBoolean;
  *   2) 重新啟動時，會先從 DB 取該 area 的最大 seq_index，避免重複寫
  *   3) 若 index 跳動超過 buffer 容量，會警告「可能遺失紀錄」
  *   4) 以 (area, seq_index) 做唯一約束，防止重複寫入
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已修改，// 註解已依現有實作校正。
  */
 @Slf4j
 @Component
@@ -188,7 +192,7 @@ public class PackButtonReportMonitor {
         for (int idx = currIndex - diff + 1; idx <= currIndex; idx++) {
             // 4-1) 計算此 idx 對應到環形 buffer 的第幾組 group
             //
-            // 做法：假設 currIndex 對應到「最新一筆」所在 group，
+            // 目前實作以 currIndex 對應最新一筆所在 group，作為後續 groupNo 計算基準。
             //       其他較舊的依序往前推。
             //
             // e.g. currIndex=105, DATA_GROUPS=9

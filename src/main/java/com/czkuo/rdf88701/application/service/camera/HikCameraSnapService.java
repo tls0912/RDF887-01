@@ -14,6 +14,16 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
+/**
+ * HIKROBOT 相機抓拍服務。
+ *
+ * <p>封裝 Hikrobot MVS wrapper，支援依相機 index 或 IP 抓拍、存檔、覆蓋固定檔名、
+ * 曝光設定與 Base64 回傳。</p>
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
+ */
 
 @Slf4j
 @Service

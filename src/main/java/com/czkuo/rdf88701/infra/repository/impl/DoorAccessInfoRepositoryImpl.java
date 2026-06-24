@@ -23,6 +23,10 @@ import java.util.Optional;
  *  - 由 PLC Writer 撈取待寫回（writeback_status=WAITING）
  *  - 寫 PLC 成功/失敗狀態回寫
  *  - 逾時標記（從 PENDING → TIMEOUT/NG），並交給 Writer 寫回 PLC
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Repository
 public class DoorAccessInfoRepositoryImpl implements DoorAccessInfoRepository {

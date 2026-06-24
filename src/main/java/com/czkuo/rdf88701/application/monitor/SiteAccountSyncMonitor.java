@@ -40,6 +40,10 @@ import java.util.stream.Collectors;
  * 備註：
  *   - 以 0x00 補滿時，請確認 PLC 端的字元/Word 寫入不會被上層自動轉成空白或被截斷。
  *   - 若 siteCommandCache（可為 null）無資料，視為 50 個 0x00，藉此觸發第一次寫入。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

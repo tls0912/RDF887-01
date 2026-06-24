@@ -47,6 +47,10 @@ import static com.czkuo.rdf88701.application.monitor.ocr.Ocr2Io.*;
  * 3) Group 避讓：Group1(Site#12) -> Group2(Site#14)
  * 4) 正常服務：選站(12/14) -> MOVE 到 DOWN+Level
  * 5) 無目標：idleUp
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

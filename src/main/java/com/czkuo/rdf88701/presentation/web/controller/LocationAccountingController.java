@@ -12,6 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * LocationAccountingController
  * - 提供建帳、清帳、轉帳的外部控制接口
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @RestController
 @RequestMapping("/api/location/accounting")

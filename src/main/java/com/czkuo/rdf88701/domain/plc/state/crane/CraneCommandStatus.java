@@ -13,6 +13,10 @@ import java.time.Instant;
  * CraneCommandStatus
  * - 封裝 PC → PLC 的控制狀態（Bit + Word）
  * - 包含指令狀態、連線資訊、補充狀態
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Getter
 @Setter

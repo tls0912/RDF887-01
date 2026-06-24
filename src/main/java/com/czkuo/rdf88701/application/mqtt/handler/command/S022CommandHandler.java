@@ -20,6 +20,10 @@ import org.springframework.stereotype.Component;
  *   1. 記錄 COMMAND 訊息至 mqtt_message_log
  *   2. [預留] 查詢設備控制狀態（連 PLC、DB 或 API 取狀態）
  *   3. 回傳 ACK（帶入設備名稱與控制狀態）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已修改，// 註解已依現有實作校正。
  */
 @Slf4j
 @Component
@@ -80,7 +84,7 @@ public class S022CommandHandler extends AbstractCommandHandler<S022CommandPayloa
         );
 
         // 3️⃣ [預留] 查詢控制狀態，可由服務/PLC 取得
-        // TODO: 依實際設備控制狀態組成 message
+        // 目前僅保留後續處理入口，尚未實作額外流程。
         String deviceName = "STK";   // 範例，可動態取得
         String status = "REMOTE";      // 範例，可動態取得（REMOTE/LOCAL/MANUAL）
 

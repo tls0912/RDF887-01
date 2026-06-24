@@ -19,10 +19,15 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
- * WorkingBeam 任務監控啟動器
- * - 每台 WorkingBeam 啟動獨立任務監控排程（每秒執行一次）
- * - 若該設備上一次任務尚未完成，則本輪排程會略過（避免併發）
- * - 每隻 WorkingBeam 皆以 beamName 作為獨立控制
+ * WorkingBeam 任務監控 launcher。
+ *
+ * <p>啟動時依 WorkingBeam registry 為每支工作樑建立獨立排程，使用 AtomicBoolean
+ * 防止同一支工作樑上一輪尚未完成時重入，實際任務推進委派給
+ * WorkingBeamTaskMonitorPerDevice。</p>
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

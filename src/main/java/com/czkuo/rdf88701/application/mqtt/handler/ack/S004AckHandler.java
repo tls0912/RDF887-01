@@ -17,6 +17,10 @@ import org.springframework.stereotype.Component;
  * 處理內容包含：
  *  1. 記錄 ACK 訊息至 mqtt_message_log
  *  2. 可依據回應資料進行業務邏輯處理（目前預留）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

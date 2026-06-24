@@ -10,6 +10,10 @@ import java.util.concurrent.ConcurrentHashMap;
  * InfraredCommandCache
  * - 快取每台紅外線設備的指令狀態（PLC Polling 解碼 + 最後一次寫入）
  * - 完全使用 infraredId 作為 Map key，避免名稱混淆
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Component
 public class InfraredCommandCache {

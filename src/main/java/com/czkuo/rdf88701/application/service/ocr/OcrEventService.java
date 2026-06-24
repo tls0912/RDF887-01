@@ -18,7 +18,14 @@ import java.util.Locale;
 import java.util.Optional;
 
 /**
- * OCR 回呼處理：把事件映射到最小資料表（ocr_device / ocr_task / ocr_alarm）
+ * OCR 回呼事件處理服務。
+ *
+ * <p>將 OCR 廠商回呼事件映射到本地資料表，包含任務開始/完成、設備狀態變更與
+ * 警報上報，主要更新 ocr_task、ocr_device、ocr_alarm。</p>
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Service

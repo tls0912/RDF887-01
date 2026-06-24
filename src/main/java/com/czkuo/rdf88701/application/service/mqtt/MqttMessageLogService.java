@@ -21,6 +21,10 @@ import java.util.Optional;
  * MqttMessageLogService
  * - 統一記錄所有 MQTT 指令與回覆（COMMAND / ACK）
  * - ★ 寫入前可選擇清洗敏感欄位（MqttPayloadSanitizer）並限制 payload 最大長度
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Service

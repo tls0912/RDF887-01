@@ -8,6 +8,11 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 /** 警報解除通知（OCR → 迅得） */
+/**
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
+ */
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class OcrAlarmClearedBody {

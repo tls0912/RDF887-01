@@ -27,6 +27,10 @@ import java.util.stream.Collectors;
  * 讀取 32W（31 code + index）→ 差異化更新 DB → 把讀到的 index 原值回寫到「我們的 ACK 位址」
  * - Alarm 區：資料 W10C0..W10DF，ACK 回寫 W00FE
  * - Warning 區：資料 W10E0..W10FF，ACK 回寫 W00FF
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

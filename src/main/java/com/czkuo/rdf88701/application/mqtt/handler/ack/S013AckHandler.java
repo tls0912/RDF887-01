@@ -33,6 +33,10 @@ import java.util.Optional;
  * <p>
  * 寫回 PLC：不在此處進行，交由「Writer」元件後續撈取
  * （條件：writeback_status=WAITING）再依規則回寫 ReturnCode 與握手。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

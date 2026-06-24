@@ -10,6 +10,10 @@ import java.time.Instant;
  * Transfer 指令狀態更新推播訊息
  * - 對應 TransferCommand 資料內容
  * - 用於 WebSocket 將 PC → PLC 指令狀態推送給前端顯示
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 @Builder

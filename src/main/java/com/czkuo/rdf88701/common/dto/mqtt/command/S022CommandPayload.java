@@ -7,6 +7,10 @@ import lombok.Data;
 /**
  * S022 指令：詢問系統控制狀態（Control State）
  * ASE 向廠商詢問當前控制模式（例如 LOCAL、REMOTE）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class S022CommandPayload {

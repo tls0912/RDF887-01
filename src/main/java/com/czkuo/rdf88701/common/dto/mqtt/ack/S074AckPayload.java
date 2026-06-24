@@ -8,6 +8,10 @@ import java.util.List;
 /**
  * S074 任務查詢回覆 Payload
  * 廠商 → ASE：回傳目前所有待處理任務清單（如：R007、R008、R029、R030）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class S074AckPayload {

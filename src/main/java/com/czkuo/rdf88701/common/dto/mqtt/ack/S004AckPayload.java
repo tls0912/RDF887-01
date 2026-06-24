@@ -9,6 +9,10 @@ import java.util.List;
 /**
  * S004 回覆格式（ACK）：提供目前 WIP 儲格的狀態
  * - 每筆儲格包含儲位名稱、啟用狀態、WIP 批號、盤數
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class S004AckPayload {

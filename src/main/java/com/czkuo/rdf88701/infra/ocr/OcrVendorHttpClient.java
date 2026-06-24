@@ -17,25 +17,14 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * 迅得 → OCR 廠商 的 HTTP 客戶端
- * <p>
- * 提供：
- * - POST /api/v1/ocr-tasks                建立任務
- * - GET  /api/v1/ocr-tasks/{taskId}       查任務狀態
- * - GET  /api/v1/ocr-tasks/{taskId}/image 取單張圖（base64）
- * - GET  /api/v1/ocr-tasks/{taskId}/images 取多張圖（base64）
- * - GET  /api/v1/ocr-devices/{id}/status  查設備狀態
- * - GET  /api/v1/ocr-devices/{id}/alarms  查警報清單
- * <p>
- * 強化：
- * - URL 正規化（避免 baseUrl 尾端 "/" 造成 "//api"）
- * - 超時設定：connect=3s / read=8s（可按需調整）
- * - 統一請求/回應/錯誤 logging（含耗時），避免 Similar log messages
- * - 非 2xx 統一錯誤處理；404 → Optional.empty()
- * <p>
- * 注意：
- * - Spring Boot 3.4+ 建議使用 RestTemplateBuilder#connectTimeout/readTimeout
- *   取代舊的 setConnectTimeout/setReadTimeout。
+ * OCR 廠商 HTTP client。
+ *
+ * <p>封裝 MCS 呼叫 OCR 廠商 API 的同步 HTTP 操作，負責 URL 正規化、逾時設定、
+ * Authorization header、成功/錯誤 log 與 404 fallback，不負責本地任務狀態流轉。</p>
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

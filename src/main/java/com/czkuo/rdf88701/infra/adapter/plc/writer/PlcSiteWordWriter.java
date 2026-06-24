@@ -17,6 +17,10 @@ import org.springframework.stereotype.Component;
  * 兩種寫法：
  *  1) writeSiteData(...)      → 依 Encoder 產出的完整 bytes 寫在 base W
  *  2) writeAscii50Only(...)   → 只寫 ASCII50 區塊（25 words），避免動到前置保留 words
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

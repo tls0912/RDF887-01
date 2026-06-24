@@ -10,6 +10,10 @@ import java.util.concurrent.ConcurrentHashMap;
  * InfraredStatusCache
  * - 快取各紅外線設備的最新狀態（由 PLC Polling 得到）
  * - 提供給狀態機、監控服務、UI 推播等模組查詢使用
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Component
 public class InfraredStatusCache {

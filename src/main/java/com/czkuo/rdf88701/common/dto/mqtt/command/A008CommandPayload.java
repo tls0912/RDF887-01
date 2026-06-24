@@ -6,6 +6,10 @@ import lombok.Data;
 /**
  * A008 指令：AGV 車事件（由 SEEC 傳送至 SAA）
  * 回報 AGV 當前狀態、任務執行情況、位置與電量等資訊
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class A008CommandPayload {

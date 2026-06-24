@@ -7,6 +7,10 @@ import lombok.Data;
  * S003 指令的回覆格式（Acknowledgement）
  * - 回應對方的初始化請求結果。
  * - 一般由廠商系統（接收端）回覆 RESULT = "OK" 或 "FAIL"
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class S003AckPayload {

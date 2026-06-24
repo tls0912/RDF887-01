@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.czkuo.rdf88701.infra.mapper.LocationFlowMapper">
+    <!-- 2026-06-24 ver XML 狀態：已檢查，XML 註解與現有 SQL 結構相符。 -->
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.czkuo.rdf88701.infra.entity.LocationFlow">
@@ -23,6 +24,7 @@
         id, container_main_id, location_point_id, entry_type, exit_type, arrived_time, left_time, entry_operator, exit_operator, source_task_id, remark, archived_time
     </sql>
 
+    <!-- 更新資料：m ar kP re vi ou sA sL ef t。 -->
     <update id="markPreviousAsLeft" parameterType="map">
         UPDATE location_flow
         SET left_time = #{leftTime}

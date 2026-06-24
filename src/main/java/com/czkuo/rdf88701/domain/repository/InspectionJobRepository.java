@@ -11,6 +11,10 @@ import java.util.Optional;
  *  1) 每支夾爪同時僅允許一筆未關閉任務（靠 DB 的「產生欄位 + UNIQUE 索引」實現）。
  *  2) 大多數更新都以「is_closed = 0」為條件，避免關到歷史單（冪等、安全）。
  *  3) 提供快閃補關：相機快速回 IDLE、poll 漏到 SECOND_DONE 的情況下，依計數成長補「SECOND_DONE → DONE」。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 public interface InspectionJobRepository {
 

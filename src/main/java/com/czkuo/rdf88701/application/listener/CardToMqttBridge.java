@@ -14,6 +14,10 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * 監聽 CardReadEvent → 發送 S010(Card Number Check)
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

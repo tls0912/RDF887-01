@@ -7,6 +7,10 @@ import java.util.Optional;
 /**
  * InfraredRequest 資料存取介面
  * - 提供基本 CRUD 與業務邏輯用查詢方法
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 public interface InfraredRequestRepository {
 

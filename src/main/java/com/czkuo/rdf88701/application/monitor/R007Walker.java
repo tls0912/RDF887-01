@@ -66,6 +66,10 @@ import java.util.*;
  * - 但只有在 stkPort 仍為空且沒有被 dest_loc 綁定補齊時，才允許走「挑空口」
  * 4) DispatchOrder（ZIPA）成功後 → 轉發「同 TID 的 R007（含 STK_PORT）」給 SEEC（COMMAND）
  * 5) 回 ACK：START；更新 robot_r007_task；inbox DONE（等 ACK handler 完結）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已修改，// 註解已依現有實作校正。
  */
 @Slf4j
 @Component
@@ -544,7 +548,7 @@ public class R007Walker {
                 // - 目前 RobotR007Task 表沒有 sender 欄位，這裡「不回 ACK START」是最安全的最小改動。
                 //
                 // 如果你真的需要回 START：
-                // - 建議從 mqtt_inbox / mqtt_message_log 另查 sender（你沒有提供 repo method，我先不硬寫）
+                // 目前未查 sender 來源，維持既有 START 轉傳流程。
                 // --------------------------------------------------------
 
                 log.info("[R007-AMR] 發送/重送 SEEC：logId={}, carrier={}, stkPort={}, amrTid={}, attempts={}",

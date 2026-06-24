@@ -23,6 +23,10 @@ import java.util.UUID;
  *   1) 若夾爪上已有容器 且 Site#4 為空 → 建立 DROP → Site#4
  *   2) 若 Site#4 有容器 → 不建單
  *   3) 若 Site#3 有容器 → 建立 PICK Site#3 → Site#4
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已修改，// 註解已依現有實作校正。
  */
 @Slf4j
 @Component("GP1")
@@ -67,7 +71,7 @@ public class GP1RequestGenerator implements GripperRequestGenerator {
 
         Integer level = safeGetLevel(ds);
 
-        // 若你們有 isTransferStandby()，當作輔助
+        // 目前實作會先要求 isTransferStandby() 成立，再檢查 SOURCE/TARGET level。
         boolean atStandby = level != null && level == SOURCE_LEVEL;
         boolean atFeed    = level != null && level == TARGET_LEVEL;
 
@@ -181,7 +185,7 @@ public class GP1RequestGenerator implements GripperRequestGenerator {
     /** 嘗試取得目前 Level；若你的 DTO 名稱不同，直接把這裡改成對應欄位即可 */
     private Integer safeGetLevel(GripperDeviceStatus ds) {
         try {
-            return ds.getLevel(); // ← 若你的型別是 getCurrentLevel() 或 getZLevel()，改這一行
+            return ds.getLevel(); // 目前實作從 getLevel() 讀取裝置 level。
         } catch (Throwable ignore) {
             return null;
         }

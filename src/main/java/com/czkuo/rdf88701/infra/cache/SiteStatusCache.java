@@ -10,6 +10,10 @@ import java.util.concurrent.ConcurrentHashMap;
  * SiteStatusCache
  * 快取各 Site 裝置的最新狀態（來自 PLC Polling）
  * 提供統一入口供狀態機、監控器、UI 推播模組查詢
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Component
 public class SiteStatusCache {

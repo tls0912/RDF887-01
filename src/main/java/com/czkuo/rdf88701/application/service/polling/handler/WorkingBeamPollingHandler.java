@@ -33,6 +33,10 @@ import java.util.concurrent.*;
  * - 處理 PLC 資料輪詢解析與事件推播邏輯。
  * - 支援 Bit/Word 資料解析與快取，並合併成完整裝置狀態。
  * - 包含 PLC 寫入指令區（Command）與讀取區（DeviceStatus）的區分。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

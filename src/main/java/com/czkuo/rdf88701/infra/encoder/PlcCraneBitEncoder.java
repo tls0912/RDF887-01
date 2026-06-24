@@ -9,6 +9,10 @@ import org.springframework.stereotype.Component;
  * Crane Bit 區專用 Encoder
  * - Application 填 PlcCraneBitCommand → Encoder 組 PLC Bit 指令 boolean[]
  * - PLC 回傳 bit[] → 轉換為 CranePlcBitStatus
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Component
 public class PlcCraneBitEncoder {

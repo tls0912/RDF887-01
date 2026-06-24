@@ -9,6 +9,10 @@ import java.util.Optional;
  * <p>
  * 對應資料表：robot_in_r029_lot（(log_id, lot_id) 唯一）
  * <br/>用途：保存 R029 指令中 LOT 清單；配合主檔 robot_in_r029 使用
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 public interface RobotInR029LotRepository {
 

@@ -21,6 +21,10 @@ import org.springframework.stereotype.Component;
  *   1. 記錄原始訊息（COMMAND）
  *   2. 回傳 ACK（成功資訊與我方版本資訊）
  *   3. 標記對方為 connected 並更新連線狀態與 log
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

@@ -28,6 +28,10 @@ import java.util.concurrent.Executor;
  *
  * 注意：
  * - 送出用「原始 payload」；是否清洗/截斷由 MqttMessageLogService 負責（只針對寫 DB）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Service

@@ -27,6 +27,10 @@ import java.util.stream.Collectors;
  *
  * 預設「期望訂閱」包含各 system 的 recvTopic（QoS=0）；
  * 若 emqx.expected-subscriptions[system] 有配置，則以覆寫清單為準（可多 topic 與 QoS）。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

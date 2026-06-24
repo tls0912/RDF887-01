@@ -13,6 +13,10 @@ import org.springframework.stereotype.Component;
  * Gripper 任務完成事件監聽器
  * - 根據 retCode 處理帳籍轉移與任務狀態更新
  * - 成功則更新 tracking，失敗則標記，其他則進行重試
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

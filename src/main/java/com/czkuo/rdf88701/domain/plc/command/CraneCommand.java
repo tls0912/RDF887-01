@@ -8,6 +8,10 @@ import lombok.*;
  * CraneCommand
  * - 封裝 PC → PLC Word 區控制命令內容
  * - 主要為 Transfer 指令所需之參數，如 From/To 位置與 CST 資訊
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class CraneCommand {

@@ -18,6 +18,10 @@ import java.util.*;
  * - Site#10 的容器移動邏輯
  * - 優先 DROP（Gripper 上有貨 → 依 R029 lane→Site 對應）
  * - 否則 PICK（來源 Site#10 → 同樣依 R029 lane→Site 對應）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component("GP3")

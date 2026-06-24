@@ -16,9 +16,15 @@ import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
- * Gripper 任務監控啟動器（防重複執行版）
- * - 每台 Gripper 啟動獨立任務監控排程
- * - 若上一輪尚未完成，本輪排程會跳過
+ * Gripper 任務監控 launcher。
+ *
+ * <p>啟動時依 Gripper registry 為每台設備建立獨立排程，使用 AtomicBoolean
+ * 防止同一台 Gripper 上一輪尚未完成時重入，實際任務推進委派給
+ * GripperTaskMonitorPerDevice。</p>
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

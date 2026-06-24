@@ -10,6 +10,10 @@ import java.util.List;
 /**
  * 對應 plc-working-beam.yml 中的設定。
  * 用於定義每組 Working Beam 的記憶體對應區（B 區 / W 區 的 read/write 區段）。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 @Component

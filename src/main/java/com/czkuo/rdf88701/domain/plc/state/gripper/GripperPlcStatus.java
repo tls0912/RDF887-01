@@ -4,6 +4,10 @@ import com.czkuo.rdf88701.domain.plc.state.common.RunningSubStatus;
 
 /**
  * 外部需要提供的 PLC 即時狀態快照（例如 Polling解析後）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 public interface GripperPlcStatus {
 

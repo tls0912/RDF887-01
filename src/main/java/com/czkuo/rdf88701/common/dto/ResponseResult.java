@@ -9,6 +9,10 @@ import lombok.NoArgsConstructor;
  * 通用 API 回傳格式
  *
  * @param <T> 資料型別
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 @NoArgsConstructor

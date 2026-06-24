@@ -12,6 +12,10 @@ import java.util.Optional;
  * 對應資料表：safety_event_log
  * - 用於紀錄安全點位由「觸發 → 未觸發」或「未觸發 → 觸發」的變更事件
  * - 提供依點位/時間範圍查詢、最近 N 筆查詢、批次新增、統計與歷史清理等常用操作
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 public interface SafetyEventLogRepository {
 

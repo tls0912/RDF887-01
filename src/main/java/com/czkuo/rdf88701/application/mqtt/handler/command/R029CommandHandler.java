@@ -35,6 +35,10 @@ import java.util.stream.Collectors;
  *   2.5) 掛回 R029 上下文到來源容器（lotId=carrierId=alias_code）
  *   2.6) 建立 robot_r029_task（狀態 READY；流道由 Walker 之後決策；外部結果快取 OK）
  *   3) 匯入 mqtt_inbox 佇列（RECEIVED），ACK=OK；否則 ACK=NG
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

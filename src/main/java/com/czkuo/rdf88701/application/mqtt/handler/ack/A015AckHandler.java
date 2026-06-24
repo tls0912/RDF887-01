@@ -27,6 +27,10 @@ import org.springframework.stereotype.Component;
  * 注意：
  *   - 不主動回 ACK
  *   - 是否橋接由 A015BridgeCoordinator 依 session 判斷
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

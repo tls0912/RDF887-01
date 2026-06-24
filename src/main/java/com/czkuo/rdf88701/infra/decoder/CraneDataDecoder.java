@@ -13,6 +13,10 @@ import java.util.Arrays;
  * CraneDataDecoder
  * - 將切割好的 Crane B 區 / W 區 byte[] 資料解析成有意義的結構
  * - 支援 Transfer Standby, Job Handling, Product ID, Location 等解析
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

@@ -19,6 +19,10 @@ import java.util.List;
  * 1) 僅掃描「SENT 且 require_ack = true」且 next_attempt_time <= now 的事件，將其標記為逾時（FAILED: ack-timeout）。
  * 2) 不重送、不進行 RETRYING；純粹結案，讓上游依據 FAILED/ack-timeout 做後續補償或告警。
  * 3) 多實例安全：由 OutboxService 內部的 CAS（fromStatus）確保轉移原子性。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

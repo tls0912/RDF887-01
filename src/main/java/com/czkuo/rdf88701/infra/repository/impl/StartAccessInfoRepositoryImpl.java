@@ -22,6 +22,10 @@ import java.util.Optional;
  * 注意：
  *  - staff_list 以 JSON 存字串，這裡用 ObjectMapper 做序列化。
  *  - req_value 會有 1(START)、256(RESET)；請確保 DB 欄位與 Entity 型別支援 256。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Repository
 public class StartAccessInfoRepositoryImpl implements StartAccessInfoRepository {

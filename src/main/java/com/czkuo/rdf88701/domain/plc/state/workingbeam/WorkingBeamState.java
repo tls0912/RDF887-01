@@ -3,6 +3,10 @@ package com.czkuo.rdf88701.domain.plc.state.workingbeam;
 /**
  * WorkingBeamState
  * - 表示 Working Beam 裝置的主狀態（對應 PLC Word 區的 ssss 值）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 public enum WorkingBeamState {
 

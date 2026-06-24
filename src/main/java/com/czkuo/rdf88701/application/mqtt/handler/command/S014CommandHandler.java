@@ -31,6 +31,10 @@ import java.util.stream.Collectors;
  *   1. 記錄原始訊息（COMMAND）
  *   2. 回傳 ACK（零件清單、狀態等資訊）
  *   3. 記錄所有過程於 logService
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

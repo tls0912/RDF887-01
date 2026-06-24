@@ -3,6 +3,10 @@ package com.czkuo.rdf88701.domain.plc.state.transfer;
 /**
  * Transfer PLC Bit Signal 定義
  * - 實作對應 PLC B0100 ~ B0107 區段
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 public enum TransferBitSignal {
 

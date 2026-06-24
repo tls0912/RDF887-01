@@ -8,6 +8,10 @@ import java.util.List;
 /**
  * S069 指令：手動觸發 WARNING（由 ASE 傳送至設備）
  * 類似 SECS S10FX 的 USER 定義告警，用於提示異常狀況。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class S069CommandPayload {

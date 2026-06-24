@@ -10,6 +10,10 @@ import java.util.concurrent.ConcurrentHashMap;
  * CraneCommandCache
  * - 快取每台 Crane 的最新 PLC 指令狀態（Read 區）與最後一次寫入指令（Write 區）
  * - 完全使用 craneId 作為 Map key，避免 craneName 混淆
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Component
 public class CraneCommandCache {

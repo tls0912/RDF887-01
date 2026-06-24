@@ -7,6 +7,10 @@ import lombok.Data;
 /**
  * A015 指令的回覆格式（Acknowledgement）
  * - 由 SAA 回覆給 SEEC，告知是否已完成光閘關閉作業
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class A015AckPayload {

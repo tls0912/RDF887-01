@@ -29,6 +29,10 @@ import static com.czkuo.rdf88701.application.monitor.AutoR029Planner.TestMode;
  * - 策略說明：
  *   1. 若 Transfer 裝置上已有容器 → 嘗試 DROP 至後方 Site
  *   2. 否則由後往前尋找可 PICK 的容器，並搬往最遠的可用空 Site
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component("TR1")

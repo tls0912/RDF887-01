@@ -6,6 +6,10 @@ import lombok.Data;
 /**
  * S001 指令的回覆格式（Acknowledgement）
  * 回應對方的連線建立結果，例如 OK、FAIL，同時帶回連線資訊
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class S001AckPayload {

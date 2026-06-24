@@ -17,6 +17,10 @@ import java.util.Arrays;
  * - 專門解析與組裝 PC 控制區段（Bit: B0030+ / Word: W0050+）
  * - 將 PLC Byte[] ↔ CranePlcCommandStatus 雙向轉換
  * - 支援 Transfer Type、CST ID、Location 等語意
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

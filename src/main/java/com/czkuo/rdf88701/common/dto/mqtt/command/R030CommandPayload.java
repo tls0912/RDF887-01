@@ -8,6 +8,10 @@ import lombok.Data;
 /**
  * R030 指令：通知從 E-Rack 搬貨至機台
  * 由 SAA 傳送至 SEEC，用於啟動 AGV 移載任務
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class R030CommandPayload {

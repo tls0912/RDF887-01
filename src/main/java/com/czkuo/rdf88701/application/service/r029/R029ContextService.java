@@ -27,6 +27,10 @@ import java.util.Set;
  *  - 本實作不新增新資料表，僅使用既有的 container_attr（UK: (container_main_id, attr_key)）。
  *  - 避免 lambda 造成「Variable used in lambda expression should be final or effectively final」，
  *    迴圈內一律用 if/else，不用 ifPresent(...) / ifPresentOrElse(...)。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Service

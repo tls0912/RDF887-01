@@ -6,6 +6,10 @@ import lombok.Data;
 /**
  * S019 回覆格式：Robot HMI 顯示訊息的確認結果
  * 廠商回覆是否成功接收並處理顯示訊息
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class S019AckPayload {

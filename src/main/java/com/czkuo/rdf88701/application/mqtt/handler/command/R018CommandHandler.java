@@ -37,6 +37,10 @@ import java.util.regex.Pattern;
  *   僅允許「尚未執行」的任務取消：
  *   - internalState ∈ {NEW, QUEUED, ASSIGNED, DISPATCHED, PENDING}
  *   - 且外部未開始（externalLastResult != START，且（若存在）externalStartTime == null）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

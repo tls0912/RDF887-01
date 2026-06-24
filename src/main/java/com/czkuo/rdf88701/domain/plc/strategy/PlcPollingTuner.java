@@ -10,6 +10,10 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * PLC 輪詢頻率調整器：
  * 根據成功/失敗次數動態調整每個裝置的輪詢頻率（採用滑動視窗統計）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Component
 public class PlcPollingTuner {

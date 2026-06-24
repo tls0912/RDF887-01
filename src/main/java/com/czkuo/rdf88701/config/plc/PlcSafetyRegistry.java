@@ -11,6 +11,10 @@ import java.util.stream.Collectors;
  * PlcSafetyRegistry
  * - 提供 plc-safety.yml 的設備與點位查詢
  * - 名稱/ID/PLC 裝置名解析、讀區起始位址、addr 解析 (Wxxxx.b) 等工具
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Component
 @RequiredArgsConstructor

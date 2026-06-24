@@ -6,6 +6,10 @@ import lombok.Data;
  * InfraredCommand
  * - 封裝 PC → PLC Word 區控制命令內容（W0360 ~ W0367）
  * - 包含紅外線設備編號、托盤厚度等資訊
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class InfraredCommand {

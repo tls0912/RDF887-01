@@ -25,7 +25,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * AutoDispatchViaStatusQueryMonitor
+ * AutoStockTransferMonitor
  * <p>
  * 不用 DB，直接以 ZIP 的 StatusQuery(Type=3: 儲格狀態) 掃描庫位，
  * 查詢空格數小於3，即加入派貨清單並呼叫 DispatchOrder。
@@ -34,6 +34,10 @@ import java.util.concurrent.atomic.AtomicInteger;
  * - 每 30 秒跑一次（首次延遲 3 秒）
  * - 一輪最多派 1 筆
  * - 為避免重複派，在記憶體做冷卻：同一載具 N 分鐘內不重派
+ *
+ * 2026-06-24 狀態：已修改，註解已依現有實作校正。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

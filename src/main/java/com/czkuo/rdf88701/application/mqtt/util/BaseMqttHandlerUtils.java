@@ -17,6 +17,10 @@ import java.time.format.DateTimeParseException;
  * - 提供共用的 JSON 欄位抽取與格式驗證工具方法（供 Handler 使用）
  * - 避免各個 Handler 重複撰寫欄位解析邏輯
  * - 特別處理 TID 欄位（需符合 yyyyMMddHHmmssSSS 格式）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @UtilityClass
 public class BaseMqttHandlerUtils {

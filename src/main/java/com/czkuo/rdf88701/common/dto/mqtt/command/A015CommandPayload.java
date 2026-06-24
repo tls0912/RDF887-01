@@ -7,6 +7,10 @@ import lombok.Data;
 /**
  * A015 指令：AGV 到達 EQP
  * - 由 SEEC 發送給 SAA，通知 AGV 抵達機台位置，等待 SAA 執行關閉光閘
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class A015CommandPayload {

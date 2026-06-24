@@ -5,6 +5,10 @@ import lombok.Getter;
 /**
  * GripperState
  * - 表示 Gripper 裝置的主狀態（對應 PLC Word 區的 ssss 值）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 public enum GripperState {
 

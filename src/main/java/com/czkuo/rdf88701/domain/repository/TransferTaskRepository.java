@@ -10,6 +10,10 @@ import java.util.Optional;
  * Transfer 任務資料存取介面
  * - 作為 domain 層與 infra 資料層的介接抽象
  * - 提供查詢、狀態變更與任務操作等方法
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 public interface TransferTaskRepository {
 

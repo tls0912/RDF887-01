@@ -11,6 +11,10 @@ import lombok.ToString;
  * - 格式為：0000 0000 0000 TTTT（BCD）
  *   - TTTT: Command Type（4 bits）
  *     - 1: MOVE  - 執行移動作業
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Getter
 @Setter

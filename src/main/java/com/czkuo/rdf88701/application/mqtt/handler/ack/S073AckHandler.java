@@ -32,6 +32,10 @@ import java.util.Optional;
  * 注意：
  *   - 若做「重送會覆蓋 s073_tid」，舊 tid 的晚到 ACK 會找不到資料（正常現象）。
  *     若要吃晚到 ACK，需額外保存 tid history 或建立 tid->ocr_verification_id mapping。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

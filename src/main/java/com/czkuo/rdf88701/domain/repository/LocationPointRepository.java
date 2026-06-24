@@ -15,6 +15,10 @@ import java.util.Set;
  *
  * 定義儲位查詢、狀態標記（occupied/locked/reserved/enabled）、
  * 以及提供各種可用儲位的選擇 API（含排除條件、隨機選點、排除有效預約等）。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 public interface LocationPointRepository {
 

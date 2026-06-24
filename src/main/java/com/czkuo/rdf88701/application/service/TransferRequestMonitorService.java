@@ -15,6 +15,10 @@ import java.util.stream.Collectors;
 /**
  * Transfer Request 處理服務
  * - 依據 Transfer 設備進行分組處理，將 Request 轉換為 Task
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Service

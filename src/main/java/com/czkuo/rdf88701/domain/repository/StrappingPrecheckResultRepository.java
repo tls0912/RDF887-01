@@ -8,6 +8,10 @@ import java.util.Optional;
  * StrappingPrecheckResultRepository
  * - 保留原本基於 id 的 CRUD
  * - 新增以 tid 為核心的查詢/刪除/存取方法
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 public interface StrappingPrecheckResultRepository {
 

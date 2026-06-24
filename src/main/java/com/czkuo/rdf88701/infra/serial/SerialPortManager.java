@@ -15,22 +15,14 @@ import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * SerialPortManager（事件驅動版）
- * ------------------------------------------------------------
- * - 多埠：依 application.yml (serial.ports[*]) 開啟多個序列埠
- * - 分包：LINE / STX_ETX / FIXED（擇一；由 yml 設定）
- * - 讀取：使用 addDataListener 事件驅動（非背景 while 讀取）
- *   * 事件觸發 → 等待數十毫秒讓資料「湊齊」→ bytesAvailable() 抽乾 → 餵給累積器切帧
- * - 自動重連：PORT_DISCONNECTED 或讀取異常 → 指數退避重試
- * - 事件：每切出一帧即發布 SerialFrameEvent(alias, payload)
- * - 時序：
- *   1) @PostConstruct 啟動：逐個 port 開啟並掛上 DataListener
- *   2) 有資料時 onDataAvailable() 讀取 → 累積 → 切帧 → publishEvent()
- *   3) 斷線事件 onDisconnected() → safeClose() → scheduleReconnect()
+ * 序列埠集中管理器。
  *
- * 備註：
- * - Java byte 為有號（-128~127），看到負數（例如 -82）屬正常；轉 0~255 請 b & 0xFF。
- * - 若讀卡機輸出 ASCII 卡號 + CR/LF，請在 yml 設定 protocol=LINE, delimiter="\r\n"。
+ * <p>依 serial 設定開啟多個 port，使用 jSerialComm data listener 事件驅動讀取資料，
+ * 支援 LINE、STX_ETX、FIXED 分包，切出 frame 後發布 SerialFrameEvent，並在斷線時自動重連。</p>
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

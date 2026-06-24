@@ -8,6 +8,10 @@ import java.util.Optional;
  * WorkingBeam 控制範圍 Repository
  * - 管理 WorkingBeam 與控制位置（location_point）之間的對應關係
  * - 提供基本 CRUD 與依照 WorkingBeam 查詢控制點位順序等功能
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 public interface WorkingBeamControlRangeRepository {
 

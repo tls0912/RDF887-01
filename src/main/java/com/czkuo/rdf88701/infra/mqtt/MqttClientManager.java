@@ -24,6 +24,10 @@ import java.util.concurrent.*;
  * - 僅負責 MQTT client 初始化與實際發送（底層通訊）
  * - 使用 Eclipse Paho v5.0 client，支援多個連線（多 target system）
  * - 所有收到的訊息皆透過 Spring 事件方式傳出（與業務解耦）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

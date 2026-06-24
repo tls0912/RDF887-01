@@ -23,6 +23,10 @@ import java.util.concurrent.atomic.AtomicBoolean;
  * - 每台 Infrared 啟動獨立任務監控排程（每秒執行一次）
  * - 若該設備上一次任務尚未完成，則本輪排程會略過（避免併發）
  * - 每隻 Infrared 皆以 sensorName 作為獨立控制
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

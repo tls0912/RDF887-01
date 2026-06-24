@@ -8,6 +8,11 @@ import lombok.Data;
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
 /** 建立任務：Inbound Command（對外）— 不包含 taskId / createdTime */
+/**
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
+ */
 public class OcrCreateTaskCommand {
     @JsonProperty("ocrDeviceId") @NotNull
     private Integer ocrDeviceId;

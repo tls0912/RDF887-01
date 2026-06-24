@@ -23,6 +23,10 @@ import java.util.Objects;
  * - 透過 PLC Bit/Word Writer 發送控制信號
  * - 快取握手上下文（TransferHandshakeContext）來追蹤當前階段與逾時控制
  * - 發送事件供系統進一步處理（如通知前端、寫入歷史）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

@@ -40,6 +40,10 @@ import java.util.concurrent.Executor;
  *  - requireConnected=true：未連線時「不送、不計次」，僅重排程等待下次嘗試。
  *  - 不在 Outbox 任一路徑主動送 S001；連線由心跳/外部流程維持。
  *  - 並發：Repository 端提供 CAS（fromStatus 比對）避免多實例重送同一筆。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Service

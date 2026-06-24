@@ -23,6 +23,10 @@ import java.util.Locale;
  * MQTT 指令發送 API
  * - 提供外部系統或 UI 發送 MQTT 指令的入口
  * - 支援 SEEC / ASE 為接收端的場景
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @RestController

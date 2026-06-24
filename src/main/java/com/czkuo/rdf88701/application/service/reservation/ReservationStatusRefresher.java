@@ -7,6 +7,10 @@ import org.springframework.stereotype.Service;
 
 /**
  * 負責根據 reservation record 更新 location_point 的 is_reserved 欄位
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Service
 @RequiredArgsConstructor

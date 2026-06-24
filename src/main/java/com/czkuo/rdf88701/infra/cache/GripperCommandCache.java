@@ -10,6 +10,10 @@ import java.util.concurrent.ConcurrentHashMap;
  * GripperCommandCache
  * - 快取每台 Gripper 裝置的 PLC 指令狀態（Write區資料）
  * - 包含 Polling 解碼的 Bit + Word 指令，以及 PC 寫入的歷史指令內容
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Component
 public class GripperCommandCache {

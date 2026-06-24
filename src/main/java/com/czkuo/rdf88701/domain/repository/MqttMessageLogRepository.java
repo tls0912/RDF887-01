@@ -8,6 +8,10 @@ import java.util.Optional;
  * MqttMessageLogRepository
  * - 提供對 mqtt_message_log 表的資料存取抽象介面
  * - 用於儲存 MQTT 指令與 ACK 的傳輸歷程
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 public interface MqttMessageLogRepository {
 

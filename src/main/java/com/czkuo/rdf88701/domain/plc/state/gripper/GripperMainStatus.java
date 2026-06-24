@@ -6,6 +6,10 @@ import lombok.Getter;
  * Gripper 主流程狀態
  * - 對應設備大致上的流程進度
  * - 供 StateMachine 和事件系統使用
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Getter
 public enum GripperMainStatus {

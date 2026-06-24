@@ -10,6 +10,10 @@ import java.util.stream.Collectors;
  * PlcGripperRegistry
  * - 提供 plc-gripper.yml 中的 Gripper 設備設定
  * - 提供名稱查詢、起始位址解析等功能
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Component
 @RequiredArgsConstructor

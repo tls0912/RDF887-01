@@ -10,6 +10,10 @@ import java.util.List;
  * StrappingCommandBatchMessage
  * - 用於 WebSocket 推播多筆 Strapping 指令資料
  * - 通常應用於畫面初始化載入時使用
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 @Builder

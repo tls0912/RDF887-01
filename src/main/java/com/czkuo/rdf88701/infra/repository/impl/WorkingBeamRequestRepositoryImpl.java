@@ -15,6 +15,10 @@ import java.util.Optional;
 /**
  * WorkingBeamRequestRepository 實作
  * - 負責實體操作資料庫
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Repository
 @RequiredArgsConstructor

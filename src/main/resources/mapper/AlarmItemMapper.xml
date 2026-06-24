@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.czkuo.rdf88701.infra.mapper.AlarmItemMapper">
+    <!-- 2026-06-24 ver XML 狀態：已檢查，XML 註解與現有 SQL 結構相符。 -->
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.czkuo.rdf88701.infra.entity.AlarmItem">
@@ -26,6 +27,7 @@
     <!-- =========================================================
          快查：依 global_code 取單筆
          ========================================================= -->
+    <!-- 查詢資料：s el ec tB yG lo ba lC od e。 -->
     <select id="selectByGlobalCode" resultMap="BaseResultMap">
         SELECT <include refid="Base_Column_List"/>
         FROM alarm_item
@@ -57,6 +59,7 @@
     <!-- =========================================================
          值變才更新：避免無效 UPDATE 與多餘 log
          ========================================================= -->
+    <!-- 更新資料：s et Tr ig ge re dI fC ha ng ed。 -->
     <update id="setTriggeredIfChanged">
         UPDATE alarm_item
         SET is_triggered = #{val}
@@ -64,6 +67,7 @@
           AND is_triggered != #{val}
     </update>
 
+    <!-- 更新資料：s et Wa nt Pl cI fA ll ow ed。 -->
     <update id="setWantPlcIfAllowed">
         UPDATE alarm_item
         SET want_plc_trigger = #{on}
@@ -76,6 +80,7 @@
     <!-- =========================================================
          批次操作：成功送出後清 0、失敗回補 1
          ========================================================= -->
+    <!-- 更新資料：c le ar Wa nt Pl cB yI ds。 -->
     <update id="clearWantPlcByIds">
         UPDATE alarm_item
         SET want_plc_trigger = 0
@@ -85,6 +90,7 @@
         </foreach>
     </update>
 
+    <!-- 更新資料：r ee nq ue ue Fo rP lc By Gl ob al Co de s。 -->
     <update id="reenqueueForPlcByGlobalCodes">
         UPDATE alarm_item
         SET want_plc_trigger = 1

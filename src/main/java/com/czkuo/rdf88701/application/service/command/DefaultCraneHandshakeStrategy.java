@@ -19,6 +19,10 @@ import org.springframework.stereotype.Component;
  * 預設 Crane 握手策略
  * - 根據上下文狀態逐步推進握手流程
  * - 從 FROM 起始，經過 TO 結束
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

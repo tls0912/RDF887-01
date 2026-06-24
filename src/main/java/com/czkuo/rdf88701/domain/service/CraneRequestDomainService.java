@@ -12,6 +12,10 @@ import java.util.Objects;
 
 /**
  * CraneRequest 的領域邏輯處理服務（負責建立與驗證流程）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Service
 @RequiredArgsConstructor

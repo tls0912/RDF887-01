@@ -4,6 +4,10 @@ import com.czkuo.rdf88701.domain.plc.state.workingbeam.WorkingBeamDeviceStatus;
 
 /**
  * 提供 Working Beam 的 PLC 裝置狀態（來源為 Polling 快取）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 public interface WorkingBeamDeviceStatusProvider {
 

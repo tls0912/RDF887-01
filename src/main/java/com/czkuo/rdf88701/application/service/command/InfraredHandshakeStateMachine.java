@@ -11,6 +11,10 @@ import org.springframework.stereotype.Component;
  * Infrared 握手狀態機
  * - 提供統一進入點，推進任務握手流程
  * - 可支援多策略切換（目前使用預設策略）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

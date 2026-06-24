@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.czkuo.rdf88701.infra.mapper.WorkingBeamTaskMapper">
+    <!-- 2026-06-24 ver XML 狀態：已檢查，XML 註解與現有 SQL 結構相符。 -->
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.czkuo.rdf88701.infra.entity.WorkingBeamTask">
@@ -33,6 +34,7 @@
         2. priority_level 降冪（高優先）
         3. id 升冪（先進先出）
     -->
+    <!-- 查詢資料：f in dT op Ta sk By Wo rk in gB ea mO rd er ed。 -->
     <select id="findTopTaskByWorkingBeamOrdered" resultMap="BaseResultMap">
         SELECT <include refid="Base_Column_List" />
         FROM working_beam_task
@@ -62,6 +64,7 @@
       2. priority_level 降冪（高優先）
       3. id 升冪（先進先出）
 -->
+    <!-- 查詢資料：f in dT op Ta sk By Tr an sf er Or de re d。 -->
     <select id="findTopTaskByTransferOrdered" resultMap="BaseResultMap">
         SELECT <include refid="Base_Column_List" />
         FROM transfer_task

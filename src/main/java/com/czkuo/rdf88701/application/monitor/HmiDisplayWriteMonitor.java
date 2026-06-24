@@ -24,6 +24,10 @@ import java.util.concurrent.atomic.AtomicBoolean;
  * 風險/說明：
  *   - 這版用 JVM 內的 busy flag 防重入；如果未來多實例/叢集，建議加「DB claim（狀態轉 SENDING）」
  *     來避免同一筆任務被多處同時處理。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已修改，// 註解已依現有實作校正。
  */
 @Slf4j
 @Component
@@ -64,7 +68,7 @@ public class HmiDisplayWriteMonitor {
     }
 
     private void processOne() {
-        // 1) 先撈出所有，挑最舊的 PENDING 一筆（你的 Repository 目前只有 findAll，就在記憶體篩）
+        // 目前從 Repository 取出全部資料，再於記憶體挑選最舊的 PENDING 任務。
         List<HmiDisplayTask> all = repo.findAll();
         HmiDisplayTask task = all.stream()
                 .filter(t -> "PENDING".equalsIgnoreCase(safeStr(t.getStatus())))

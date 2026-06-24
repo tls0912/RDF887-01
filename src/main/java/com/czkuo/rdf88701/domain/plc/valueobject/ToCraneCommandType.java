@@ -6,12 +6,16 @@ import lombok.Setter;
 import lombok.ToString;
 
 /**
- * ToTransferType
+ * ToCraneCommandType
  * - 封裝 To Transfer Type (W006F)
  * - 格式為：0000 000b cccc TTTT
  *   - TTTT: Command Type (4 bits)
  *   - cccc: CST Type (4 bits)
  *   - b: BCR Enable (預留欄位，預設為 0)
+ *
+ * 2026-06-24 狀態：已修改，註解已依現有實作校正。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Getter
 @Setter

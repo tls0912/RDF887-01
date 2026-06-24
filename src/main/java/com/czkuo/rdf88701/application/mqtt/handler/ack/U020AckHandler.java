@@ -18,6 +18,10 @@ import java.util.List;
  * - 處理流程包含：
  *   1. 記錄 ACK 訊息至 mqtt_message_log
  *   2. [可擴充] UI 顯示、批號狀態處理、異常提示等
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已修改，// 註解已依現有實作校正。
  */
 @Slf4j
 @Component
@@ -67,7 +71,7 @@ public class U020AckHandler extends AbstractAckHandler<U020AckPayload> {
         );
 
         // 2️⃣ [可擴充] 根據 result=OK/END/FAIL 處理 UI、例外狀態等
-        // TODO: 若 FAIL 時顯示異常提示
+        // 目前僅保留後續處理入口，尚未實作額外流程。
     }
 
     /**

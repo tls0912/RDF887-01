@@ -12,6 +12,10 @@ import org.springframework.stereotype.Component;
  * PlcInfraredBitWriter
  * - 寫入單一 bit 至 Infrared 指定位置（交握點位）
  * - 使用 infraredId（整數）識別設備
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

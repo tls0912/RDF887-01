@@ -10,6 +10,10 @@ import static com.czkuo.rdf88701.common.util.EndianStringHelper.swapWordBytesFas
 /**
  * PlcDataCodec 提供 PLC 資料的 byte[] 與各型別資料互轉功能，
  * 純粹處理編碼與解碼，不負責通訊行為。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 public class PlcDataCodec {
 

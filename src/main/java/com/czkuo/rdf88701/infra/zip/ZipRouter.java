@@ -7,6 +7,16 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
 import java.util.Locale;
+/**
+ * ZIP Stocker 目標路由器。
+ *
+ * <p>依 ZipTarget 從設定中取得 ZIPA/ZIPB base URL；若 target 未配置則退回舊版
+ * baseUrl，仍無設定時丟出錯誤。</p>
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
+ */
 
 @Component
 @RequiredArgsConstructor

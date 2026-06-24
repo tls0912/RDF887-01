@@ -9,6 +9,10 @@ import lombok.ToString;
  * SiteCommandUpdatedEvent
  * - 表示單一 Site 的控制命令狀態更新事件
  * - 用於事件推播、記錄、或狀態同步流程
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Getter
 @ToString

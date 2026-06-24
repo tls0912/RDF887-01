@@ -2,6 +2,10 @@ package com.czkuo.rdf88701.application.monitor.ocr;
 
 /**
  * OCR#2 的 PLC I/O 常數、站名與 Level、裝置編號等共用定義。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 public final class Ocr2Io {
 

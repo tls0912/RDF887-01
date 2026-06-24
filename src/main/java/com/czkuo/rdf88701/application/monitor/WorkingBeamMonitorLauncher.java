@@ -23,6 +23,10 @@ import java.util.concurrent.atomic.AtomicBoolean;
  * WorkingBeam 任務監控啟動器（防重複執行版）
  * - 每組 WorkingBeam 啟動獨立的監控排程
  * - 僅用於觸發 Request 產生策略，不處理交握邏輯
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

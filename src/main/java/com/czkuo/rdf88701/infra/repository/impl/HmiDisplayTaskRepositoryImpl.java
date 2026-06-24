@@ -24,6 +24,10 @@ import java.util.Optional;
  * 注意：
  * - pickOnePendingForUpdate() 需在 @Transactional 環境下呼叫，才會真的取得行鎖。
  * - MySQL 8.0 支援 FOR UPDATE SKIP LOCKED；若你的資料庫版本不支援，請改為「領取標記」的兩段式更新。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Repository
 public class HmiDisplayTaskRepositoryImpl implements HmiDisplayTaskRepository {

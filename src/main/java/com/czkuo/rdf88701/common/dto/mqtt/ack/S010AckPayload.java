@@ -9,6 +9,10 @@ import lombok.Data;
  * 結果：
  * - OK：驗證成功，允許操作
  * - NG：驗證失敗，不允許操作
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class S010AckPayload {

@@ -8,6 +8,10 @@ import lombok.Data;
  * WorkingBeamCommand
  * - 封裝 PC → PLC Word 區控制命令內容（W0220 ~ W0225）
  * - 包含 Transfer No、Command Type、Direction、Location 三軸資訊
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class WorkingBeamCommand {

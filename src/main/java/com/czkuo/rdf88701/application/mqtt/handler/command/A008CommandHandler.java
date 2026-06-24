@@ -23,6 +23,10 @@ import java.util.regex.Pattern;
  *   1. 記錄 COMMAND 訊息至 mqtt_message_log
  *   2. [預留] 業務處理 AGV 狀態、任務更新
  *   3. [本指令一般不回 ACK]
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

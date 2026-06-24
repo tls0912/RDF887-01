@@ -11,6 +11,10 @@ import org.springframework.stereotype.Component;
  * WorkingBeamDataDecoder
  * - 將切割好的 Working Beam 的 B/W 區段 byte[] 資料解析成對應結構
  * - 支援 DeviceStatus 與 RetCode 的解析
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

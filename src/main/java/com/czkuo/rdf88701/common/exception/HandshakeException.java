@@ -3,6 +3,10 @@ package com.czkuo.rdf88701.common.exception;
 /**
  * 表示握手流程中發生異常（例如 PLC 未就緒、業務條件未滿足等）
  * 可根據例外種類決定是否重試或直接失敗。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 public class HandshakeException extends RuntimeException {
 

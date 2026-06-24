@@ -20,6 +20,10 @@ import org.springframework.stereotype.Component;
  * - 處理流程：
  *   1. 記錄訊息至 mqtt_message_log
  *   2. 後續可擴充告警處理流程（例如推播 / UI 告警顯示）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

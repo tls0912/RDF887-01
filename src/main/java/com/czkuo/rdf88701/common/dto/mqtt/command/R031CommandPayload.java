@@ -6,6 +6,10 @@ import lombok.Data;
 /**
  * R031 - 通知從 WIP(STK) 搬貨至 Manual Port 指令 Payload
  * ASE → 廠商：下達搬運任務
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class R031CommandPayload {

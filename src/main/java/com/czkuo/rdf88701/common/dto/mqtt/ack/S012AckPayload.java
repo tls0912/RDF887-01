@@ -12,6 +12,10 @@ import java.util.List;
  * RESULT:
  * - OK 表示允許關門
  * - NG 表示不允許關門
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class S012AckPayload {

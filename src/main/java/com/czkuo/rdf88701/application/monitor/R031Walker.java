@@ -36,6 +36,10 @@ import java.util.Optional;
  * - 出到 Site#15；但需通過雙向設定：site_bidir_route.active_target 必須等於 expectedTarget(預設 Site#16)
  * - 出單前檢查：Site#15 / Site#16 / Transfer#6 不可被佔用；起重機不可忙碌
  * - 成功建立出庫 → 回 ACK=START 並 DONE；否則 requeue
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

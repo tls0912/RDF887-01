@@ -6,6 +6,10 @@ import com.czkuo.rdf88701.common.enums.MqttMessageType;
  * 所有 MQTT 訊息處理器需實作此介面
  * - 根據 system / topic / payload / type 判斷是否支援
  * - 根據類型執行處理邏輯（COMMAND / ACK）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 public interface MqttMessageHandler {
 

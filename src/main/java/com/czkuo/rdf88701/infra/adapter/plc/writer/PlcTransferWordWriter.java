@@ -15,6 +15,10 @@ import org.springframework.stereotype.Component;
  * - 專責將 Transfer 任務的 Word 資料寫入 PLC
  * - 使用 PlcAccessService 封裝實際寫入流程
  * - 寫入範圍為 Transfer Word 區段（W0100 ~ W011E）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

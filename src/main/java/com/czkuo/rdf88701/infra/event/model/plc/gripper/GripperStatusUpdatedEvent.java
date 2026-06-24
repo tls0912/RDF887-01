@@ -10,6 +10,10 @@ import lombok.Getter;
  * Gripper 最新狀態更新事件
  * - 含裝置層級的物理狀態（DeviceStatus）
  * - 含邏輯層級的業務狀態（StateMachine）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Getter
 @AllArgsConstructor

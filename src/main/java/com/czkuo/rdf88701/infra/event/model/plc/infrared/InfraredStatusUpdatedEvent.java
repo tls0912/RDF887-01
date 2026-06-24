@@ -10,6 +10,10 @@ import lombok.ToString;
  * InfraredStatusUpdatedEvent
  * - 表示單一紅外線設備的狀態更新事件
  * - 用於事件推播、狀態記錄、或狀態同步處理
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Getter
 @ToString

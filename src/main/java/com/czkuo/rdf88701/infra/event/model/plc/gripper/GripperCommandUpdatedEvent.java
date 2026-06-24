@@ -10,6 +10,10 @@ import lombok.ToString;
  * GripperCommandUpdatedEvent
  * - 表示單一 Gripper 裝置的指令控制狀態已更新
  * - 用於事件推播、日誌紀錄或狀態同步
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Getter
 @ToString

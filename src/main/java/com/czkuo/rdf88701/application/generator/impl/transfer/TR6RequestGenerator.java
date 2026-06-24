@@ -29,6 +29,10 @@ import java.util.UUID;
  *   1) 先看 Site 是否有帳；若有，且該 Site != activeTarget，則 PICK 該 Site → DROP 到 activeTarget
  *   2) 若 Transfer 本身已有容器，且 activeTarget 為空，則 DROP 到 activeTarget
  *   3) 不做任何 PLC 補帳/建帳
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component("TR6")

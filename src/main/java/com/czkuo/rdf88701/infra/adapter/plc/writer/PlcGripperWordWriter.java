@@ -14,6 +14,10 @@ import org.springframework.stereotype.Component;
  * - 專責將 Gripper 任務的 Word 資料寫入 PLC
  * - 使用 PlcAccessService 封裝實際寫入流程
  * - 寫入範圍為 Gripper Word 區段（W0200 ~ W021F）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

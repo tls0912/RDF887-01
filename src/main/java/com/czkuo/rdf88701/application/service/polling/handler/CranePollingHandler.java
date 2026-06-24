@@ -32,6 +32,10 @@ import java.util.concurrent.*;
  * CranePollingHandler
  * - 負責處理所有 PLC 資料解析、狀態合併與推播。
  * - 支援 Crane 回應資料與 PLC 寫入控制指令（PlcCommandStatus）的解析與監控。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

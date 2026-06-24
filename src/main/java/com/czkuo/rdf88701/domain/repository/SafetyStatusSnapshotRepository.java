@@ -12,6 +12,10 @@ import java.util.Optional;
  * 對應資料表：safety_status_snapshot（PK = point_id）
  * - 儲存每個安全點位目前的觸發狀態與時間戳
  * - 提供以 pointId（即 safety_point.id）為主鍵的查詢/更新能力
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 public interface SafetyStatusSnapshotRepository {
 

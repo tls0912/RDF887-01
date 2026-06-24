@@ -48,6 +48,10 @@ import java.util.List;
  *  - 完成：END，RESULT_MESSAGE=實際 Manual Port 名稱（Walker 觸發）
  *  - 失敗/拒絕：FAIL + RESULT_MESSAGE=原因
  *  - 取消：CANCLE（Walker 觸發）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

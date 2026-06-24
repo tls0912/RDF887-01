@@ -18,16 +18,14 @@ import java.lang.reflect.Type;
 import java.time.Duration;
 
 /**
- * ZipHttpClient
- * <p>
- * - MCS → ZIP 的 HTTP 客戶端（同步）
- * - 加強：URL 正規化、連線/讀取逾時、回應碼檢查與錯誤內容 logging
- * - 消除 Similar log messages：統一請求/回應/錯誤 log 模板，並附帶耗時（ms）
- * <p>
- * 使用方式：
- *   1) 在 Service 組 Root<PrimaryBody>（含 Header+Body）
- *   2) 呼叫 post (target, path, req, respBodyClass)
- *   3) 取得 Root<SecondaryBody>
+ * ZIP Stocker HTTP client。
+ *
+ * <p>封裝 MCS 主動呼叫 ZIP Stocker API 的同步 POST 操作，負責 target 路由、
+ * URL 正規化、逾時設定、JSON header、泛型 Root 回應反序列化與錯誤 log。</p>
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

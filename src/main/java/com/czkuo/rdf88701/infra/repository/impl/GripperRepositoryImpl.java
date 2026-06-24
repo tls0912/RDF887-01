@@ -12,6 +12,10 @@ import java.util.Optional;
 /**
  * Gripper 資料存取實作
  * - 提供 Gripper 裝置的查詢、新增、更新、刪除等功能
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Repository
 public class GripperRepositoryImpl implements GripperRepository {

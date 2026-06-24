@@ -7,6 +7,10 @@ import lombok.RequiredArgsConstructor;
  * 公蓋區流道：對應 MAIN / SUB。
  * - MAIN  → Site#14 / TR5 / GP7
  * - SUB   → Site#12 / TR4 / GP6
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Getter
 @RequiredArgsConstructor

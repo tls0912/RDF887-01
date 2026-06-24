@@ -26,15 +26,15 @@ import java.net.URI;
 import java.util.*;
 
 /**
- * Container REST Controller（CRUD + 查詢）
+ * 容器 REST API Controller。
  *
- * Endpoints:
- *  GET    /api/v1/containers              分頁查詢（支援 query）
- *  GET    /api/v1/containers/{carrierId}  依 carrierId(alias_code) 讀取單筆（含 data）
- *  GET    /api/v1/containers/id/{id}      依 DB id 讀取單筆（含 data）
- *  POST   /api/v1/containers              建立（可同時上送一筆 data）
- *  PUT    /api/v1/containers/{carrierId}  更新（主資料 + data upsert）
- *  DELETE /api/v1/containers/{carrierId}  刪除（先刪 data、attr 再刪 main）
+ * <p>提供容器查詢、建立、更新與刪除，並聚合 container_main、最新
+ * container_data 與 tray_thickness_mm attr。列表查詢目前只回傳仍在
+ * location_tracking 內的容器。</p>
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @RestController

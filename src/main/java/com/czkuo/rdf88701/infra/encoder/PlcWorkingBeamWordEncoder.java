@@ -8,6 +8,10 @@ import java.nio.ByteBuffer;
 /**
  * 將 PlcWorkingBeamWordCommand 編碼為 PLC Word 區域資料（W0220~W0222）
  * - 每個 word 對應 2 bytes（小端序）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Component
 public class PlcWorkingBeamWordEncoder {

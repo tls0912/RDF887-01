@@ -10,6 +10,10 @@ import java.util.Optional;
 /**
  * Crane 任務資料存取介面
  * 作為 domain 層與 infra 的資料介接抽象
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 public interface CraneTaskRepository {
 

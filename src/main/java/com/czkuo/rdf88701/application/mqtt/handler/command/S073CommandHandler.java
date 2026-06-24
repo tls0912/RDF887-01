@@ -21,6 +21,10 @@ import org.springframework.stereotype.Component;
  *   1. 記錄 COMMAND 訊息至 mqtt_message_log
  *   2. [預留] 圖像分析或業務判斷
  *   3. 回傳 ACK（允許/拒絕結果）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已修改，// 註解已依現有實作校正。
  */
 @Slf4j
 @Component
@@ -78,7 +82,7 @@ public class S073CommandHandler extends AbstractCommandHandler<S073CommandPayloa
         );
 
         // 2️⃣ [預留] 執行 Tray 圖像/資訊判斷
-        // TODO: 圖像分析或欄位驗證，如有異常可回覆 NG
+        // 目前僅保留後續處理入口，尚未實作額外流程。
 
         // 3️⃣ 組建 ACK payload
         S073AckPayload ack = new S073AckPayload();

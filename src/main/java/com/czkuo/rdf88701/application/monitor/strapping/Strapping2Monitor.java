@@ -27,6 +27,10 @@ import java.util.Optional;
  * - 先發 S068（打帶前狀態確認），用 TID 由 DB 取回結果為 OK 才送 PLC
  * - PLC 三段握手：CMD_REQ -> CMD_ACK、COMP_REQ -> COMP_ACK
  * - 成功後呼叫 StrappingAccountingService 註記完成
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

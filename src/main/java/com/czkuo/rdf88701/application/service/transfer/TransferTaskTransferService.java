@@ -22,6 +22,10 @@ import java.util.Optional;
  * - MOVE  → 無需異動帳籍（只移動於 Transfer 上）
  * - PICK  → 標記原位置 flow 為離開，並將帳籍移入 Transfer 對應站點
  * - DROP  → 建立目標位置 flow 與 tracking，並更新占用狀態
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Service

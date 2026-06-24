@@ -6,6 +6,10 @@ import lombok.Data;
  * 綁定（建帳）請求。
  * 你可以只傳 containerMainId；或不傳 containerMainId，但要帶 carrierId/containerCode/lotNo/partNo
  * 後者會在系統內新建一筆 ContainerMain。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class BindRequest {

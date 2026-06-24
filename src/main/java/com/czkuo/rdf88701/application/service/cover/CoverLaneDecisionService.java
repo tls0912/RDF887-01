@@ -32,6 +32,10 @@ import java.util.Optional;
  * 其中：
  * - SUB lane: staging=Site#11, pool=Site#12, transfer=Transfer#4
  * - MAIN lane: staging=Site#13, pool=Site#14, transfer=Transfer#5
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Service

@@ -37,6 +37,10 @@ import static com.czkuo.rdf88701.application.monitor.ocr.Ocr1Io.*;
  * 與 MotionMonitor 的分工：
  *  - 此類「不」下任何 MOVE / CMD_REQ / COMP_ACK；僅使用 Collect 與 W_OCR_RETCODE。
  *  - MotionMonitor 保證把設備送到位並回到乾淨 IDLE；本類才會觸發辨識與回報結果。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已修改，// 註解已依現有實作校正。
  */
 @Slf4j
 @Component
@@ -208,7 +212,7 @@ public class Ocr1ResultMonitor {
         // 先查「是否存在未完成」
         if (!ocrTaskRepository.existsUnfinishedForContainer(cmId)) return false;
 
-        // 找「最新一筆」當前容器的任務（你的 Repository 有 findLatestByContainerId）
+        // 目前使用 findLatestByContainerId(cmId) 找出當前容器最新一筆 OCR 任務。
         return ocrTaskRepository.findLatestByContainerId(cmId)
                 .filter(t -> isOcrTaskPending(t.getStatus()))
                 .map(t -> {

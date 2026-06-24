@@ -14,6 +14,10 @@ import org.springframework.web.bind.annotation.*;
  * - 建帳/清帳
  * <p>
  * 成功一律回 204，前端再自行刷新列表/明細。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @RestController
 @RequestMapping("/api/locations")

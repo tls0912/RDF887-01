@@ -10,6 +10,10 @@ import org.springframework.stereotype.Service;
 /**
  * 讀取 WIP（PLC）即時狀態 → 映射為 RUN/IDLE/STOP/WARNING/ERROR
  * 位址從組態注入（B0611~B0614），避免硬編。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Service

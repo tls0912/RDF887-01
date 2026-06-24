@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.czkuo.rdf88701.infra.mapper.ContainerMainMapper">
+    <!-- 2026-06-24 ver XML 狀態：已檢查，XML 註解與現有 SQL 結構相符。 -->
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.czkuo.rdf88701.infra.entity.ContainerMain">
@@ -44,6 +45,7 @@
         </association>
     </resultMap>
 
+    <!-- 查詢單筆容器主資料，並關聯最新一筆 container_data。 -->
     <select id="selectWithLatestDataById" resultMap="ContainerMainWithDataMap">
         SELECT m.*,
                d.id AS data_id,
@@ -63,6 +65,7 @@
         WHERE m.id = #{id}
     </select>
 
+    <!-- 查詢目前位於倉儲儲位的容器主資料清單。 -->
     <select id="findAllInWarehouse" resultMap="BaseResultMap">
         SELECT m.*
         FROM container_main m
@@ -71,6 +74,7 @@
         WHERE lp.location_type = 'STORAGE'
     </select>
 
+    <!-- 結果映射：容器主資料與目前庫位資訊。 -->
     <resultMap id="ContainerWithLocationResultMap" type="com.czkuo.rdf88701.infra.dto.ContainerWithLocation">
         <id column="id" property="id" />
         <result column="alias_code" property="aliasCode" />
@@ -85,6 +89,7 @@
         <result column="bay" property="bay" />
     </resultMap>
 
+    <!-- 查詢目前位於倉儲儲位的容器，並帶出庫位 id、code、level、bank、bay。 -->
     <select id="findAllInWarehouseWithLocation" resultMap="ContainerWithLocationResultMap">
         SELECT
             m.id,
@@ -104,6 +109,7 @@
         WHERE lp.location_type = 'STORAGE'
     </select>
 
+    <!-- 查詢仍有未接受請求或未完成任務的容器 ID。 -->
     <select id="selectProcessingContainerIds" resultType="java.lang.Long">
         SELECT DISTINCT container_main_id
         FROM (
@@ -136,6 +142,7 @@
     <!-- 取得 base 下的最大拆分尾碼。
      僅匹配：name = base 或 name = base_<數字>，避免把其他底線混進來。
      注意：底線需以 REPLACE(..., '_', '\\_') 轉義，以字面量比對。 -->
+    <!-- 查詢指定 base 名稱下的最大拆分尾碼。 -->
     <select id="findMaxSplitIndexByBase" resultType="java.lang.Integer">
         SELECT MAX(CAST(SUBSTRING(alias_code, CHAR_LENGTH(#{base}) + 2) AS UNSIGNED)) AS max_idx
         FROM container_main
@@ -146,6 +153,7 @@
             )
     </select>
 
+    <!-- 依最新 container_data.content_kind 查詢倉儲內容器與庫位資訊。 -->
     <select id="findAllInWarehouseWithLocationByContentKind"
             parameterType="string"
             resultMap="ContainerWithLocationResultMap">
@@ -178,6 +186,7 @@
           AND cd.content_kind = #{contentKind}
     </select>
 
+    <!-- 更新容器狀態與結束時間。 -->
     <update id="updateStateById">
         UPDATE container_main
         SET

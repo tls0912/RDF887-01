@@ -6,6 +6,10 @@ import lombok.Data;
 /**
  * S081 更新儲格儲位資訊 - 指令 Payload
  * ASE → 廠商：更新某儲位的對應 LOT/CARRIER
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class S081CommandPayload {

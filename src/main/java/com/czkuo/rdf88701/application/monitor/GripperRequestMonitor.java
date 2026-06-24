@@ -12,6 +12,10 @@ import org.springframework.stereotype.Component;
 /**
  * Scheduler Job → 掃描每一台 Gripper 裝置的未處理請求
  * 每秒執行 → 拆分 per device 處理（每次僅處理一筆）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

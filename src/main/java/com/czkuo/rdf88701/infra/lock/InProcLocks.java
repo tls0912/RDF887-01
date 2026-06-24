@@ -3,6 +3,11 @@ package com.czkuo.rdf88701.infra.lock;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /** 極簡 in-process 互斥：同 JVM 內有效；不跨程序、不重開機保存 */
+/**
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
+ */
 public final class InProcLocks {
     // GP4@25 / WB5 / WB8
     private static final AtomicBoolean GP4_25_ACTIVE = new AtomicBoolean(false);

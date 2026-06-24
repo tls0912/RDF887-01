@@ -4,6 +4,10 @@ package com.czkuo.rdf88701.common.util;
  * PLC 通訊地址與單位轉換工具
  * <p>
  * 用於將元件數量換算成實際通訊所需的 Byte 數量，或從 Byte 數量推回元件數量
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 public class PlcAddressUtils {
 

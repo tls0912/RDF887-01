@@ -12,6 +12,16 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.Set;
+/**
+ * OCR 任務建立與派送協調服務。
+ *
+ * <p>負責建立本地 ocr_task、避免同一容器重複派送未完成任務，並呼叫
+ * OcrCommandService 將任務送往 OCR 廠商。</p>
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
+ */
 
 @Slf4j
 @Service

@@ -10,6 +10,10 @@ import lombok.ToString;
  * CraneStatusUpdatedEvent
  * - 表示單一 Crane 狀態變化事件
  * - 可推送給 Kafka/MQ/UI 或儲存日誌
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Getter
 @ToString

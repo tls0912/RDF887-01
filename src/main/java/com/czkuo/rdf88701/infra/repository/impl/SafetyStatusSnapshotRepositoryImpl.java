@@ -18,6 +18,10 @@ import java.util.Optional;
  * 對應資料表：safety_status_snapshot（PK = point_id）
  * - 以 pointId 為主鍵做 CRUD
  * - 提供批次/UPSERT 與局部欄位更新（is_triggered / last_change_time / last_poll_time）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Repository
 public class SafetyStatusSnapshotRepositoryImpl implements SafetyStatusSnapshotRepository {

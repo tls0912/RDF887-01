@@ -31,6 +31,10 @@ import java.util.concurrent.*;
  * 實作：
  *   - 以 TID 為 key 維護橋接 session，包含是否已轉傳 DONE/OK 的旗標
  *   - 逾時自動清掉 session（避免堆積）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Service

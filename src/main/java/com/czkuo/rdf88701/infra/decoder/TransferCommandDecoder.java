@@ -13,6 +13,10 @@ import org.springframework.stereotype.Component;
  * - 專責 Transfer 的指令資料解析
  * - 將 PLC byte[] ↔ TransferCommandStatus 進行雙向轉換
  * - 支援 Bit 與 Word 區資料的解析與編碼
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

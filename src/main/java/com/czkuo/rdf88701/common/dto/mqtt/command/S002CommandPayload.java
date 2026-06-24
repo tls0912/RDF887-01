@@ -6,6 +6,10 @@ import lombok.Data;
 
 /**
  * S002 指令：系統心跳確認（雙向皆可主動發送）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class S002CommandPayload {

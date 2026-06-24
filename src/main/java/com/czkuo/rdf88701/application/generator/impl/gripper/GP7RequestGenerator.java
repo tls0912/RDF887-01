@@ -52,6 +52,10 @@ import java.util.*;
  * - PICK：layerCount = 來源站「留下」的層數（leaveCount = precount - plannedMoveLayers）
  * - DROP：layerCount = 落料前目標站的現有層數（precount at target）
  * - MOVE：layerCount = 0
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component("GP7")

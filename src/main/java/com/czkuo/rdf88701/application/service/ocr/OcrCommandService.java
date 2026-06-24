@@ -12,14 +12,14 @@ import java.util.Objects;
 import java.util.Optional;
 
 /**
- * OcrCommandService
- * <p>
- * MCS → OCR 指令發送邏輯：
- * - 直接呼叫 OCR 廠商 WebAPI（透過 OcrVendorHttpClient）
- * <p>
- * 便捷方法：
- * - createTask(...) 簡化參數版（taskId / deviceId / containerId / createdTime）
- * - createTaskAndProbe(...) 送出後立即探測一次任務狀態（非必要，但除錯/驗證很有用）
+ * OCR 主動命令服務。
+ *
+ * <p>提供 MCS 主動呼叫 OCR 廠商 API 的 application 入口，包含建立任務、查詢任務、
+ * 取得圖片、查詢設備狀態與警報；實際 HTTP 傳輸委派給 OcrVendorHttpClient。</p>
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Service

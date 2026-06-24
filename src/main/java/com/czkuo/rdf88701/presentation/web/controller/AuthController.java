@@ -9,6 +9,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+/**
+ * Auth REST API Controller。
+ *
+ * <p>提供 `/api/auth/login` 登入入口，將認證流程委派給 AuthService。</p>
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
+ */
 
 @RestController
 @RequestMapping("/api/auth")

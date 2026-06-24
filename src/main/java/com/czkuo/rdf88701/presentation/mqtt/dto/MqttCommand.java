@@ -9,6 +9,10 @@ import lombok.NoArgsConstructor;
 /**
  * MQTT 指令通用格式封裝（Java命名 + 保留 JSON 映射）
  * 對外 JSON 欄位仍維持 CMD, CMD_ID 等全大寫格式
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 @Builder(toBuilder = true)

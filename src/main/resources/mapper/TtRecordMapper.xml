@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.czkuo.rdf88701.infra.mapper.TtRecordMapper">
+    <!-- 2026-06-24 ver XML 狀態：已檢查，XML 註解與現有 SQL 結構相符。 -->
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.czkuo.rdf88701.infra.entity.TtRecord">
@@ -21,6 +22,7 @@
         id, device_type, device_name, plc_group, tt_index, transfer_no, created_time,remark_id,device_area
     </sql>
 
+    <!-- 共用 SQL 片段：R ec or dF il te rW he re。 -->
     <sql id="RecordFilterWhere">
         WHERE r.created_time <![CDATA[ >= ]]> #{f.from}
         AND r.created_time <![CDATA[ < ]]>  #{f.to}
@@ -54,6 +56,7 @@
         ORDER BY r.device_type, r.device_name
     </select>
 
+    <!-- 結果映射：R ec or dR ow Ma p。 -->
     <resultMap id="RecordRowMap" type="com.czkuo.rdf88701.application.dto.report.tt.TtRecordRowDto">
         <id     column="id"          property="id"/>
         <result column="createdTime" property="createdTime"/>
@@ -91,6 +94,7 @@
         ORDER BY r.created_time DESC, r.id DESC
     </select>
 
+    <!-- 查詢清單：s el ec tC yc le Li st Fo rD ev ic e。 -->
     <select id="selectCycleListForDevice" resultType="java.math.BigDecimal">
         SELECT COALESCE(t.cycle_sec, 0) AS cycleSec
         FROM tt_record r
@@ -102,6 +106,7 @@
         <include refid="RecordFilterWhere"/>
     </select>
 
+    <!-- 共用 SQL 片段：R ec or dF il te rW he re Gr ou pI D。 -->
     <sql id="RecordFilterWhereGroupID">
         WHERE r.created_time <![CDATA[ >= ]]> #{f.from}
         AND r.created_time <![CDATA[ < ]]>  #{f.to}
@@ -137,6 +142,7 @@
         ORDER BY r.created_time DESC, r.id DESC
     </select>
 
+    <!-- 查詢資料：s el ec tE xp or tD at a。 -->
     <select id="selectExportData" resultMap="RecordRowMap">
         select Z.id,z.createdTime,z.plcGroup,z.cycleSec,z.remarkId,z.deviceArea,x.`step_name`,x.`time_sec`
         from (

@@ -16,6 +16,10 @@ import java.util.Optional;
 
 /**
  * TransferRequest 建立與轉換指令服務
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Service
 @RequiredArgsConstructor

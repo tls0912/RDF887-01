@@ -18,6 +18,10 @@ import org.springframework.stereotype.Component;
  * - 本處理器負責：
  *   1. 記錄收到的指令內容（COMMAND）至 mqtt_message_log
  *   2. [可擴充] 觸發後續驗證處理流程
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

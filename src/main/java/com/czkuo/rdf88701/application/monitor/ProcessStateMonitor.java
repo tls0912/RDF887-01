@@ -6,6 +6,16 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
+/**
+ * 流程狀態輪詢 Monitor。
+ *
+ * <p>定期查詢 WIP、拆併、ZIPA、ZIPB 等流程狀態，並更新 DeviceProcessStateCache
+ * 供其他服務或前端查詢使用。</p>
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
+ */
 
 @Slf4j
 @Component

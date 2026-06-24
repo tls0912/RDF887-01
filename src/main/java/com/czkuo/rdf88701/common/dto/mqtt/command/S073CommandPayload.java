@@ -6,6 +6,10 @@ import lombok.Data;
 /**
  * S073 拆併前Tray資訊確認 指令
  * 廠商 → ASE：傳送 Tray 拍攝圖像與基本資訊，由 ASE 判斷是否允許進行拆併作業
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class S073CommandPayload {

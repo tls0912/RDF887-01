@@ -27,9 +27,15 @@ import java.util.concurrent.Executor;
 import java.util.function.Function;
 
 /**
- * PLC 客戶端管理器：
- * 負責所有裝置的初始化、狀態管理、連線控制與封裝操作。
- * 整合 PlcConnectionStrategyManager 提供重試、熔斷、自動切換等功能。
+ * PLC client 集中管理器。
+ *
+ * <p>負責依設定初始化啟用中的 PLC 裝置、建立協議 adapter、保存裝置即時狀態，
+ * 並透過 PlcConnectionStrategyManager 處理多 port 嘗試、失敗記錄與熔斷。
+ * 上層讀寫 PLC 時應優先透過 executeIfAllowed，避免繞過連線模式與實體連線檢查。</p>
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

@@ -16,9 +16,14 @@ import java.time.Instant;
 import java.util.List;
 
 /**
- * PLC 健康檢查排程器：
- * - 只處理 AUTO 模式裝置
- * - 檢查實際連線狀態，若斷線則觸發事件並進行自動重連
+ * PLC 健康檢查排程器。
+ *
+ * <p>定期檢查 AUTO 模式 PLC 裝置的實體連線狀態；若實際斷線，會更新狀態、
+ * 發布斷線事件並交由 PlcClientManager 嘗試重連。</p>
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

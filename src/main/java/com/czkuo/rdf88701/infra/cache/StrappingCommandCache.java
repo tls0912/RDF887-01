@@ -10,6 +10,10 @@ import java.util.concurrent.ConcurrentHashMap;
  * StrappingCommandCache
  * - 快取每台 Strapping 裝置的 PLC 指令狀態（Read區）與最後一次寫入指令（Write區）
  * - 完全使用 strappingId 作為 Map key，避免命名混淆
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Component
 public class StrappingCommandCache {

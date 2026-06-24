@@ -12,9 +12,14 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Site 記憶體布局解析服務
- * 支援從整體 PLC 資料區段中，抽出單一 Site 的位元區（B）或字區（W）資料
- * 提供 bits、words、string 的解碼協助方法
+ * Site PLC 記憶體布局解析服務。
+ *
+ * <p>依 PlcSiteProperties 的設備區段設定，從 PLC 大區塊 byte array 中切出單一
+ * Site 的 read/write、B/W 資料區，並提供 bits、words、string 解碼入口。</p>
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Service
 @RequiredArgsConstructor

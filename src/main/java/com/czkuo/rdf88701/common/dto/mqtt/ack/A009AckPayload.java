@@ -7,6 +7,10 @@ import java.util.List;
 
 /**
  * A009 回覆格式：AGV 狀態回傳（由 SEEC 回傳多台 AGV 狀態）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class A009AckPayload {

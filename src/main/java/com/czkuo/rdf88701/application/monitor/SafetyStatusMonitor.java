@@ -42,6 +42,10 @@ import java.util.concurrent.ConcurrentHashMap;
  * - SafetyPointRepository：查詢/快取 addr_expr -> pointId
  * - SafetyStatusSnapshotRepository：更新快照
  * - SafetyEventLogRepository：寫入事件
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已修改，// 註解已依現有實作校正。
  */
 @Slf4j
 @Component
@@ -177,7 +181,7 @@ public class SafetyStatusMonitor {
 
                 SafetyPoint p = pointCache.get(pointId);
                 if (p == null || !isEnabled(p)) {
-                    // 若真的會遇到 null，建議在 warmUp 或 resolve 時保證塞 cache；這裡就略過以避免 DB IO
+                    // 目前 cache 為 null 時直接略過，避免額外 DB IO。
                     //log.debug("[SafetyStatusMonitor] pointId={} 缺少快取，已略過主動上拋", pointId);
                     continue;
                 }

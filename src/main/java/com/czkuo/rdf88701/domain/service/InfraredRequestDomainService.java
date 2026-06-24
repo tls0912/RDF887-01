@@ -8,6 +8,10 @@ import org.springframework.stereotype.Service;
 
 /**
  * InfraredRequest 的領域邏輯處理服務（建立與轉換驗證）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已修改，// 註解已依現有實作校正。
  */
 @Service
 @RequiredArgsConstructor
@@ -21,7 +25,7 @@ public class InfraredRequestDomainService {
     public void validateForCreation(InfraredRequest request) {
         validateRequestFields(request);
         validateNoDuplicate(request);
-        // TODO: 可擴充其他檢查條件（如 sensor 狀態、流程一致性）
+        // 目前僅保留後續處理入口，尚未實作額外流程。
     }
 
     /**

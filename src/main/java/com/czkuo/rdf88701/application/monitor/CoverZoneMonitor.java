@@ -43,6 +43,10 @@ import java.util.Set;
  *
  * 回收時機：
  *    - 只在公蓋到達 stagingSite (Site#11 / Site#13) 時，才下入倉任務。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

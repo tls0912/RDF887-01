@@ -8,6 +8,10 @@ import java.util.List;
 /**
  * S014 指令：零件預警清單（由 SAA 傳送至 SEEC）
  * 每日早上與晚上定時更新
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class S014CommandPayload {

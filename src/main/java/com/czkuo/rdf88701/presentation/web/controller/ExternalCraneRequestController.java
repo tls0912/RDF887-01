@@ -15,6 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
  * 典型場景：AMR / ASE / MES 外部系統發送 Crane 任務 Request
  * <p>
  * 注意：此接口不對 internal UI 或 operator 開放，專供外部 system 整合使用。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @RestController
 @RequestMapping("/api/external/crane-requests")

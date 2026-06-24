@@ -10,6 +10,10 @@ import lombok.RequiredArgsConstructor;
  * - 主要用於更細緻描述設備正在進行的實際動作（例如移動中、抓取中、放置中）
  * - 不同設備類型（Gripper、OCR、Transfer等）可共用此分類
  * - 若無法明確辨識子行為，則標記為 UNKNOWN
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Getter
 @RequiredArgsConstructor

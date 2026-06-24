@@ -39,6 +39,10 @@ import java.util.Objects;
  *   2) 向 ZIP 查 Type=2（Name=CARRIERID）：僅當 Status=33(上架) 才接單
  *   3) 接單：落地 robot_in_r007、寫入隊列（mqtt_inbox）、upsert robot_r007_task
  *   4) 回覆 ACK（OK/FAIL），任何未預期例外都會回 FAIL + 原因
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

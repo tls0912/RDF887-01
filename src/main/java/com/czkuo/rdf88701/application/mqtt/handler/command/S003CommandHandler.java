@@ -20,6 +20,10 @@ import org.springframework.stereotype.Component;
  *   1. 記錄原始 COMMAND 訊息
  *   2. 回傳 ACK（結果為 OK）
  *   3. 實際業務初始化處理可留待後續擴充
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

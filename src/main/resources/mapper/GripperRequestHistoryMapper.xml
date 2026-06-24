@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.czkuo.rdf88701.infra.mapper.GripperRequestHistoryMapper">
+    <!-- 2026-06-24 ver XML 狀態：已檢查，XML 註解與現有 SQL 結構相符。 -->
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.czkuo.rdf88701.infra.entity.GripperRequestHistory">
@@ -40,6 +41,7 @@
     change_type, archived_time, archived_by
     </sql>
 
+    <!-- 新增資料：b at ch In se rt。 -->
     <insert id="batchInsert">
         INSERT INTO gripper_request_history (
             origin_id, gripper_id, request_key, version, task_type, request_source,

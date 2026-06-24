@@ -17,6 +17,10 @@ import java.util.Optional;
  *
  * 對應資料表：safety_event_log
  * - 實作常用查詢（依點位、時間區間、最近 N 筆）、批次新增、統計、歷史清理
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Repository
 public class SafetyEventLogRepositoryImpl implements SafetyEventLogRepository {

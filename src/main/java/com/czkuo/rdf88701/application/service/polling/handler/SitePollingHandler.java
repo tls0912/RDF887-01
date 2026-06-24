@@ -32,6 +32,10 @@ import java.util.concurrent.*;
  * - 處理 PLC Site Bit/Word 資料解析與狀態推播邏輯。
  * - 每個 Site 資料不需狀態機，也不分 command 與 status 區，僅解析並快取最新狀態。
  * - 輪詢資料來源由 PLC Polling 中央服務調用本類別進行處理。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

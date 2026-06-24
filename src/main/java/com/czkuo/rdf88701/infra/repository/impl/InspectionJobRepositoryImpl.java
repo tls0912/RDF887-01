@@ -23,6 +23,10 @@ import java.util.Optional;
  * 注意：
  *  - 若你的 InspectionJob.isClosed 是 Integer(0/1) 而不是 Boolean，請將 eq(..., false) 改成 eq(..., 0)；
  *    set(..., true) 改成 set(..., 1)（本實作假設 isClosed 綁定 Boolean）。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Repository
 public class InspectionJobRepositoryImpl implements InspectionJobRepository {

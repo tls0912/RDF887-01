@@ -5,6 +5,10 @@ import java.time.Instant;
 /**
  * PollingDataRouter
  * - 封裝不同設備的資料解析與分派邏輯
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 public interface PollingDataRouter {
 

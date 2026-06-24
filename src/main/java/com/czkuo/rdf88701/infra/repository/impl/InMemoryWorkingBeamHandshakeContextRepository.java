@@ -11,6 +11,10 @@ import java.util.concurrent.ConcurrentHashMap;
  * In-memory 實作：WorkingBeam 握手上下文快取
  * - 僅在記憶體中保存，不會持久化
  * - 任務重啟後 context 會重新建立
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Repository
 public class InMemoryWorkingBeamHandshakeContextRepository implements WorkingBeamHandshakeContextRepository {

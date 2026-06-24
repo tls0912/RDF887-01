@@ -37,6 +37,10 @@ import java.util.stream.Collectors;
  *   3. 從快取讀取設備狀態（優先新鮮資料）
  *   4. 組建 ACK payload 回覆 ASE
  *   5. 送出 ACK
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

@@ -20,6 +20,10 @@ import java.util.Optional;
 
 /**
  * CraneRequest 資料存取實作（含自動歷程記錄）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Repository
 @RequiredArgsConstructor

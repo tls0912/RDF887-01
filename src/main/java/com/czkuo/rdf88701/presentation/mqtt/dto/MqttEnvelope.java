@@ -14,6 +14,10 @@ import lombok.NoArgsConstructor;
  * 2) MESSAGE 採用泛型 T，避免以 Object 承載造成轉型錯
  * 3) 預設忽略為 null 的欄位，避免傳一堆無用鍵
  * 4) 提供常用的靜態工廠方法（ofSystem / ok / fail）讓呼叫端更簡潔
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 @Builder(toBuilder = true)

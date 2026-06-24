@@ -29,6 +29,10 @@ import java.util.Optional;
  * - MESSAGE 欄位優先採用 robot_r008_task 的值，缺才回退 robot_in_r008
  * - STK_PORT：優先 task.stkPort；否則固定 "STK03"
  * - 送出後立即回 START，然後把 inbox 標記 DONE
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

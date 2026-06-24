@@ -22,6 +22,11 @@ import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
+/**
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已修改，// 註解已依現有實作校正。
+ */
 
 @Slf4j
 @Component
@@ -55,7 +60,7 @@ public class TtReportMonitorMainPlc {
 
     @PostConstruct
     public void init() {
-        // 1) 載入全部定義（若你量很大，可改成只載入啟用的 / 或分設備載入）
+        // 目前依 PLC 區域載入全部 TT signal 定義。
         List<TtSignalDef> defs = defRepo.findByPlcArea(PLC);
         if (defs == null || defs.isEmpty()) {
             log.warn("[TT] no tt_signal_def found, monitor will do nothing");

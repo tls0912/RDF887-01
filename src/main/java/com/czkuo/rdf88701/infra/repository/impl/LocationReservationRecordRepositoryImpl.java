@@ -19,6 +19,10 @@ import java.util.Optional;
  * <p>
  * 處理 location_reservation_record 表的 CRUD 操作，
  * 並在資料異動時自動寫入對應的 location_reservation_history 歷史表。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Repository
 @RequiredArgsConstructor

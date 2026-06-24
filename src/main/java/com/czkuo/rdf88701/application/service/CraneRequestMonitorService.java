@@ -14,6 +14,10 @@ import java.util.List;
 /**
  * 真正處理 Crane Request Monitor 的 Service
  * → 被 Scheduler 呼叫，擁有 Transactional
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Service

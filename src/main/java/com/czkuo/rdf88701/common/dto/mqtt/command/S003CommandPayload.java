@@ -6,6 +6,10 @@ import lombok.Data;
 /**
  * S003 指令：系統初始化指令 Payload
  * 由 ASE 發送至廠商，用於通知啟動初始化流程。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class S003CommandPayload {

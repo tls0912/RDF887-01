@@ -8,7 +8,16 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
+/**
+ * 庫位主檔查詢 Controller。
+ *
+ * <p>提供 `/api/location-points/page` 分頁查詢入口，回傳前端庫位畫面使用的
+ * LocationPointVO。</p>
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
+ */
 @RestController
 @RequestMapping("/api/location-points")
 @RequiredArgsConstructor

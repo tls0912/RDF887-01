@@ -30,6 +30,10 @@ import java.util.Set;
  *   1. 記錄 COMMAND 訊息至 mqtt_message_log
  *   2. [預留] 執行亮燈通知、批號驗證等邏輯
  *   3. 回傳 ACK（批號處理狀態）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

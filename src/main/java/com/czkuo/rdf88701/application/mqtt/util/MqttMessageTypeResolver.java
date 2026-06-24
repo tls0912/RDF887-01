@@ -17,6 +17,10 @@ import java.util.Set;
  * MqttMessageTypeResolver
  * - 根據 payload 結構與歷史紀錄判斷訊息型別（COMMAND / ACK）
  * - 基於 TID + CMD_ID 與發送方向進行準確推論
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

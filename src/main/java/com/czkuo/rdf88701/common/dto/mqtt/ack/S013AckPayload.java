@@ -8,6 +8,10 @@ import java.util.List;
 /**
  * S013 回覆格式：回應是否允許進行復歸或啟動操作
  * ASE 根據人員驗證結果回覆是否允許 RESET / START
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class S013AckPayload {

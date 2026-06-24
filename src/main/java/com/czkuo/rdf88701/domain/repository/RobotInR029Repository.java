@@ -13,6 +13,10 @@ import java.util.Optional;
  * <p>
  * 說明：
  * - LOT 清單請參考「robot_in_r029_lot」表，建議使用 {@code RobotInR029LotRepository} 來操作。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 public interface RobotInR029Repository {
 

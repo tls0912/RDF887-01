@@ -17,6 +17,10 @@ import org.springframework.stereotype.Component;
  * - 此 Handler 處理邏輯包含：
  *   1. 記錄 ACK 訊息至 mqtt_message_log
  *   2. 更新對方連線狀態為 CONNECTED，並記錄 mqtt_connection_log 日誌
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

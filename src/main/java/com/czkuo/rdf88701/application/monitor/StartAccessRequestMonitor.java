@@ -41,6 +41,10 @@ import java.util.concurrent.ConcurrentHashMap;
  * 設計重點：
  *  - 位址用固定對應（不走 properties 表）
  *  - DB 是唯一真相（ACK/逾時皆先回 DB，再由本類回寫 PLC）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已修改，// 註解已依現有實作校正。
  */
 @Slf4j
 @Component
@@ -119,7 +123,7 @@ public class StartAccessRequestMonitor {
         }
     }
 
-    // 依據你的指定：WIP, 拆併區, ZIPA, ZIPB
+    // 目前依設定清單檢查 WIP、拆併區、ZIPA、ZIPB。
     private static final Target T_WIP        = new Target("WIP",     0x1035, 0x0035);
     private static final Target T_DISMANTLE  = new Target("拆併區",    0x1037, 0x0037); // 原 FSK6001A 改成「拆併區」
     private static final Target T_ZIPA       = new Target("ZIPA",    0x1039, 0x0039);
@@ -166,7 +170,7 @@ public class StartAccessRequestMonitor {
                 continue;
             }
 
-            // 發 S013（RESET/START 驗證），不夾帶參數（你的 DTO 即此定義）
+            // 目前發送 S013 RESET/START 驗證，且不夾帶額外參數。
             MqttSendResult send = mqtt.sendS013(targetSystem, t.getCode());
             if (!send.isSuccess()) {
                 log.error("[S013] 發送失敗 target={}, req={}, err={}", t.code, req, send.getMessage());

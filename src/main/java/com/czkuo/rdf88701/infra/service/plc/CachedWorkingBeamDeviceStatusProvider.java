@@ -9,6 +9,10 @@ import org.springframework.stereotype.Service;
 
 /**
  * 從快取中取得 PLC 回報的 Working Beam 狀態
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Service
 @RequiredArgsConstructor

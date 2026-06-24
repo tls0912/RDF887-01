@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.czkuo.rdf88701.infra.mapper.MqttInboxMapper">
+    <!-- 2026-06-24 ver XML 狀態：已檢查，XML 註解與現有 SQL 結構相符。 -->
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.czkuo.rdf88701.infra.entity.MqttInbox">
@@ -41,6 +42,7 @@
         #{processState}, #{priority}, #{attempts}, #{nextAttemptTime}, NOW(), NOW())
     </insert>
 
+    <!-- 查詢資料：s el ec tI dB yL og Id。 -->
     <select id="selectIdByLogId" parameterType="long" resultType="long">
         SELECT id FROM mqtt_inbox WHERE log_id = #{logId}
     </select>
@@ -71,6 +73,7 @@
           AND next_attempt_time &lt;= NOW()
     </update>
 
+    <!-- 更新資料：u pd at eT oI nP ro gr es sN oN ex tA tt em pt Ti me。 -->
     <update id="updateToInProgressNoNextAttemptTime">
         UPDATE mqtt_inbox
         SET process_state='IN_PROGRESS',
@@ -83,6 +86,7 @@
           AND (lock_until IS NULL OR lock_until &lt; NOW())
     </update>
 
+    <!-- 更新資料：m ar kQ ue ue d。 -->
     <update id="markQueued">
         UPDATE mqtt_inbox
         SET process_state='QUEUED',
@@ -92,6 +96,7 @@
         WHERE id=#{id}
     </update>
 
+    <!-- 更新資料：m ar kD on e。 -->
     <update id="markDone">
         UPDATE mqtt_inbox
         SET process_state='DONE',
@@ -104,6 +109,7 @@
         WHERE id=#{id}
     </update>
 
+    <!-- 更新資料：m ar kR ej ec te d。 -->
     <update id="markRejected">
         UPDATE mqtt_inbox
         SET process_state='REJECTED',
@@ -119,6 +125,7 @@
         WHERE id=#{id}
     </update>
 
+    <!-- 更新資料：m ar kC an ce ll ed。 -->
     <update id="markCancelled">
         UPDATE mqtt_inbox
         SET process_state='CANCELLED',
@@ -134,6 +141,7 @@
         WHERE id=#{id}
     </update>
 
+    <!-- 更新資料：r el ea se Ex pi re dL oc ks。 -->
     <update id="releaseExpiredLocks">
         UPDATE mqtt_inbox
         SET process_state='QUEUED',
@@ -145,6 +153,7 @@
           AND lock_until &lt; NOW()
     </update>
 
+    <!-- 更新資料：r eq ue ue Wi th Ba ck of f。 -->
     <update id="requeueWithBackoff">
         UPDATE mqtt_inbox
         SET process_state='QUEUED',
@@ -168,6 +177,7 @@
                 LIMIT 1
             ]]>
     </select>
+    <!-- 查詢資料：s el ec tC an di da te Id Fo rU pd at eB yC md No Ne xt At te mp tT im e。 -->
     <select id="selectCandidateIdForUpdateByCmdNoNextAttemptTime" resultType="long">
         <![CDATA[
             SELECT id

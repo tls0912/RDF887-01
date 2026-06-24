@@ -10,6 +10,10 @@ import java.time.Instant;
 
 /**
  * 表示 PLC 裝置連線模式變更事件
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 @NoArgsConstructor

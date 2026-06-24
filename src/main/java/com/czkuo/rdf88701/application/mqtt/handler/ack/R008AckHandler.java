@@ -27,6 +27,10 @@ import java.util.Optional;
  *   3) 回填 Telemetry：MISSION_TRIP / ODO / AMR_SPEED / AMR_ROBOT_SPEED（僅有值才 patch）
  *   4) 寫入 external_last_result / external_last_time（並於 FAIL/CANCEL 寫 fail_reason/cancel_reason）
  *   5) （可選）END/FAIL/CANCEL 轉傳給 ASE（開關：app.external.forward-r008-enabled）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

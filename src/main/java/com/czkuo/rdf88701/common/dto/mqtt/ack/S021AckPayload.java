@@ -9,6 +9,10 @@ import java.util.List;
 /**
  * S021 回覆格式：設備目前處理狀態（Process State）
  * 廠商回覆 ASE 查詢的設備名稱與狀態，例如 IDLE/RUN/ERROR
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class S021AckPayload {

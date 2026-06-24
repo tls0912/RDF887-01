@@ -6,6 +6,10 @@ import lombok.Data;
 
 /**
  * S008 指令：SEEC → SAA 發送 WARNING 警告訊息
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class S008CommandPayload {

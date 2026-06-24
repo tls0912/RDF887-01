@@ -6,13 +6,17 @@ import lombok.Setter;
 import lombok.ToString;
 
 /**
- * WorkingBeamTransferMeta
+ * WorkingBeamCommandMeta
  * - 封裝 Working Beam 的進出方向控制欄位（目前僅含 direction）
  * - 格式為：0000 0000 0000 00dd（可擴充）
  *   - dd: direction (BCD)
  *     - 1: IN
  *     - 2: OUT
  *   - 其餘保留位元未使用
+ *
+ * 2026-06-24 狀態：已修改，註解已依現有實作校正。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Getter
 @Setter

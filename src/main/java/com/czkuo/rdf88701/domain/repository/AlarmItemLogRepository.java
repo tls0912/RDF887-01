@@ -14,6 +14,10 @@ import java.util.Optional;
  *
  * 建議：此表為「append-only」審計表（只 INSERT，不 UPDATE/DELETE）。
  * 若需嚴格保障，請用 DB 權限或觸發器阻擋更新/刪除。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 public interface AlarmItemLogRepository {
 

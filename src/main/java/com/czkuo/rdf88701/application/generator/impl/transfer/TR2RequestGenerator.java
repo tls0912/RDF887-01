@@ -46,6 +46,10 @@ import static com.czkuo.rdf88701.application.monitor.AutoR029Planner.TestMode;
  * - container_type=TRAY、container_code=barcode、alias_code=barcode
  * - content_kind=NORMAL_WITH_COVER、tray_thickness_mm=5.62(mm)
  * - 建檔後立即 entry 到點位 251L
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component("TR2")

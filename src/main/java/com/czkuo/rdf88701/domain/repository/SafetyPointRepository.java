@@ -10,6 +10,10 @@ import java.util.Optional;
  * <p>
  * 封裝對資料表 {@code safety_point} 的常用操作，
  * 並提供便於監控/解碼流程使用的輔助查詢（例如依啟用狀態查詢、建立地址對照表）。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 public interface SafetyPointRepository {
 

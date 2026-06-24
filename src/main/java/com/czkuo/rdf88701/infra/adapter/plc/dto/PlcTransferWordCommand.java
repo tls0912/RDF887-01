@@ -7,6 +7,10 @@ import lombok.Data;
  * Transfer → PLC 傳送指令資料封裝 DTO
  * - 對應 Word Memory W0100~W011F
  * - 由上層 Application 組裝後交由 Encoder 編碼
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 @Builder

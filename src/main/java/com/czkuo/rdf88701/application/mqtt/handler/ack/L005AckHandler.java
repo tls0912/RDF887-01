@@ -41,6 +41,10 @@ import java.util.Optional;
  * 注意：
  *   - 只有在「檢核通過」且「ACK 結果為 OK/PASS/START」時，才呼叫 ContainerCreateService.ensureFromL005(...)
  *   - ZIP 那邊不需再驗證，可由 Session 狀態直接判斷
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

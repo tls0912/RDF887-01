@@ -8,6 +8,10 @@ import java.time.LocalDateTime;
 /**
  * InfraredTask Factory
  * - 由 InfraredRequest 建立 InfraredTask
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 public class InfraredTaskFactory {
 

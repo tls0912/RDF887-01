@@ -14,11 +14,14 @@ import java.util.EnumSet;
 import java.util.Set;
 
 /**
- * AbstractCommandHandler<T>
- * - 支援特定 CMD_ID 的 COMMAND / ACK 處理器抽象基底類別
- * - 自動解析 payload 與 dispatch 處理邏輯
- * - 使用 BaseMqttHandlerUtils 共用欄位抽取與驗證
- * - 預設檢查 TID 格式是否合法（yyyyMMddHHmmssSSS）
+ * MQTT COMMAND 處理器抽象基底。
+ *
+ * <p>負責共用的 CMD_ID 比對、支援型別檢查、TID 格式驗證與 payload 反序列化。
+ * 子類別只需宣告 CMD_ID、payload 型別，並在 process 中實作該指令的業務處理。</p>
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @RequiredArgsConstructor

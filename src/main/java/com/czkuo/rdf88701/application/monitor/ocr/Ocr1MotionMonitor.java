@@ -30,6 +30,10 @@ import static com.czkuo.rdf88701.application.monitor.ocr.Ocr1Io.*;
  *  - s==3（W_STATUS）代表 MOVE 完成；通常伴隨 B_COMP_REQ=1 → 必須回 B_COMP_ACK=1；
  *    當 B_COMP_REQ 關閉後再把 B_COMP_ACK 關掉，狀態回 s==1(IDLE)。
  *  - 「下命令」僅能在 Standby=true 且 s==1 時進行；Standby=false 不做 re-arm。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

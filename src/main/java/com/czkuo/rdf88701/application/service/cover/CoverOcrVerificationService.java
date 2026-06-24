@@ -41,6 +41,10 @@ import java.util.concurrent.ConcurrentHashMap;
  * - maxRetry=3；超過即標記 ERROR，避免永遠 WAIT_S073
  * - 使用 DB 欄位：
  * s073_sent_time / s073_retry_count / s073_last_retry_time / s073_next_retry_time
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Service

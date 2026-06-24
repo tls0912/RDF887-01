@@ -6,6 +6,10 @@ import java.time.LocalDateTime;
 
 /**
  * 查詢條件：包含容器資訊的 Gripper 任務查詢
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class GripperTaskWithContainerQuery {

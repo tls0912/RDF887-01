@@ -24,6 +24,10 @@ import java.util.Set;
  * 策略#2：STK03 / STK04 / STK05
  * - 機制：W0015 寫 pass-enable=1 → 等 W1015 可取(=1) → 回 A015 ACK(DONE)
  * - TID：沿用原始 A015 的 TID
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Service

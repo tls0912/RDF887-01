@@ -6,6 +6,10 @@ import lombok.Data;
 /**
  * S019 指令：Robot HMI 顯示來自 MCS 的訊息
  * ASE 發送顯示訊息給廠商（如安全門未關閉等），支援中英文顯示
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class S019CommandPayload {

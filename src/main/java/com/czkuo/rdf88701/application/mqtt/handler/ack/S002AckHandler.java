@@ -17,6 +17,10 @@ import org.springframework.stereotype.Component;
  * - 此 Handler 處理邏輯包含：
  *   1. 記錄 ACK 訊息至 matt_message_log
  *   2. 更新對方的 lastHeartbeatTime 時間（若已為 connected 狀態）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

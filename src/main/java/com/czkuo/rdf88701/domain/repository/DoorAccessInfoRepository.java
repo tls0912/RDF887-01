@@ -17,6 +17,10 @@ import java.util.Optional;
  *     {@link #markWritebackSuccess(Long, LocalDateTime)}，失敗則呼叫 {@link #markWritebackFailed(Long, String)}
  *  4) 逾時防護（可選）排程：呼叫 {@link #markTimeoutAsNg(long, String)}，將久未回的 PENDING 標記 TIMEOUT/NG，
  *     也交給 PLC Writer 回寫
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 public interface DoorAccessInfoRepository {
 

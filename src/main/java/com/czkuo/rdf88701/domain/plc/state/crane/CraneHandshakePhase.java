@@ -3,6 +3,10 @@ package com.czkuo.rdf88701.domain.plc.state.crane;
 /**
  * 定義 Crane 任務握手階段
  * 適用於 FROM / TO 任務之共通交握控制狀態
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 public enum CraneHandshakePhase {
 

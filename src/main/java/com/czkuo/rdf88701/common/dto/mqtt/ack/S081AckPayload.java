@@ -6,6 +6,10 @@ import lombok.Data;
 /**
  * S081 更新儲格儲位資訊 - 回覆 Payload
  * 廠商 → ASE：回覆儲格更新是否成功
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class S081AckPayload {

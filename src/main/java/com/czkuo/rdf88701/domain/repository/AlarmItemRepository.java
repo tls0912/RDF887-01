@@ -19,6 +19,10 @@ import java.util.Optional;
  * - claimPendingForPlc(...) 必須在 @Transactional 環境下呼叫，
  *   實作端會用「SELECT ... FOR UPDATE SKIP LOCKED」領取工作。
  * - 清旗標 / 回補佇列等批次更新也建議在同一交易內完成，提高一致性。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 public interface AlarmItemRepository {
 

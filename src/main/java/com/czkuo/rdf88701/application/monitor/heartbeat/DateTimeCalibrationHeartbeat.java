@@ -26,6 +26,10 @@ import java.util.concurrent.ConcurrentHashMap;
  * 1) 寫入 W0000~W0002 時間 → REQ=1
  * 2) 等 ACK=1 → REQ=0
  * 3) 等 ACK=0 → 本次完成，等待 period 後再觸發下一次
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

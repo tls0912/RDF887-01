@@ -6,6 +6,10 @@ import lombok.Data;
 /**
  * L005 - WIP_Load 請求讀取 1D Barcode 指令 Payload
  * 廠商 → ASE 發送條碼資訊，請求檢查是否允許入 STK
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class L005CommandPayload {

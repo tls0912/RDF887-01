@@ -31,6 +31,10 @@ import java.util.stream.Collectors;
  *        DEVICE_NAME = point_name
  *        DEVICE_STATUS = 觸發回 "NG"、正常回 "OK"
  *        STATUS_DESCRIPTION = remark（若空則 "type_code addr_expr"）並追加 "（被觸發）"/"（正常）"
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

@@ -18,6 +18,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.*;
+/**
+ * TT 報表查詢服務實作。
+ *
+ * <p>提供 TT 設備摘要、明細分頁、item 查詢、group id 統計與匯出資料查詢。</p>
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
+ */
 
 @Service
 @RequiredArgsConstructor

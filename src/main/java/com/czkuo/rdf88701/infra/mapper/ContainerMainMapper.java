@@ -10,12 +10,17 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 /**
- * <p>
- *  Mapper 接口
- * </p>
+ * ContainerMain MyBatis Mapper。
+ *
+ * <p>提供容器主資料的 MyBatis-Plus 基本 CRUD，以及倉儲庫位、最新資料、
+ * 處理中任務、拆分命名與狀態更新等自訂 SQL 入口。</p>
  *
  * @author czkuo
  * @since 2025-05-06
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Mapper
 public interface ContainerMainMapper extends BaseMapper<ContainerMain> {
@@ -43,8 +48,10 @@ public interface ContainerMainMapper extends BaseMapper<ContainerMain> {
     // 取得 base 下的最大拆分尾碼（_k）
     Integer findMaxSplitIndexByBase(String base);
 
+    /** 依最新 container_data.content_kind 查詢倉儲內容器與目前庫位。 */
     List<ContainerWithLocation> findAllInWarehouseWithLocationByContentKind(String contentKind);
 
+    /** 更新容器狀態；關閉時可同步寫入 closedTime，其餘狀態可傳 null。 */
     int updateStateById(@Param("id") Long id,
                         @Param("state") String state,
                         @Param("closedTime") LocalDateTime closedTime);

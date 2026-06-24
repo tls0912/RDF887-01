@@ -37,6 +37,10 @@ import java.util.stream.Collectors;
  * - 上緣：清掉 Crane 位置的 LocationTracking，並回 removeAccountAck=1
  * - 下緣：將 removeAccountAck=0
  * - 記錄當下的 CST ID（若能取到），並提供防禦 rearm / 強制拉低機制
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已修改，// 註解已依現有實作校正。
  */
 @Slf4j
 @Component
@@ -135,7 +139,7 @@ public class CraneRemoveAccountMonitor {
                     // (1) 先拿「清帳前」的 container 快照（清帳後就找不到了）
                     Optional<Long> cmBefore = locationTrackingRepository.findContainerAtLocationName(craneName);
 
-                    // (2) 移除時應該要變更狀態：ABORTED（寫 closed_time=now）
+                    // 目前移除時會將狀態改為 ABORTED，並寫入 closed_time。
                     cmBefore.ifPresent(containerMainId -> {
                         try {
                             boolean ok = containerMainRepository.abort(containerMainId);
@@ -235,7 +239,7 @@ public class CraneRemoveAccountMonitor {
      */
     private boolean clearLocationTracking(String craneName, String plcProduct) {
         try {
-            // 先找到對應的 LocationPoint（假設名稱就是 craneName）
+            // 目前以 craneName 查詢對應的 LocationPoint。
             LocationPoint p = locationPointRepository.findByName(craneName)
                     .orElse(null);
             if (p == null) {

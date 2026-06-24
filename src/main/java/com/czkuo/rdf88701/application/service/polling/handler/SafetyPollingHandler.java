@@ -25,6 +25,10 @@ import java.util.stream.Collectors;
  * - 參考 GripperPollingHandler 的結構，專為「安全感測點」設計
  * - 主要吃 W 區資料（多個連續 word），解碼成 16bits/word 後映射到 Wxxxx.b
  * - 合併變更、推播事件、過期監控
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

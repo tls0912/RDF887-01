@@ -6,6 +6,10 @@ import lombok.Data;
 /**
  * S012 指令：人員觸發關閉安全門
  * 廠商主動通知 ASE 有人要求關門，ASE 需進行人員資格驗證
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class S012CommandPayload {

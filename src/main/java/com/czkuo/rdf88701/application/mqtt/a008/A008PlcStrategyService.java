@@ -36,6 +36,10 @@ import java.util.regex.Pattern;
  *   STK05 → Site#17
  *
  * 重要：若找不到任務 / 容器資訊不足 / location 無法解析 pointId，則不解鎖，避免站口放行與帳務不一致。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Service

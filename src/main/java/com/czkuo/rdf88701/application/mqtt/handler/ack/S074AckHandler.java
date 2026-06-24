@@ -17,6 +17,10 @@ import org.springframework.stereotype.Component;
  * - 處理流程包含：
  *   1. 記錄 ACK 訊息至 mqtt_message_log
  *   2. [可擴充] UI 呈現、任務資料入庫、異常提示等
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已修改，// 註解已依現有實作校正。
  */
 @Slf4j
 @Component
@@ -65,7 +69,7 @@ public class S074AckHandler extends AbstractAckHandler<S074AckPayload> {
         );
 
         // 2️⃣ [可擴充] 可將清單顯示於 UI 或記錄於本地
-        // TODO: 依 result="OK"/"NG" 處理例外流程
+        // 目前僅保留後續處理入口，尚未實作額外流程。
     }
 
     /**

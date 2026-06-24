@@ -12,9 +12,14 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 /**
- * Gripper 單台任務監控處理器
- * - 檢查設備狀態與任務佇列
- * - 若設備就緒，推進握手流程
+ * Gripper 單台任務監控處理器。
+ *
+ * <p>讀取單台 Gripper 的最新設備狀態與命令狀態，查詢最高優先任務，並在資料完整時
+ * 推進 GripperHandshakeStateMachine。</p>
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

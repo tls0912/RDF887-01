@@ -8,6 +8,10 @@ import java.util.List;
 /**
  * S069 指令的回覆（ACK）
  * 設備端回應是否成功處理告警訊息。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class S069AckPayload {

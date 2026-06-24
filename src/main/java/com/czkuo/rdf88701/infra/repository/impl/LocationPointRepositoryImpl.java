@@ -24,6 +24,10 @@ import java.util.*;
  * - 可用儲位的定義以 DB 欄位為準：STORAGE + enabled='Y' + is_occupied='N' + is_locked='N' + is_reserved='N'
  * - 排除「有效預約」的邏輯交由 Mapper SQL（LEFT JOIN reservation + 條件）負責
  * - 排序（非隨機查找）採：level ASC → bank DESC → bay ASC
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Repository
 @RequiredArgsConstructor

@@ -23,6 +23,10 @@ import java.time.Instant;
  *  - payloadHex()   ：把 payload 轉為 HEX 字串（大寫、無空白）
  *  - payloadAscii() ：把 payload 以 US-ASCII 直譯成字串（常用於條碼/卡號）
  *  - length()       ：payload 長度
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 public class SerialFrameEvent extends ApplicationEvent {
 

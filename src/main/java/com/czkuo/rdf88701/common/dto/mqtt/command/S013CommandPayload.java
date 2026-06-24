@@ -6,6 +6,10 @@ import lombok.Data;
 /**
  * S013 指令：人員觸發復歸/啟動請求
  * 廠商傳送欲執行 RESET / START 的人員工號，ASE 需進行資格驗證
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class S013CommandPayload {

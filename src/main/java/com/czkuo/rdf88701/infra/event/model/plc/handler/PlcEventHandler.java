@@ -11,6 +11,10 @@ import org.springframework.stereotype.Component;
 /**
  * PLC 連線事件處理器：
  * 負責處理連線成功與失敗的後續行為（如啟動或停止輪詢）。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

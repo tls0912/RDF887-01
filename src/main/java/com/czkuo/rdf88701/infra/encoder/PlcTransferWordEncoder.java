@@ -11,6 +11,10 @@ import java.util.Arrays;
  * PlcTransferWordEncoder
  * - 將 PlcTransferWordCommand 轉換為 PLC Word 區段 byte[]
  * - 對應地址區段：W0100 ~ W011E
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Component
 public class PlcTransferWordEncoder {

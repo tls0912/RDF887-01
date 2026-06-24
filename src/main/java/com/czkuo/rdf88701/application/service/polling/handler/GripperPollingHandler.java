@@ -33,6 +33,10 @@ import java.util.concurrent.*;
  * - 處理 Gripper 輪詢資料（Bit / Word）
  * - 同時支援狀態（DeviceStatus）與控制命令（CommandStatus）
  * - 負責資料合併、狀態機推進、事件快取與推播、過期監控
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

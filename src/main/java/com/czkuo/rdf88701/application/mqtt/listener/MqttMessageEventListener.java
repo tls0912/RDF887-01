@@ -11,7 +11,14 @@ import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
 /**
- * 接收 MQTT 事件並轉發至 CommandRouter
+ * MQTT 入站事件監聽器。
+ *
+ * <p>接收 infra 層發布的 MQTT 入站事件，將 payload 正規化為單行 JSON，
+ * 執行入站去重檢查後，轉交 MqttCommandRouter 進行 CMD_ID 與型別分派。</p>
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

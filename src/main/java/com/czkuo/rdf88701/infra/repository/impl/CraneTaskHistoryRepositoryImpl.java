@@ -15,6 +15,10 @@ import java.util.Optional;
 
 /**
  * Crane 任務歷史資料存取實作
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Repository
 public class CraneTaskHistoryRepositoryImpl implements CraneTaskHistoryRepository {

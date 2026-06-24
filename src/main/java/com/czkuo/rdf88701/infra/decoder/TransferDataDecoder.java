@@ -11,6 +11,10 @@ import org.springframework.stereotype.Component;
  * TransferDataDecoder
  * - 將 PLC Transfer 裝置的 Bit / Word 資料解析為對應結構
  * - 支援裝置狀態與回傳碼解析
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

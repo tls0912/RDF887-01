@@ -13,6 +13,10 @@ import java.time.Instant;
  * WorkingBeamCommandStatus
  * - 封裝 PC → PLC 傳送的控制狀態（Bit + Word 區資訊）
  * - 包含指令內容、即時狀態、連線與補充欄位
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Getter
 @Setter

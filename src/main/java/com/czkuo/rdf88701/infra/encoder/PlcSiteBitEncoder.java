@@ -15,6 +15,10 @@ import org.springframework.stereotype.Component;
  *  0 = SITE_READY
  *  2 = REMOVE_ACCOUNT_ACK
  *  3 = PORT_REPORT_ACK
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Component
 public class PlcSiteBitEncoder {

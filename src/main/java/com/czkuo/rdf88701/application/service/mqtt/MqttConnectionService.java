@@ -27,6 +27,10 @@ import java.util.concurrent.TimeUnit;
  * MqttConnectionService
  * - 管理 MQTT 連線狀態與事件紀錄（狀態快照 + 日誌）
  * - 封裝「等待連線就緒」與「握手直到連上」的同步流程
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Service

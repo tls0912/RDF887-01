@@ -20,6 +20,10 @@ import java.util.stream.Collectors;
  * - 基本 CRUD
  * - 只取啟用點位（enabled='Y'）
  * - 產生 addr_expr -> point_id 對照表以利高速查詢
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Repository
 public class SafetyPointRepositoryImpl implements SafetyPointRepository {

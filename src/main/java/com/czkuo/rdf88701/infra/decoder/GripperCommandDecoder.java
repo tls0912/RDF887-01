@@ -13,6 +13,10 @@ import org.springframework.stereotype.Component;
  * - 專責解析 Gripper 裝置的指令區資料（Write Bit / Write Word）
  * - 將 PLC byte[] ↔ GripperCommandStatus 進行雙向轉換
  * - 支援 Bit 區旗標與 Word 區結構（TransferNo、Location、Product ID）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

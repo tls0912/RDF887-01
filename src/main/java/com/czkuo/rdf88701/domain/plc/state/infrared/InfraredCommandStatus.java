@@ -13,6 +13,10 @@ import java.time.Instant;
  * InfraredCommandStatus
  * - 封裝 PC → PLC 傳送給紅外線設備的指令控制狀態（Bit + Word 區資訊）
  * - 結合指令內容、即時狀態、可用性、通訊狀態與快照記錄
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Getter
 @Setter

@@ -17,9 +17,15 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
- * Transfer 任務監控啟動器（防重複執行版）
- * - 每台 Transfer 啟動獨立任務監控排程
- * - 若上一輪尚未完成，本輪排程會跳過
+ * Transfer 任務監控 launcher。
+ *
+ * <p>啟動時依 Transfer registry 為每台設備建立獨立排程，使用 AtomicBoolean
+ * 防止同一台 Transfer 上一輪尚未完成時重入，實際任務推進委派給
+ * TransferTaskMonitorPerDevice。</p>
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

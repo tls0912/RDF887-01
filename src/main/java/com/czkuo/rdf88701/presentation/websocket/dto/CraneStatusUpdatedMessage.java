@@ -6,9 +6,14 @@ import lombok.Data;
 import java.time.Instant;
 
 /**
- * Crane 狀態更新推播訊息
- * <p>
- * 用於 WebSocket 推送單筆天車狀態更新
+ * 天車狀態單筆推播訊息。
+ *
+ * <p>用於 `/topic/crane/status`，承載天車狀態機、PLC 旗標、目前位置與回應碼等
+ * 前端即時畫面所需欄位。</p>
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 @Builder

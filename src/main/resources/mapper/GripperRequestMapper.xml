@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.czkuo.rdf88701.infra.mapper.GripperRequestMapper">
+    <!-- 2026-06-24 ver XML 狀態：已檢查，XML 註解與現有 SQL 結構相符。 -->
 
     <resultMap id="BaseResultMap" type="com.czkuo.rdf88701.infra.entity.GripperRequest">
         <id column="id" property="id" />
@@ -27,6 +28,7 @@
         <result column="updated_time" property="updatedTime" />
     </resultMap>
 
+    <!-- 共用 SQL 片段：B as e C ol um n L is t。 -->
     <sql id="Base_Column_List">
         id, gripper_id, request_key, version, task_type, request_source, container_main_id,
     source_location_id, source_location_name, target_location_id, target_location_name,

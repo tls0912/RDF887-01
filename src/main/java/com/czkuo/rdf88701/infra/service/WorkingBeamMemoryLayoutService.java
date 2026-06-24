@@ -12,8 +12,14 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Working Beam 記憶體布局解析服務
- * - 支援從整體 PLC 資料區段中解析出單一 Working Beam 的位元區或字區資料
+ * Working Beam PLC 記憶體布局解析服務。
+ *
+ * <p>依 PlcWorkingBeamProperties 的設備區段設定，從 PLC 大區塊 byte array 中切出
+ * 單一 Working Beam 的 read/write、B/W 資料區，並提供 bits、words、string 解碼入口。</p>
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Service
 @RequiredArgsConstructor

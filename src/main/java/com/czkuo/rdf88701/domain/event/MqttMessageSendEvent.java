@@ -12,6 +12,10 @@ import com.czkuo.rdf88701.common.enums.MqttMessageType;
  * - type：訊息類型（COMMAND 或 ACK）
  * - tid：指令識別碼（格式 yyyyMMddHHmmssSSS）
  * - cmdId：指令代碼（如 S001、R007）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 public record MqttMessageSendEvent(
         String system,

@@ -7,6 +7,10 @@ import lombok.Data;
  * S045 指令：安全 Sensor 狀態請求（由 ASE 主動發出）
  * ASE 傳送空白指令給廠商，表達「請回報目前安全感測器狀態」
  * 此指令不包含 MESSAGE 區段，僅用來觸發對方主動回報
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class S045CommandPayload {

@@ -10,6 +10,10 @@ import java.time.Instant;
  * <p>
  * 用於 WebSocket 推送單筆 Working Beam 狀態更新資料。
  * 結構參考 Crane 設計，支援即時監控。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 @Builder

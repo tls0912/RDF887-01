@@ -20,6 +20,10 @@ import java.util.concurrent.ConcurrentHashMap;
  * - 支援單一 PLC 共用 Bit / Word 資料區段，多設備配置不同起始位址與長度
  * - 正確切割區段後，分派至對應的設備 Handler（如：Crane、Gripper 等）做進一步解析與處理
  * - 同時支援讀取區（Read）與寫入區（Write）的比對
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

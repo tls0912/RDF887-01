@@ -15,6 +15,10 @@ import java.util.concurrent.ConcurrentHashMap;
  * - get(): 取最後一次狀態（不檢查新鮮度）
  * - getFresh(): 依 TTL 檢查新鮮度
  * - snapshotAll(): 觀察用
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Component
 public class DeviceProcessStateCache {

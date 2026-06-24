@@ -12,6 +12,10 @@ import java.util.Map;
 /**
  * 對應 application.yml 中的 plc.* 配置。
  * 本設定用於管理 PLC 裝置清單與通訊參數。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 @Component

@@ -52,6 +52,10 @@ import java.util.stream.Collectors;
  *     3) 若 12 同批 PASS，才有資格檢查 Site#37 是否同批無蓋，
  *        並在「arrived(37) < arrived(26)」時啟用 37 優先模式（讓 26 先讓位）
  *     4) 最終仍需通過 Site#14 的 capacity gating（waiting < capacity）且 Site#27 必須為空
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component("WB5")

@@ -13,6 +13,10 @@ import java.util.concurrent.ConcurrentHashMap;
  *
  * Key：安全設備名稱（建議使用 plc-safety.yml 的 device.name，例如 "Safety-Sensor-Bank"）
  * Value：SafetyDeviceStatus（包含 snapshotTime 與 addr->state 對映）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Component
 public class SafetyStatusCache {

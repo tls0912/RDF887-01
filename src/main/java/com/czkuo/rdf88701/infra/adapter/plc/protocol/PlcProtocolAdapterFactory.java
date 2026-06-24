@@ -14,7 +14,14 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * 協議轉接器工廠類別，可根據協定建立對應的協議實作
+ * PLC 協議 adapter 工廠。
+ *
+ * <p>依據 plc-devices.yml 的 protocol 與 options 建立對應協議 adapter。目前支援
+ * Mitsubishi MC protocol，並透過快取避免同一裝置重複建立 adapter。</p>
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

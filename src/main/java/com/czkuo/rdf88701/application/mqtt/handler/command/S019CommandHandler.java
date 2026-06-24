@@ -25,6 +25,10 @@ import java.util.Optional;
  *   1) 記錄 COMMAND 至 mqtt_message_log
  *   2) 將訊息入列到 plc_hmi_display_task（英/中皆存，之後只拿英文字串寫 PLC）
  *   3) 回 ACK：入列成功回 OK；TID 缺失或 DB 寫入失敗回 FAIL
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

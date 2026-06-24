@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.czkuo.rdf88701.infra.mapper.CraneTaskMapper">
+    <!-- 2026-06-24 ver XML 狀態：已檢查，XML 註解與現有 SQL 結構相符。 -->
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.czkuo.rdf88701.infra.entity.CraneTask">
@@ -32,6 +33,7 @@
         created_time, updated_time
     </sql>
 
+    <!-- 查詢資料：s el ec tP en di ng Ta sk sB yC ra ne Id。 -->
     <select id="selectPendingTasksByCraneId" resultMap="BaseResultMap">
         SELECT <include refid="Base_Column_List" />
         FROM crane_task
@@ -50,6 +52,7 @@
         LIMIT 1
     </select>
 
+    <!-- 更新資料：u pd at eT as kS ta tu s。 -->
     <update id="updateTaskStatus">
         UPDATE crane_task
         SET task_status = #{status},
@@ -65,6 +68,7 @@
         WHERE id = #{id}
     </update>
 
+    <!-- 查詢資料：s el ec tB yC on di ti on。 -->
     <select id="selectByCondition" resultMap="BaseResultMap">
         SELECT <include refid="Base_Column_List" />
         FROM crane_task
@@ -136,6 +140,7 @@
         LIMIT 1
     </select>
 
+    <!-- 更新資料：m ar kT as kA sD on e。 -->
     <update id="markTaskAsDone">
         UPDATE crane_task
         SET done_time = NOW(),

@@ -3,8 +3,14 @@ package com.czkuo.rdf88701.infra.adapter.plc.protocol.support;
 import com.czkuo.rdf88701.infra.adapter.plc.protocol.PlcProtocolAdapter;
 
 /**
- * 可支援連線控制的協議轉接器介面。
- * 用於需要手動 connect/disconnect/isConnected 的協議實作。
+ * 支援手動連線控制的 PLC 協議 adapter。
+ *
+ * <p>在基本讀寫介面外，額外提供 connect、disconnect、isConnected，供
+ * PlcClientManager 在初始化、failover 與執行前檢查實體連線。</p>
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 public interface ConnectablePlcProtocolAdapter extends PlcProtocolAdapter {
 

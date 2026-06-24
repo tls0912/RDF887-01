@@ -12,6 +12,10 @@ import java.time.Instant;
  * <p>
  * 用於 WebSocket 推送單筆 Working Beam 指令狀態（PC → PLC）
  * 對應 PLC Word W0220 ~ W0225 寫入區資料。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 @Builder

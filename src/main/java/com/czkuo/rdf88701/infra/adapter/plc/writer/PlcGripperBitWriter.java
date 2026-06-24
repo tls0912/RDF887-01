@@ -13,6 +13,10 @@ import org.springframework.stereotype.Component;
  * PlcGripperBitWriter
  * - 專責寫入 Gripper 指定 Bit（交握用）
  * - 支援以 Gripper ID 控制 Bit 寫入
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

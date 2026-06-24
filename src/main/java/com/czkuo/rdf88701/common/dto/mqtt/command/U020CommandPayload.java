@@ -8,6 +8,10 @@ import java.util.List;
 /**
  * U020 - Output WIP 架人員取貨請求指令 Payload
  * ASE → 廠商：通知需要取貨的 WIP 批號亮燈
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class U020CommandPayload {

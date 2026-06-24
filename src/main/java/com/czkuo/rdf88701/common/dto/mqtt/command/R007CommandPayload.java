@@ -12,6 +12,10 @@ import java.math.BigDecimal;
  * - ASE→廠商：由 ASE 外部系統派工，MESSAGE 禁止帶 STK_PORT
  * <p>
  * 用於啟動 AGV 移載任務或外部派工（依場景組包）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class R007CommandPayload {

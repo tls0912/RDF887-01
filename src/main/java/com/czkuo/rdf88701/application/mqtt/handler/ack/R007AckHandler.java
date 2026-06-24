@@ -27,6 +27,10 @@ import java.util.Optional;
  *   2. 以 AMR TID 反查任務並更新 robot_r007_task 的 AMR 相關欄位
  *   3. 將 ACK.Message 中的 MISSION_TRIP / ODO / AMR_SPEED / AMR_ROBOT_SPEED 回填到任務
  *   4. 對於 END / FAIL / CANCEL，將結果「轉傳」回原系統（ASE），tid 使用任務原始 TID
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

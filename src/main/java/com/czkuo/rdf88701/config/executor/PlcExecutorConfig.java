@@ -10,6 +10,10 @@ import java.util.concurrent.ThreadPoolExecutor;
 /**
  * 提供專用於 PLC 初始化的執行緒池。
  * 適用於併發啟動裝置連線等非阻塞初始化任務。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Configuration
 public class PlcExecutorConfig {

@@ -19,6 +19,10 @@ import org.springframework.stereotype.Component;
  *   1. 記錄 COMMAND 訊息至 mqtt_message_log
  *   2. [預留] 處理 AGV 里程與電池記錄、告警/狀態推播等
  *   3. [本指令不回 ACK]
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

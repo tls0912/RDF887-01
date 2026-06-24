@@ -9,6 +9,10 @@ import org.springframework.stereotype.Service;
 /**
  * Working Beam 控制指令狀態提供者
  * - 根據 Working Beam ID 回傳合併狀態（read + last write）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Service
 @RequiredArgsConstructor

@@ -10,6 +10,10 @@ import org.springframework.stereotype.Component;
  * SiteCommandDecoder
  * - 專門負責解析 PC 寫入至 Site 的控制區段（Bit / Word）
  * - 用於從 PLC 讀取 byte[]，轉成 SiteCommandStatus
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

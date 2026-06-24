@@ -15,6 +15,10 @@ import java.util.Optional;
  * Container 查詢服務
  * - 提供容器主資料查詢
  * - 可支援聚合 ContainerData 查詢
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Service
 @RequiredArgsConstructor

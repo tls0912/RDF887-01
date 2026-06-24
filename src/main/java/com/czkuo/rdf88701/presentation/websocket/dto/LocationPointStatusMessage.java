@@ -6,7 +6,14 @@ import lombok.Data;
 import java.time.Instant;
 
 /**
- * WebSocket 推播用 DTO：儲位狀態
+ * 庫位狀態單筆推播訊息。
+ *
+ * <p>用於 `/topic/location/point/status`，表示庫位鎖定、占用、預約、啟用狀態與
+ * 快照時間。</p>
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 @Builder

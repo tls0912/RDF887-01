@@ -4,8 +4,14 @@ import java.nio.ByteOrder;
 import java.util.Map;
 
 /**
- * PLC 協議抽象層，定義與 PLC 溝通所需的基本操作方法。
- * 可依不同協定（如 MC、Modbus、OPC UA 等）實作。
+ * PLC 協議抽象介面。
+ *
+ * <p>定義上層讀寫 PLC 所需的統一方法，包含 boolean、byte、整數、浮點數與字串。
+ * 不同協議實作需包裝各自底層 client，讓 application/monitor 不直接依賴廠牌協議。</p>
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 public interface PlcProtocolAdapter {
 

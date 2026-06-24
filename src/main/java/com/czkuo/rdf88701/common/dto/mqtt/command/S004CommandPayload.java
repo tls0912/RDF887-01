@@ -6,6 +6,10 @@ import lombok.Data;
 /**
  * S004 指令：查詢 WIP 資料庫（由 ASE 發出）
  * - 目的為比對目前廠商儲位的 WIP 狀態
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class S004CommandPayload {

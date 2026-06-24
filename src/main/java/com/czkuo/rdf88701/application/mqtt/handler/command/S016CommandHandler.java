@@ -27,6 +27,10 @@ import java.time.format.DateTimeFormatter;
  *   1. 記錄 COMMAND 訊息至 mqtt_message_log
  *   2. 實際執行校時（依業務需求，實際同步時間）
  *   3. 回傳 ACK 給對方
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

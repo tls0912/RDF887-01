@@ -21,6 +21,10 @@ import java.util.UUID;
 /**
  * WB4RequestGenerator
  * - 當 Site#34 有容器，且 Site#35 無容器時，建立 WorkingBeam 請求
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component("WB4")

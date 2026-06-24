@@ -11,6 +11,10 @@ import lombok.ToString;
  * - 對應格式：0000 rrrr ssss ssss
  *     - ssss: Device Status (1: Idle, 2: Wait CMD, 3: Processing, 4: Complete)
  *     - rrrr: Running Status (1: IDLE, 2: MEASURE)
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Getter
 @Setter

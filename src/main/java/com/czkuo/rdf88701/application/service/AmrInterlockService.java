@@ -18,6 +18,10 @@ import java.util.concurrent.*;
  * 備註：
  *  - address 以「word.bit」形式組合（如：W0015.10）。
  *    若你的 PlcSafeAccess 用別的格式，請改 BIT_SEP 常數或 bitAddr(...)。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Service

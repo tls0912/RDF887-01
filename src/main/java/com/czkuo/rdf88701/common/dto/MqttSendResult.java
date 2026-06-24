@@ -16,6 +16,10 @@ import java.time.LocalDateTime;
  * - 顯示說明訊息（message），如 "發送成功" 或錯誤原因
  * - 若發送成功，包含該次指令的唯一識別碼（TID）供查詢
  * - 包含發送結果的時間（timestamp）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 @NoArgsConstructor

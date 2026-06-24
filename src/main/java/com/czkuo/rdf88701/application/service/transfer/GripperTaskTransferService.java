@@ -60,6 +60,10 @@ import static com.czkuo.rdf88701.common.constants.R029AttrKeys.*;
  *
  * 注意：本類僅處理帳與名稱的一致性；實際「周轉站」間搬移由外部流程/任務決定。
  * </pre>
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Service

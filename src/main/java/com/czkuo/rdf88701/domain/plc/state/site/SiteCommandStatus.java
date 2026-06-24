@@ -10,9 +10,13 @@ import java.time.Instant;
 import java.util.Objects;
 
 /**
- * SiteCommandDeviceStatus
+ * SiteCommandStatus
  * - 封裝 PC → PLC 傳送的 Site#1 控制區（Bit + Word 區資訊）
  * - 包含控制位元、50字元 ASCII ID 資料、通訊狀態與快照
+ *
+ * 2026-06-24 狀態：已修改，註解已依現有實作校正。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Getter
 @Setter

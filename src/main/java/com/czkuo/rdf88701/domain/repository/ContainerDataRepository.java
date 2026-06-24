@@ -8,6 +8,10 @@ import java.util.Optional;
  * ContainerData 的領域倉儲介面
  * - 單筆策略：每個 containerMainId 僅允許存在一筆
  * - 以 containerMainId 為主的存取鍵，並保留 id 型 CRUD 以相容既有程式
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 public interface ContainerDataRepository {
 

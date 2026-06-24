@@ -11,7 +11,14 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 /**
- * 驗證服務
+ * 使用者登入驗證服務。
+ *
+ * <p>依 username 查詢 users，驗證 password 後查詢角色名稱並組成 LoginResponse。
+ * 目前實作為明文比對，正式權限化時應改為雜湊驗證。</p>
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Service
 @RequiredArgsConstructor

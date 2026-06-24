@@ -13,7 +13,14 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * MC 協議的實作轉接器，包裝 McPLC 提供統一介面，並支援連線控制
+ * Mitsubishi MC protocol adapter。
+ *
+ * <p>包裝 xingshuangs `McPLC`，實作專案統一的 PlcProtocolAdapter 讀寫介面，
+ * 並提供 connect、disconnect、isConnected 供 PlcClientManager 控制連線。</p>
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 public class McProtocolAdapter implements ConnectablePlcProtocolAdapter {

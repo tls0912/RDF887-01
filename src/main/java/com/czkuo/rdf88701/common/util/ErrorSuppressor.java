@@ -7,6 +7,10 @@ import java.util.concurrent.ConcurrentHashMap;
  * 錯誤抑制工具（Error Suppression Utility）
  * - 用於防止同一事件在短時間內重複刷大量 log。
  * - 每個 key（如設備編號）獨立控管抑制時間。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 public class ErrorSuppressor {
 

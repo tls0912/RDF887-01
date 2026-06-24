@@ -9,6 +9,10 @@ import java.time.Instant;
  * 紅外線設備狀態更新推播訊息
  * - 來源：InfraredStatusUpdatedEvent
  * - 用途：前端即時顯示紅外線測高設備狀態
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 @Builder

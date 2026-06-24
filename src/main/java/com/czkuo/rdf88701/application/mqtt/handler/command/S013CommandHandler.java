@@ -21,6 +21,10 @@ import java.util.Collections;
  * - 本 Handler 處理流程：
  *   1. 記錄原始指令至 mqtt_message_log（MESSAGE payload 僅於 ACK 回傳）
  *   2. 發送回應 ACK 給發送端（預設回 OK，後續可接入驗證邏輯）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

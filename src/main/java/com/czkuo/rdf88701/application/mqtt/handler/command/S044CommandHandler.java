@@ -38,6 +38,10 @@ import java.util.stream.Collectors;
  * 備註：
  * - 這裡將「一個啟用點位」對應成 ACK 中 SAFETY_DEVICE_LIST 的「一筆項目」，
  *   若未來想以「類別(EMO/DOOR/… )」彙整成少數幾筆，改組裝對應的邏輯即可。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

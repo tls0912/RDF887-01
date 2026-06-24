@@ -9,6 +9,10 @@ import java.util.List;
 /**
  * R029 - 通知將貨搬去拆併打帶回覆 Payload
  * 廠商 → ASE：回覆接收狀態、進度或錯誤資訊
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class R029AckPayload {

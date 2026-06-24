@@ -6,6 +6,10 @@ import lombok.Data;
 /**
  * A013 指令：AGV 離開換電站（SEEC → SAA）
  * 回報 AGV 更換電池後離站的狀態資訊
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class A013CommandPayload {

@@ -20,6 +20,10 @@ import org.springframework.context.ApplicationEvent;
  * 發送建議：
  *   publisher.publishEvent(new LabelingInfoReadyEvent(this, siteCode, containerMainId, 1));
  *   // 或：publisher.publishEvent(new LabelingInfoReadyEvent(this, labelingInfo));
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Getter
 public class LabelingInfoReadyEvent extends ApplicationEvent {

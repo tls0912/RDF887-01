@@ -16,6 +16,10 @@ import lombok.NoArgsConstructor;
  * 2) 對齊你提供的所有可能欄位鍵名（大小寫、底線、數字開頭等）：
  *    - LOT_ID、CARRIERID、STATUS、TYPE、WIPNAME、NUM、1D_BARCODE...
  * 3) 提供幾個靜態工廠方法，常用事件（2001/2002/2003、Port 狀態）直接呼叫就好。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 @NoArgsConstructor

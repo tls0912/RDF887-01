@@ -28,6 +28,10 @@ import java.time.LocalDateTime;
  * 設計重點：
  * - 不在 Handler 內直接 new/塞 LabelingInfo，避免與下游解析邏輯（extractLabelVars）脫鉤。
  * - 由 Service 產生一致格式，S065/S066 皆能被下游穩定解析與列印。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

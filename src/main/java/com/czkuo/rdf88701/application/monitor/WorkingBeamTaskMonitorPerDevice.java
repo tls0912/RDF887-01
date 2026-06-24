@@ -14,6 +14,10 @@ import org.springframework.stereotype.Component;
  * WorkingBeam 單台任務監控處理器
  * - 檢查設備狀態與任務佇列
  * - 若設備就緒，推進握手流程
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

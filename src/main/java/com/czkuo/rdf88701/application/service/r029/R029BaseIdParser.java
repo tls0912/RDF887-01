@@ -12,6 +12,10 @@ import java.util.stream.Collectors;
  *   base:   AAA_BBB_1
  *   子項:    AAA_BBB_1_1
  *   併項:    AAA_BBB_1+2_3
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 public final class R029BaseIdParser {
 

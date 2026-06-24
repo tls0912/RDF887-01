@@ -32,6 +32,10 @@ import java.util.concurrent.atomic.AtomicBoolean;
  *   - 「啟動心跳閘門」(startupS001GateOpen)：預設等「第一發 S001」後才放行 S002
  *   - S002 使用 fixedRate（非 fixedDelay），確保「每 N 毫秒一拍」的穩定節奏
  *   - 可選 jitter，避免多個應用實例同時在同一毫秒打到 broker
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

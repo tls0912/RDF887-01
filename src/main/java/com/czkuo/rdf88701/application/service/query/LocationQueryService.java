@@ -11,6 +11,10 @@ import java.util.Optional;
  * Location 查詢服務
  * - 封裝 LocationPoint 查詢邏輯
  * - 提供應用層查詢 API
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Service
 @RequiredArgsConstructor

@@ -21,6 +21,10 @@ import java.util.Optional;
  * - 對應 alarm_item 的存取實作。
  * - 重點：兩個旗標的「值變才更新」與「待送 PLC 佇列領取」（行鎖 + SKIP LOCKED）。
  * - 語意化方法讓上層 Service 更簡潔、也避免無效 UPDATE 與多餘 log。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Repository

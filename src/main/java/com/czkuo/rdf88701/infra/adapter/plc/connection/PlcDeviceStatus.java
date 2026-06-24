@@ -7,7 +7,14 @@ import lombok.Data;
 import java.time.Instant;
 
 /**
- * 表示單一 PLC 裝置的即時狀態與控制意圖（非設定檔）
+ * 單一 PLC 裝置的即時連線狀態。
+ *
+ * <p>此物件不是設定檔，而是 runtime 狀態快取，保存實體連線、連線模式、
+ * 是否參與輪詢、最後錯誤與重連次數。</p>
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class PlcDeviceStatus {

@@ -11,6 +11,10 @@ import java.time.Instant;
  * 單一安全點位變更事件
  * - 與 SafetyPollingHandler.diffToEvents(...) 的建構子一致
  * - 用於批次推播時傳遞一個個點位的變化
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Getter
 @ToString

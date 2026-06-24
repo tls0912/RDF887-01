@@ -10,6 +10,10 @@ import java.time.Instant;
  * StrappingCommandUpdatedMessage
  * - 用於 WebSocket 推播單筆 Strapping 指令更新
  * - 對應 PLC Bit + Word 快照資料
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 @Builder

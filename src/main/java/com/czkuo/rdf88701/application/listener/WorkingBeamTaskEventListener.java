@@ -13,6 +13,10 @@ import org.springframework.stereotype.Component;
 /**
  * WorkingBeam 任務完成事件監聽器
  * - 負責根據 retCode 判斷是否要更新帳籍與狀態
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

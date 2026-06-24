@@ -9,6 +9,10 @@ import java.time.Instant;
 
 /**
  * 嘗試重連裝置的事件（補連線啟動）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 @NoArgsConstructor

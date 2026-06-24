@@ -22,6 +22,10 @@ import java.util.concurrent.atomic.AtomicBoolean;
  * - 一次最多 15 筆 → 寫入 W00E0..W00EE
  * - W00EF 寫 INDEX（每次 = 上次 + 1；預設 BCD 4位，可改用 16-bit 十進位）
  * - 寫成功才清 want_plc_trigger，並針對本批每筆寫一條 alarm_item_log='PLC_OFF'
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

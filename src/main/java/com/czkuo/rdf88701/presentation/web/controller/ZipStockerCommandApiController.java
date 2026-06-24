@@ -23,6 +23,10 @@ import java.util.List;
  * MCS → ZIP 指令 API
  * - 對內/對外提供發送 ZIP Primary 指令的入口，回傳 ZIP 的 Secondary 結果
  * - 比照 MQTT Controller，用 ResponseResult 包裝
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @RestController

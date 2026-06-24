@@ -9,6 +9,10 @@ import java.util.List;
 /**
  * S045 回覆格式：確認接收安全 Sensor 狀態資料
  * 廠商回覆 ASE 傳來的設備狀態是否成功接收與處理
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class S045AckPayload {

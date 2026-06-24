@@ -29,6 +29,10 @@ import java.util.concurrent.atomic.AtomicInteger;
  * - 每 30 秒跑一次（首次延遲 3 秒）
  * - 一輪最多派 MAX_PER_CYCLE 筆
  * - 為避免重複派，在記憶體做冷卻：同一載具 N 分鐘內不重派
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

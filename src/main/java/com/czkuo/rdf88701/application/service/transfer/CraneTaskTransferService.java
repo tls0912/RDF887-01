@@ -13,6 +13,10 @@ import java.util.Optional;
 
 /**
  * Crane 任務完成時，執行帳籍轉移作業（TO 段成功 → container_main 的帳籍異動）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Service

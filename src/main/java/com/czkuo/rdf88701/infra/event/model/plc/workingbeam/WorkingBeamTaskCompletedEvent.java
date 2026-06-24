@@ -6,6 +6,10 @@ import org.springframework.context.ApplicationEvent;
 
 /**
  * Working Beam 任務完成事件（僅代表 PLC 回傳成功）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Getter
 public class WorkingBeamTaskCompletedEvent extends ApplicationEvent {

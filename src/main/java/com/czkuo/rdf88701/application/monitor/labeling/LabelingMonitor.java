@@ -11,6 +11,10 @@ import org.springframework.stereotype.Component;
  * ------------------------------------------------------------
  * 只負責定期呼叫 LabelingWorkflowService.runTick()。
  * 真正的業務流程（握手/查/列印/補償）都在 Service 內。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

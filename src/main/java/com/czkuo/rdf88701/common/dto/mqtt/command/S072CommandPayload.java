@@ -10,6 +10,10 @@ import lombok.Data;
  * RESULT 規格（由 ASE 回填）：
  * - "OK"：確認 PASS
  * - "NG"：確認 FAIL
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class S072CommandPayload {

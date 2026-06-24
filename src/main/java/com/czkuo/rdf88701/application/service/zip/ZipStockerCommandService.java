@@ -26,18 +26,15 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * ZipStockerCommandService
- * <p>
- * MCS → ZIP 指令發送邏輯：
- * - 組 Primary（Header: Direction=Primary, Sender=MCS）
- * - 呼叫 ZIP WebAPI，回傳對方 Secondary（Root<T>）
- * <p>
- * 新增便捷方法：
- * - queryAllSlots()：StatusQuery(Type=3, Name="*")
- * - queryPorts(...)：StatusQuery(Type=4)
- * - queryDispatchStatus()：StatusQuery(Type=5)
- * - queryInventory()：StatusQuery(Type=6)
- * - sendDispatchOrderSingle(...)：單筆派貨
+ * ZIP Stocker 主動命令服務。
+ *
+ * <p>組成 MCS → ZIP 的 Primary Root 訊息，包含 Header 與 Body，並透過
+ * ZipHttpClient 發送 CheckTimer、DispatchOrder、StatusQuery、PortLockUnlock
+ * 等命令，回傳 ZIP Secondary。</p>
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Service

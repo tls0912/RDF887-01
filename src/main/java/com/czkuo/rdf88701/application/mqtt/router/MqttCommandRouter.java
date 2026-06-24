@@ -19,9 +19,15 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * MqttCommandRouter
- * - 使用 O(1) 快取查找結構，根據 CMD_ID + messageType 分派對應 Handler
- * - 配合 MqttMessageTypeResolver 判斷訊息是 COMMAND 或 ACK
+ * MQTT 訊息分派器。
+ *
+ * <p>啟動時依據 Handler 宣告的 CMD_ID 與支援型別建立快取表，收到訊息後解析
+ * CMD_ID 與 MessageType，再分派給對應的 COMMAND 或 ACK Handler。ACK 訊息會先
+ * 處理 pending / outbox 結案，再交由業務 Handler 執行後續動作。</p>
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

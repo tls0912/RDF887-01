@@ -7,8 +7,14 @@ import org.springframework.stereotype.Component;
 import java.util.Map;
 
 /**
- * PLC 協議 options 映射工具：
- * 提供 YAML 中 kebab-case 格式的 map，自動轉為對應 Java POJO。
+ * PLC 協議 options 映射工具。
+ *
+ * <p>將 YAML 載入後的 kebab-case options map 轉成指定 Java POJO，例如
+ * `connect-timeout` 對應到 `connectTimeout`。</p>
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Component
 public class PlcOptionMapper {

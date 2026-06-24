@@ -9,6 +9,10 @@ import java.time.Instant;
  * WebSocket 傳送到前端的 Gripper 狀態更新資料
  * - 精確展開每個欄位
  * - 對應後端推播內容，前端直接使用
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Getter
 @Builder

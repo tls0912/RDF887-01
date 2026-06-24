@@ -7,9 +7,15 @@ import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Component;
 
 /**
- * MqttMessageEventPublisher
- * - 將組好的 MQTT 指令或回應訊息，以 Spring Event 發送
- * - 與底層 MQTT 傳輸邏輯解耦（透過 EventListener 處理發送）
+ * MQTT 出站事件發布器。
+ *
+ * <p>將已組好的 MQTT COMMAND 或 ACK 包成 Spring Event 發送，讓 Handler 或
+ * Service 不直接依賴底層 MQTT client，實際傳輸與 outbox 追蹤由 infra/application
+ * 其他元件接續處理。</p>
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Component
 @RequiredArgsConstructor

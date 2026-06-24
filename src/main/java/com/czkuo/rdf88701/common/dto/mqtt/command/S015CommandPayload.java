@@ -8,6 +8,10 @@ import java.util.List;
 /**
  * S015 指令：零件預警設定（由 SAA 傳送至 SEEC）
  * 用於設定各項工具的使用上限與單位
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class S015CommandPayload {

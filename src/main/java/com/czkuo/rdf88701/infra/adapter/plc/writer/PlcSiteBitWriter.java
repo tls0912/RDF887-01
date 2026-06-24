@@ -23,6 +23,10 @@ import org.springframework.stereotype.Component;
  *  plcSiteBitWriter.writeSiteReady(2, true);             // B024C = 1
  *  plcSiteBitWriter.writeRemoveAccountAck(2, true);      // B024E = 1
  *  plcSiteBitWriter.writeBit(2, 0, false);               // 直接用 offset
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

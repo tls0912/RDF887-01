@@ -55,6 +55,10 @@ import java.util.stream.Collectors;
  *        但若偵測到平行站 Site#26 同批無蓋且 arrived(26) < arrived(37)，啟用「26 優先模式」：
  *        允許 37 直接走 Site#14 capacity gating（不被「12 同批 PASS 需等待」阻擋）
  *     4) 最終仍需通過 Site#14 capacity gating（waiting < capacity）且 TR8 必須 Ready
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component("WB6")

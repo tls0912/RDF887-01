@@ -10,6 +10,10 @@ import java.util.Map;
 /**
  * EMQX REST 設定 +（可選）每個 system 的宣告式 expected topics
  * 不填 expectedSubscriptions 也行，會 fallback 到 mqtt.connections[*].recvTopic
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 @Component

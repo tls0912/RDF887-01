@@ -7,6 +7,10 @@ import lombok.Data;
  * GripperCommand
  * - 封裝 PC → PLC 的 Write Word 區控制命令內容（W0260 ~ W027E）
  * - 包含 Transfer No、Command Type、Tray Height、Location、Product ID 等資訊
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Data
 public class GripperCommand {

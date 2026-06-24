@@ -31,6 +31,10 @@ import java.util.Optional;
  *        - OK 且未過期，且容器仍在 Site#29 → 寫 PLC + 送 CMD_REQ → 清除 pendingTid
  *        - NG → 記 log 並清除 pendingTid（下次會再送 S068）
  *        - 沒結果且逾時 → 重送 S068（更新 pendingTid/pendingRequestedAt）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已修改，// 註解已依現有實作校正。
  */
 @Slf4j
 @Component
@@ -172,7 +176,7 @@ public class Strapping1Monitor {
                 return;
             }
 
-            // NG：記錄並清除，讓下回合可再送（或加冷卻策略）
+            // NG 時記錄並清除狀態，讓下回合可再送。
             if ("NG".equalsIgnoreCase(r.getResult())) {
                 log.warn("[Strapping#1] S068 result NG. containerId={}, tid={}, msg={}",
                         pendingContainerId, pendingTid, r.getResultMessage());

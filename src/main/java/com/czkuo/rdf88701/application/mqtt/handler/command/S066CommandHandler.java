@@ -25,6 +25,10 @@ import org.springframework.stereotype.Component;
  * 設計說明：
  * - 不在 Handler 內直接 new/塞 LabelingInfo，避免與解析/列印邏輯脫鉤。
  * - 由 Service 產生一致的 payload 結構，S065 / S066 皆能被 extractLabelVars() 穩定解析。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

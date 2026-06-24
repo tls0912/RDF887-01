@@ -3,6 +3,10 @@ package com.czkuo.rdf88701.domain.plc.state.gripper;
 /**
  * Gripper PLC Bit Signal 定義
  * - 對應 PLC B0200 ~ B0207（每個 Gripper 起始位址不同，由 Registry 控制）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 public enum GripperBitSignal {
 

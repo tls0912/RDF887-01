@@ -35,6 +35,10 @@ import java.util.stream.Collectors;
  *  - spans 配對規則：同 global_code 下，TRIGGER 先入佇列，遇 CLEAR 依序配對最早的一筆；
  *    如無 CLEAR，span 以 endCap（min(now, to)）結束。
  *  - 避免一次載入超大量資料：提供 page/size；必要時改用時間游標分段掃描（TODO 標記）。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Service

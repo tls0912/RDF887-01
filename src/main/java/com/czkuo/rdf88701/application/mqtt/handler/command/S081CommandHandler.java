@@ -44,6 +44,10 @@ import java.util.Optional;
  * - CARRIERID  → ContainerMain.containerCode（若有變更；若你不希望用 carrierId 更新，可移除）
  * <p>
  * 備註：只對「非空且有差異」的欄位做更新；沒有實質變動則回「no changes」。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

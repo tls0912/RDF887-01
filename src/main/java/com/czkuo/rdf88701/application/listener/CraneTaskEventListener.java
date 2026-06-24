@@ -38,6 +38,10 @@ import java.util.Optional;
  * - 厚度只從 DB（container_attr）讀，key：tray_thickness_mm。
  * - 若厚度缺失或格式不正確，不阻擋天車流程（只記警告，略過層數計算）。
  * - 縫隙/容忍常數在此類中定義；如後續要外部化，建議比照你在 Infrared 監聽器的模式。
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

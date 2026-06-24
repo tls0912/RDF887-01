@@ -42,6 +42,10 @@ import static com.czkuo.rdf88701.application.monitor.ocr.Ocr2Io.*;
  *   - 避免行為：
  *       ❌ Vendor 忙碌時反覆 createTask 被 reject
  *       ❌ log 被洗爆
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component

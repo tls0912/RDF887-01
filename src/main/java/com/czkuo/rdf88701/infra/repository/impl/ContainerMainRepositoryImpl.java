@@ -28,6 +28,10 @@ import java.util.*;
  * 3) 本實作將「name」與「alias_code」區分處理：
  *    - name：顯示命名（供拆/併規則使用；例如 11TY00V002_P_1_1）
  *    - alias_code：內部唯一流水碼（自動產生保證唯一）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Repository
 @RequiredArgsConstructor

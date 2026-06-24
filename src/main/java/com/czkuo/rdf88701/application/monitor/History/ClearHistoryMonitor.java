@@ -10,6 +10,16 @@ import org.springframework.stereotype.Component;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
+/**
+ * 歷史資料清理 Monitor。
+ *
+ * <p>依不同資料表保留天數分批刪除舊資料，每輪以固定 limit 控制刪除量，
+ * 避免單次清理造成資料庫長時間鎖定。</p>
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
+ */
 
 
 @Slf4j

@@ -7,8 +7,14 @@ import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 
 /**
- * WebSocket 推播服務
- * - 負責將 Gripper 等 PLC 狀態推播給訂閱的前端 Client
+ * WebSocket 即時推播服務。
+ *
+ * <p>集中管理後端推送到前端的 STOMP topic。呼叫端應先完成 PLC 狀態、指令狀態、
+ * 庫位狀態或容器追蹤資料的組裝，再透過本服務送出對應的單筆或批次 DTO。</p>
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Service

@@ -27,6 +27,10 @@ import java.util.stream.Collectors;
  *   1. 記錄原始 COMMAND 訊息
  *   2. 回傳 ACK 給對方
  *   3. 執行業務邏輯：如解析與儲存 TOOL_LIST 設定（預留擴充點）
+ *
+ * 2026-06-24 狀態：已檢查，註解與現有實作相符。
+ *
+ * 2026-06-24 ver B 狀態：已檢查，// 註解與現有實作相符。
  */
 @Slf4j
 @Component
